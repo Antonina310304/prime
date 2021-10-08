@@ -1,0 +1,12 @@
+mixin cookies
+    .cookies.js-cookies
+        p._text='Мы используем Сookie. Это позволяет нам анализировать взаимодействие посетителей с сайтом и делать его лучше. Продолжая пользоваться сайтом, вы соглашаетесь с использованием файлов Cookie. '
+            a(href="")._link Подробнее
+        ._button
+            +_defaultButton({
+                text: 'Понятно',
+                data_type: 'button',
+                theme: 'light',
+                icon: false,
+                type: 'button'
+            })

@@ -1,0 +1,48 @@
+include data
+mixin contactsPage
+    .container
+        .page__breadcrumbs
+            +breadcrumbs(['Главная', 'контакты'], 'light')
+    .container.contacts-page__top
+        h1.page__heading.light.black
+            p
+                span Контакты
+                span.animate-title-block
+    section.contacts-page__section
+        .container.js-animate
+            .page__spoiler.js-soa.is-scroll-invisible
+                +spoilerBar({title: 'PistenBully', isOpen: true})
+                    +staffContacts(contactsStaff1)
+            .page__spoiler.js-soa.is-scroll-invisible
+                +spoilerBar({title: 'FAE', isOpen: false})
+                    +staffContacts(contactsStaff2)
+            .page__spoiler.js-soa.is-scroll-invisible
+                +spoilerBar({title: 'REFORM', isOpen: false})
+                    +staff(catalogStaffList)
+            .page__spoiler.js-soa.is-scroll-invisible
+                +spoilerBar({title: 'Merlo', isOpen: false})
+                    +staff(catalogStaffList)
+    section.contacts-page__section
+        .container
+            .contacts-page__map-section.js-animate
+                .contacts-page__wrap
+                    +titleBlock({
+                        align: 'left',
+                        theme: 'light',
+                        title: ['офис'],
+                    })
+                    p.contacts-page__adress.js-soa.is-scroll-invisible 443031, г. Самара, Проспект Кирова 435А, оф. 507
+                .contacts-page__map.js-soa.is-scroll-invisible
+                    img(src="i/map1.jpg" atl='Карта офиса в г. Самара')
+
+
+            .contacts-page__map-section.js-animate
+                .contacts-page__wrap
+                    +titleBlock({
+                        align: 'left',
+                        theme: 'light',
+                        title: ['сервисный ', 'центр'],
+                    })
+                    p.contacts-page__adress.js-soa.is-scroll-invisible 443528, Самарская обл. р-н Волжский пгт Стройкерамика, ул. Производственная, 10
+                .contacts-page__map.js-soa.is-scroll-invisible
+                    img(src="i/map2.jpg" atl='Cервисный центр в г. Самара')

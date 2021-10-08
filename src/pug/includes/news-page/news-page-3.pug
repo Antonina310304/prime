@@ -1,0 +1,31 @@
+include data
+mixin newsPage3
+    .page__top.js-animate
+        .container.page__group
+            .page__group-wrap
+                .page__breadcrumbs
+                    +breadcrumbs(['Главная', 'Медиа'], 'light')
+                h1.page__heading.light.black
+                    p
+                        span Новости
+                        span.animate-title-block
+            .page__group-wrap.js-soa.is-scroll-invisible
+                .page__tabs
+                    ul.nav-tabs
+                        each val, index in ['Все новости', 'FAE', 'MERLO', 'PISTENBULLY', 'Reform']
+                            li.nav-tabs__item(class=index == 0 ? 'active' : '')
+                                a(href="#").tab
+                                    span._title=val
+                                    span._count (07)
+
+
+    .page__section
+        .container.js-animate
+            .js-soa.is-scroll-invisible
+                +news({list: newsListNewsPageMin, img: 'light', newsClass: "column", slider: false, newsDetail: false}, false)(class="light")
+    .page__slider.js-animate
+        +ytSlider
+    .page__section.black
+        .container.js-animate
+            .js-soa.is-scroll-invisible
+                +insta(instaList)(class="js-soa is-scroll-invisible")

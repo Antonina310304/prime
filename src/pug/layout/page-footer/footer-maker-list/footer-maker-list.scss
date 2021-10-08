@@ -1,0 +1,93 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+$makers: (merlo, pistenbully, fae, reform);
+.footer-maker-list {
+
+    @include baseListStyle;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    //margin: -12px -20px;
+    margin: -12px 0;
+
+    @include desktopStyle {
+        justify-content: flex-start;
+        margin: 0 -20rem;
+    }
+
+    &__item {
+        //width: 50%;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @each $maker in $makers {
+            body.#{$maker} &.#{$maker} path {
+                fill: color(#{$maker});
+            }
+        }
+
+
+        &:hover {
+            path {
+                fill: color(goldlight) !important;
+                @include baseTransitionStyle(fill);
+            }
+        }
+
+
+
+        @include desktopStyle {
+            width: auto;
+        }
+    }
+
+    path {
+        @include baseTransitionStyle(fill);
+    }
+
+    svg {
+        @include desktopStyle {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+    &__link {
+        display: block;
+        padding: 12px 20px;
+
+        @include desktopStyle {
+
+            padding: 0 20rem;
+
+            .merlo > & {
+                width: 91rem;
+                height: 20rem;
+            }
+
+            .pistenbully > & {
+                width: 101rem;
+                height: 26rem;
+            }
+
+            .fae > & {
+                width: 36rem;
+                height: 40rem;
+            }
+
+            .reform > & {
+                width: 101rem;
+                height: 16rem;
+            }
+
+        }
+
+    }
+}
+

@@ -1,0 +1,35 @@
+/************ шапка сайта ***************/
+
+@import "src/style/_";
+
+.maker-list {
+    display: block;
+    padding-bottom: 14px;
+    border-bottom: 1px solid color(dark);
+
+    @include desktopStyle {
+        display: flex;
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
+
+    &__item {
+        display: block;
+        padding: 16px 0;
+        text-align: center;
+
+        @include desktopStyle {
+            display: flex;
+            align-items: center;
+            padding: 16rem 20rem;
+            max-height: 40rem;
+            max-width: 101rem;
+            height: 40rem;
+            opacity: 0;
+
+            .header.maker-open & {
+                opacity: 1;
+            }
+        }
+    }
+}

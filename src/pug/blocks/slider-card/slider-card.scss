@@ -1,0 +1,112 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+
+.slider-card {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    &__body {
+        text-align: center;
+        padding-bottom: 48px;
+        padding-top: 32px;
+        position: relative;
+        flex: 1;
+        @include card-arrow(main-slider__item, 8px, 8px);
+        @include desktopStyle {
+
+            padding: 56rem 16rem 88rem;
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+            transition-timing-function: cubic-bezier(0, 0, 0.15, 1);
+
+            @include card-arrow(main-slider__item, 16rem, 16rem);
+
+            .swiper-slide.active & {
+                opacity: 1;
+                transition: opacity 0.3s ease-in;
+                transition-timing-function: cubic-bezier(0, 0, 0.15, 1);
+            }
+        }
+    }
+
+    &__title {
+        @include baseTransitionStyle(color);
+        transition-timing-function: cubic-bezier(0, 0, 0.15, 1);
+        margin: 0;
+        font-family: 'Oswald Light', sans-serif;
+        font-weight: 300;
+        font-size: 36px;
+        line-height: 100%;
+
+        text-transform: uppercase;
+        color: color(gray1);
+        margin-bottom: 16px;
+
+        .slider-card:hover & {
+            color: color(goldlight);
+            @include baseTransitionStyle(color);
+            transition-timing-function: cubic-bezier(0, 0, 0.15, 1);
+        }
+
+        @include desktopStyle {
+            font-size: 56rem;
+            margin-bottom: 16rem;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        @include getFont($sansRegular, 14, false);
+        color: color(gray2);
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 20, false, rem);
+        }
+
+    }
+
+    &__in {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+
+    &__img {
+        margin: 0;
+        height: 0;
+        position: relative;
+        padding-bottom: 61.8%;
+        overflow: hidden;
+        border-radius: 4px;
+
+        @include desktopStyle {
+            //margin-bottom: 56rem;
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            max-width: 100%;
+            flex-shrink: 0;
+            -o-object-fit: cover;
+            object-fit: cover;
+            @include baseTransitionStyle(transform);
+
+            .slider-card:hover & {
+                transform: scale(1.1);
+                transition: transform 200ms ease-in-out 50ms;
+            }
+        }
+    }
+
+}

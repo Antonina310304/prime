@@ -1,0 +1,18 @@
+.jarallax {
+  position: relative;
+  z-index: 0;
+}
+
+.jarallax > .jarallax-img {
+  position: absolute;
+  -o-object-fit: cover;
+  object-fit: cover;
+  /* support for plugin https://github.com/bfred-it/object-fit-images */
+  font-family: 'object-fit: cover;';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImphcmFsbGF4LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFrQjtFQUNsQixVQUFVO0FBQ1o7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsb0JBQWlCO0VBQWpCLGlCQUFpQjtFQUNqQixxRUFBcUU7RUFDckUsaUNBQWlDO0VBQ2pDLE1BQU07RUFDTixPQUFPO0VBQ1AsV0FBVztFQUNYLFlBQVk7RUFDWixXQUFXO0FBQ2IiLCJmaWxlIjoiamFyYWxsYXguY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmphcmFsbGF4IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICB6LWluZGV4OiAwO1xufVxuXG4uamFyYWxsYXggPiAuamFyYWxsYXgtaW1nIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBvYmplY3QtZml0OiBjb3ZlcjtcbiAgLyogc3VwcG9ydCBmb3IgcGx1Z2luIGh0dHBzOi8vZ2l0aHViLmNvbS9iZnJlZC1pdC9vYmplY3QtZml0LWltYWdlcyAqL1xuICBmb250LWZhbWlseTogJ29iamVjdC1maXQ6IGNvdmVyOyc7XG4gIHRvcDogMDtcbiAgbGVmdDogMDtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgei1pbmRleDogLTE7XG59Il19 */

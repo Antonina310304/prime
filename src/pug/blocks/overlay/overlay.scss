@@ -1,0 +1,16 @@
+.overlay {
+    display: block;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(116, 95, 57, 0.6) 0%, rgba(116, 95, 57, 0) 100%);
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    bottom: 0;
+    animation: overlay 200ms ease-in-out;
+}
+
+
+@keyframes overlay {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

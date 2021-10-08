@@ -1,0 +1,27 @@
+mixin form(params)
+    form.form(class=params.event class=params.theme novalidate action='action-address.php')
+        if(params.title)
+            .__title=params.title
+        .__list
+            each val in params.inputs
+                ._item
+                    +input({
+                        isDisabled: val.isDisabled,
+                        isError: val.isError,
+                        theme: val.theme ? val.theme : '',
+                        type: val.type,
+                        placeholder: val.placeholder,
+                        value: val.value,
+                        required: val.required
+                    })
+        ._btn
+            +_defaultButton({
+                text: params.btnText,
+                data_type: params.btnType,
+                theme: params.btnType,
+                icon: false,
+                type: 'submit'
+            })
+        ._agreement
+            p.info-text=params.agreementText
+                a(href="#").gold-link правилами обработки персональны данных

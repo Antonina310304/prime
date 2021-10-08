@@ -1,0 +1,243 @@
+/************ шапка ***************/
+
+@import "src/style/_";
+
+
+.yt-slider {
+    &__head {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 0 8px 12px;
+        border-bottom: 2px solid color(goldlight);
+
+        @include desktopStyle {
+            padding: 0 16rem 12rem;
+            border-bottom-width: 2rem;
+        }
+    }
+
+    &__title {
+        width: 100%;
+
+        @include desktopStyle {
+            width: auto;
+        }
+    }
+
+    &__title-in {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding-right: 28px;
+        color: color(gray1);
+
+        @include getFont($oswaldRegular, 20, true);
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            display: block;
+            width: 20px;
+            height: 20px;
+            transform: translateY(-50%);
+
+            @include baseImgStyle(url("i/icons/youtube.svg"));
+        }
+
+        @include desktopStyle {
+
+            @include getFont($oswaldRegular, 24, true, rem);
+            padding-right: 36rem;
+
+            &::before {
+                width: 24rem;
+                height: 24rem;
+            }
+        }
+    }
+
+    &__link {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding-right: 20px;
+        color: color(goldlight);
+        text-decoration: none;
+
+        @include getFont($oswaldRegular, 14, true);
+
+        &:hover {
+            color: color(goldDark);
+
+            &::before {
+                background-image: url("i/icons/arrow-45-hover.svg");
+
+                @include baseTransitionStyle(background-image);
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            display: block;
+            width: 12px;
+            height: 12px;
+            transform: translateY(-50%);
+
+            @include baseImgStyle(url("i/icons/arrow-45.svg"));
+
+            @include baseTransitionStyle(background-image);
+        }
+
+        @include desktopStyle {
+
+            @include getFont($oswaldRegular, 16, true, rem);
+            margin-right: 12rem;
+            margin-left: auto;
+            padding-right: 24rem;
+
+            &::before {
+                width: 12rem;
+                height: 12rem;
+            }
+        }
+    }
+
+    &__counter {
+        display: inline-block;
+        margin: 0;
+        padding-left: 8px;
+        border-left: 1px solid color(dark);
+    }
+
+    &__gallery-top {
+        position: relative;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    &__video-wrapper {
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%;
+        overflow: hidden;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    &__thumbs-item {
+        width: 128px;
+        margin-right: 8px;
+        cursor: pointer;
+
+        &:hover {
+            .yt-slider__thumbs-img {
+                box-shadow: inset 0 0 0 2px color(goldlight);
+
+                @include baseTransitionStyle(box-shadow);
+            }
+        }
+
+        &.active {
+            .yt-slider__thumbs-img {
+                box-shadow: inset 0 0 0 2px color(goldlight);
+
+                @include baseTransitionStyle(box-shadow);
+            }
+
+            .yt-slider__name {
+                opacity: 0.5;
+
+                @include baseTransitionStyle(opacity);
+            }
+        }
+
+        @include desktopStyle {
+            width: 320rem;
+            margin-right: 8rem;
+
+            &.active {
+                .yt-slider__thumbs-img {
+                    box-shadow: inset 0 0 0 2rem color(goldlight);
+                }
+            }
+        }
+
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__thumbs-img {
+        position: relative;
+        height: 0;
+        padding-top: 56.25%;
+
+        @include baseTransitionStyle(box-shadow);
+
+        img {
+
+            @include containImg;
+            z-index: -1;
+        }
+    }
+
+    &__name {
+
+        @include getFont($oswaldRegular, 14, true);
+        padding: 8px 8px 0;
+        overflow: hidden;
+        color: color(gray1);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        @include baseTransitionStyle(opacity);
+
+        @include desktopStyle {
+
+            @include getFont($oswaldRegular, 16, true, rem);
+            padding: 16rem 8rem 0;
+        }
+    }
+
+    &__preloader {
+        position: absolute;
+        top: 0;
+        top: 50%;
+        left: 0;
+        left: 50%;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+    }
+
+    &__thumbs {
+
+        @include desktopStyle {
+            margin-bottom: 24rem;
+        }
+    }
+
+    &__buttons {
+        display: none;
+
+        @include desktopStyle {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 16rem;
+            border-bottom: 1rem solid color(dark);
+        }
+    }
+}

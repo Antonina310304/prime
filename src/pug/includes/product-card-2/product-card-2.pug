@@ -1,0 +1,70 @@
+include data2
+include top
+
+
+mixin productCard2
+    .product-card
+        ._top
+            +productTop2
+        section.page__section
+            .container
+                h2.hidden информация о товаре
+                .product-card__separatop
+                    h3.product-card__h3 Дополнительная информация
+                    .separator.light
+                .product-card__docs
+                    +docs([
+                        {name: 'Технические характеристики', size: '11.4 KB'},
+                        {name: 'Буклет PistenBully 600', size: '8.7 MB'},
+                        {name: 'линейка PistenBully nordic', size: '14.2 MB'},
+                    ])(class="dark")
+        section.page__section.dark
+            .container.js-animate
+                .product-card__title-wrap
+                    +titleBlock({
+                        align: 'left',
+                        theme: 'light',
+                        title: ['технические', 'indent', 'характеристики'],
+                    })
+                .js-soa.is-scroll-invisible
+                    .catalog-content
+                        +table(dataTable2, 'С прижимом')
+                        +table(dataTable2_2, 'Без прижима')
+        section.page__section.black.page__separator
+            .js-animate
+                .container
+                    .product-card__title-wrap
+                        +titleBlock({
+                            align: 'left',
+                            theme: 'dark',
+                            title: ['галерея'],
+                        })
+                .js-soa.is-scroll-invisible
+                    +gallerySlider({list: productCardGallery2, theme: 'dark', params: {isNeedFractionPagination: true, isNeedBtn: false, isNeedBullet: true}})
+        section.page__section.black
+            .js-animate
+                .container
+                    .product-card__title-wrap
+                        +titleBlock({
+                            align: 'left',
+                            theme: 'dark',
+                            title: ['Видео'],
+                        })
+                .js-soa.is-scroll-invisible
+                    +_videoSlider({list: productCardVideo, theme: 'dark', params: { isNeedFractionPagination: true, isNeedBtn: false, isNeedBullet: true}})
+
+        section.page__section
+            .js-animate
+                .container
+                    .product-card__title-wrap.product-card__title-wrap-slider
+                        +titleBlock({
+                            align: 'left',
+                            theme: 'light',
+                            title: ['Совместимая', 'indent', 'техника'],
+                        })
+                .js-soa.is-scroll-invisible
+                    +sliderOptionally({list: sliderOptionally2, needTitle: false,})
+        section._content.page__section
+            .container.js-animate
+                +staffBlock
+

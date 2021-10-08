@@ -1,0 +1,9 @@
+extends ../pug/layout/layout.pug
+block var
+    include ../pug/_var
+    - var pageTitle = pages.index.title;
+    - var isLinkLogo = pages.index.isLinkLogo
+    - var mainClass = pages.index.mainClass
+
+block content
+    +conponents

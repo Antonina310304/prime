@@ -1,0 +1,76 @@
+/************ optionally-slider ***************/
+@import "src/style/_";
+
+
+.optionally-slider {
+
+    &__in {
+        position: relative;
+        overflow: hidden;
+        //margin: 0 -16px;
+
+
+        @include desktopStyle {
+            //margin: 0 -80rem;
+
+            .optionally-slider__arrows + & {
+                margin-top: 36rem;
+            }
+        }
+    }
+
+    &__arrows {
+        display: none;
+
+        @include desktopStyle {
+            display: flex;
+            margin-bottom: 8rem;
+        }
+    }
+
+    &__arrow.right {
+        margin-left: 16rem;
+    }
+
+    &__arrow.left {
+        margin-left: auto;
+    }
+
+    &__container {
+        overflow: initial!important;
+
+        @include desktopStyle {
+            //padding: 0 80rem;
+        }
+    }
+
+    &__separator {
+        border-top: 2px solid color(dark);
+        padding-top: 4px;
+        margin: 0 0 16px;
+
+        @include desktopStyle {
+            margin-bottom: 16rem;
+        }
+    }
+
+    &__item {
+        width: 87.82%;
+        display: flex;
+        height: auto;
+        margin-right: 8px;
+
+        @include desktopStyle {
+            width: 421rem;
+            margin-right: 8rem;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__wrapper {
+        //padding: 0 !important;
+    }
+}

@@ -1,0 +1,24 @@
+mixin companyInfo
+    .company-info
+        ._logo
+            img(src="i/logo-2.svg" alt="Логотип сайта")
+        ._item
+            .wrapper
+                p.text-heading Время работы
+                p.text Понедельник-Пятница с 8:00 до 17:00 МСК
+            .wrapper
+                p.text-heading Связь
+                ._contacts.footer-contacts
+                    +contactLink
+
+        ._item
+            .wrapper
+                p.text-heading Адрес офиса
+                p.text 443031, г. Самара, Проспект Кирова 435А, оф. 507
+            .wrapper
+                p.text-heading Адрес сервисного центра
+                p.text 443528, Самарская обл. р-н Волжский пгт Стройкерамика, ул. Производственная, 10
+        ._links
+            +socialLink
+
+

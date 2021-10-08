@@ -1,0 +1,43 @@
+.pin {
+    margin: 0;
+    display: inline-block;
+    background: color(darkGray);
+    color: color(gray1);
+    padding: 1px 12px;
+    border-radius: 4px;
+    @include getFont($oswaldRegular, 16, true);
+
+    @include desktopStyle {
+        padding: 1rem 12rem;
+        font-size: 16rem;
+        border-radius: 4rem;
+    }
+
+    span {
+        color: color(goldlight);
+        padding: 0 4px;
+
+        @include desktopStyle {
+            padding: 0 4rem;
+        }
+    }
+}
+
+.pin-list {
+    @include baseListStyle();
+    margin: -2px;
+
+    @include desktopStyle {
+        margin: -4rem;
+    }
+
+    &__item {
+        padding: 2px;
+        display: inline-block;
+
+        @include desktopStyle {
+            padding: 4rem;
+        }
+    }
+
+}

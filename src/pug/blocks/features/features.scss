@@ -1,0 +1,104 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+.features {
+    @include baseListStyle();
+    margin: -4px;
+
+    @include desktopStyle {
+        margin: -6rem;
+    }
+
+    &__item {
+        display: inline-block;
+        margin: 6px;
+        padding: 8px 24px;
+        border-radius: 24px;
+        @include baseTransitionStyle(box-shadow);
+        box-sizing: border-box;
+        background: rgba(133, 113, 77, 0.2);
+        cursor: pointer;
+
+
+        .features.light & {
+            box-shadow: inset 0 0 0 1px color(goldDark);
+
+            @include desktopStyle {
+                box-shadow: inset 0 0 0 1rem color(goldDark);
+            }
+        }
+
+        .features.dark & {
+            box-shadow: inset 0 0 0 1px color(dark);
+
+            @include desktopStyle {
+                box-shadow: inset 0 0 0 1rem color(dark);
+            }
+        }
+
+        &:hover {
+            box-shadow: inset 0 0 0 2px color(goldlight) !important;
+            @include baseTransitionStyle(box-shadow);
+
+            @include desktopStyle {
+                box-shadow: inset 0 0 0 2rem color(goldlight) !important;
+            }
+        }
+
+        @include desktopStyle {
+            padding: 8rem 24rem;
+            border-radius: 24rem;
+            margin: 6rem;
+        }
+    }
+
+    &__text {
+        position: relative;
+        @include getFont($oswaldRegular, 14, true);
+        @include baseTransitionStyle(color);
+        color: color(goldDark);
+        padding-right: 24px;
+
+        .features__item:hover & {
+            color: color(goldlight);
+            @include baseTransitionStyle(color);
+
+            &:after {
+                @include baseTransitionStyle(background-image);
+                background-image: url("i/icons/arrow-features-hover.svg");
+            }
+        }
+
+
+        &:after {
+            content: "";
+            position: absolute;
+            transform: translateY(-50%);
+            right: 0;
+            top: 50%;
+            width: 16px;
+            height: 16px;
+            @include baseImgStyle(url("i/icons/arrow-features.svg"));
+            @include baseTransitionStyle(background-image);
+        }
+
+        .features.dark & {
+            color: color(goldlight);
+
+            &:after {
+                background-image: url("i/icons/arrow-features-hover.svg");
+            }
+        }
+
+        @include desktopStyle {
+            padding-right: 24rem;
+            @include getFont($oswaldRegular, 16, true, rem);
+
+            &:after {
+                width: 16rem;
+                height: 16rem;
+
+            }
+        }
+    }
+}

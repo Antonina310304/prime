@@ -1,0 +1,19 @@
+mixin cardDefault(params)
+    a(href="#").card-default&attributes(attributes)
+        +_border
+        ._in
+            ._img
+                img(src=params.img, alt=params.title)
+            ._body
+                ._title=params.title
+                block
+
+mixin cardDefaultNoLink(params)
+    .card-default&attributes(attributes)
+        +_border
+        ._in
+            a(href="#")._img
+                img(src=params.img, alt=params.title)
+            ._body
+                a(href="#")._title=params.title
+                block

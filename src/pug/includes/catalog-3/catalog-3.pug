@@ -1,0 +1,39 @@
+include data
+include tab
+
+mixin catalog3
+    .catalog
+        .catalog__header.catalog-header
+            +parallaxHeader({img: 'i/catalog/catalog-img.jpg'})
+            .container.js-scroll-to.catalog__top
+                +breadcrumbs(['Главная', 'Reform', 'Каталог', 'muli'], 'dark')
+                +catalogTitle('muli')
+                .catalog__description.a-subtitle
+                    p REFORM Muli — это транспортер, разработанный для универсального использования как в горном сельском хозяйстве, так и в коммунальной технике. Обладая выдающейся универсальностью, Muli готов к работе в любом рабочем положении и исключительно удобен в использовании.
+        section._content.page__section.dark
+            .container.js-animate
+                .catalog__wrapper
+                    .catalog__item
+                        +titleBlock({
+                            aling: 'left',
+                            theme: 'light',
+                            title: ['Модели'],
+                        })
+
+                    .catalog__item.js-soa.is-scroll-invisible
+                        +_tabNav({
+                            nav: Tabnav,
+                            group: 'catalog-tab'
+                        })
+                .js-soa.is-scroll-invisible
+                    .catalog__section
+                        +catalog3Tab
+
+        section._content.page__section
+            .container.js-animate
+                include two-column
+
+        section._content.page__section
+            .container.js-animate
+                +staffBlock
+

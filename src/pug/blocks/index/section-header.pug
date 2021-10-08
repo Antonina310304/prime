@@ -1,0 +1,25 @@
+- var br = "<br>";
+
+mixin sectionHeader(params)
+    .section-header&attributes(attributes)
+        h2(class=params.theme).section-title.section-title--wrap.js-section-title
+            p.js-title-text
+                each val, index in params.title
+                    span.section-title__text !{val}
+                        if(index == 0)
+                            i.js-counter-title.counter-title
+                span.animate-title-block
+        if(params.subtitle)
+            h3.section-subtitle=params.subtitle
+
+
+mixin sectionHeaderAboutBlock(theme, isNeedCounter)
+    .section-header&attributes(attributes)
+        h2(class=theme).section-title.section-title--wrap.js-section-title
+            p.js-title-text
+                span.section-title__text немного
+                    if(isNeedCounter)
+                        i.js-counter-title.counter-title
+                br
+                span.section-title__text о нас
+                span.animate-title-block

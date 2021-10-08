@@ -1,0 +1,211 @@
+/************ main-certificate-certificateSlider ***************/
+@import "src/style/_";
+
+@mixin desktopWidth() {
+    @include desktopStyle {
+        border-width: 2rem;
+    }
+}
+
+.main-slider {
+    padding: 0 0.5px;
+    margin-left: -16px;
+    margin-right: -16px;
+
+    .swiper-container {
+        @include desktopStyle {
+            overflow: initial;
+        }
+    }
+
+    @include desktopStyle {
+        position: relative;
+        margin: 0;
+        display: flex;
+        overflow: hidden;
+    }
+
+
+    .swiper-container {
+        padding-right: 16px;
+        padding-left: 16px;
+        margin: 0;
+
+        @include desktopStyle {
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+    &__item {
+        position: relative;
+        @include bodyBg();
+        width: 75.23%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        will-change: transform;
+
+
+        &:not(:first-child) {
+            margin-left: -1px;
+            margin-left: 0px;
+
+            @include desktopStyle {
+                margin-left: -1rem;
+            }
+        }
+
+        @include desktopStyle {
+            width: 50%;
+            flex: 0 0 auto;
+
+            &:first-child {
+                width: 50%;
+            }
+        }
+    }
+
+    &__in {
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        @include desktopStyle {
+            padding: 8rem;
+        }
+    }
+
+    &__wrap {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+
+    &__item {
+
+        &:first-child {
+            .main-slider__border:last-child {
+                @include verticalDiv(left);
+                left: -1px;
+
+                @include desktopStyle {
+                    left: 0;
+                }
+
+                span:first-child {
+                    @include verticalSpan(top, left);
+                }
+
+                span:last-child {
+                    @include verticalSpan(bottom, left);
+                }
+
+                @include desktopStyle {
+                    display: none;
+                }
+
+            }
+        }
+
+        .main-slider__border {
+            &:first-child {
+                @include horizontalDiv(top);
+
+                left: 10px;
+
+                @include desktopStyle {
+                    left: 11rem;
+                }
+
+                span:first-child {
+                    @include horizontalSpan(top, left);
+                }
+                span:last-child {
+                    @include horizontalSpan(top, right);
+                }
+            }
+
+            &:nth-child(3) {
+                @include horizontalDiv(bottom);
+                left: 10px;
+
+                @include desktopStyle {
+                    left: 11rem;
+                }
+
+                span:first-child {
+                    @include horizontalSpan(bottom, left);
+                }
+
+                span:last-child {
+                    @include horizontalSpan(bottom, right);
+                }
+            }
+
+            &:nth-child(2) {
+                @include verticalDiv(right);
+                width: 1px;
+                border-right: 1px solid #5F5E58;
+                box-sizing: border-box;
+                background: transparent;
+
+                @include desktopStyle {
+                    width: 1rem;
+                    border-right: 1rem solid #5F5E58;
+                    //right: -1rem;
+                }
+
+
+                span:first-child {
+                    @include verticalSpan(top, right);
+                    right: -1px;
+
+                    @include desktopStyle {
+                        left: -1rem;
+                    }
+
+                }
+
+                span:last-child {
+                    @include verticalSpan(bottom, right);
+                    right: -1px;
+
+                    @include desktopStyle {
+                        left: -1rem;
+                    }
+                }
+            }
+
+            &:last-child {
+                .main-slider__item:first-child & {
+                }
+            }
+        }
+    }
+
+    &__left {
+        @include desktopStyle {
+            @include verticalDiv(left);
+            top: 10rem;
+            bottom: 10rem;
+            left: 0;
+            z-index: 2;
+
+            span:first-child {
+                @include verticalSpan2(top, left);
+                border-bottom-width: 0 !important;
+            }
+
+            span:last-child {
+                @include verticalSpan2(bottom, left);
+                border-top-width: 0 !important;
+            }
+        }
+    }
+}

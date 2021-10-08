@@ -1,0 +1,41 @@
+-
+    var ytSliderList = [
+        {videoId: 'u0P6cLDgNQk', title: 'ЖЕНЯ СЭ: колкости и остроты'},
+        {videoId: '_YgbC01FeMQ', title: 'Рок-группа «Михаил» | "Между нами"'},
+        {videoId: 'wK_ze1bLP4k', title: 'PistenBully Russia | Новый год'},
+        {videoId: 'LIdpOLUHXPY', title: 'Рок-группа «Михаил» | "Девушка и Ратракист"'},
+        {videoId: 'jq6DRVeDsPg', title: 'Рок-группа «Михаил» | "Сентябрь"\n'},
+        {videoId: 'xLL4NBcnl1w', title: 'REFORM универсальные машины'},
+    ]
+
+mixin ytSlider
+
+    .yt-slider.js-yt-slider.js-soa.is-scroll-invisible
+        ._wrap.container
+            ._head
+                ._title
+                    p._title-in Мы в Мы в youtube
+                a(href="https://www.youtube.com/channel/UC8AlfkjN8OsIHpWzjgwgfMA")._link Открыть канал
+                p._counter
+                    span.js-counter-title.counter-title
+        ._body
+            ._gallery-top.container
+                ._preloader
+                    +preloader
+                ._video-wrapper
+                    iframe(width='100%', height='100%', src='https://www.youtube.com/embed/' + ytSliderList[0].videoId + '?enablejsapi=1', frameborder='0', allowfullscreen='')
+            ._thumbs
+                .swiper-container.container
+                    .swiper-wrapper
+                        each video in ytSliderList
+                            .swiper-slide(data-video=video.videoId).yt-slider__thumbs-item.js-js-slide
+                                .yt-slider__thumbs-img
+                                    img(src="https://img.youtube.com/vi/" + video.videoId + "/mqdefault.jpg")
+                                .yt-slider__name=video.title
+            .container
+                .yt-slider__buttons
+                    .yt-slider__button-left
+                        +arrowLeft({size: 'max', theme: 'light'})
+                    .yt-slider__button-right
+                        +arrowRight({size: 'max', theme: 'light'})
+

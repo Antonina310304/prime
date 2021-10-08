@@ -1,0 +1,26 @@
+mixin floatNav(params)
+    .float-nav(class=(params.type == 'full') ? 'full' : 'default').js-float-nav
+        ._inner
+            .swiper-container
+                .float-nav__wrapper.swiper-wrapper
+                    .float-nav__item.fake
+                    each val, index in params.list
+                        .float-nav__item.swiper-slide(class=(index == params.activeSlide) ? 'active' : '')
+                            a(href="/").float-nav__link
+                                if(params.type == 'default')
+                                    p.float-nav__text=val
+                                else
+                                    .float-nav__img-in.js-float-nav-img
+                                        .float-nav__img-wrap
+                                            p.float-nav__img
+                                                img(src=val.img alt=val.title)
+                                    p.float-nav__text=val.title
+                    .float-nav__item.fake
+
+            .float-nav__arrows
+                .float-nav__arrow.hidden.left
+                    +arrowLeft({size: 'max', theme: 'light'})
+                .float-nav__arrow.hidden.right
+                    +arrowRight({size: 'max', theme: 'light'})
+
+

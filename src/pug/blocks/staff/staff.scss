@@ -1,0 +1,171 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+
+.staff {
+    @include baseListStyle();
+
+    &__item {
+        display: block;
+        padding-bottom: 23px;
+        border-bottom: 1px solid color(dark);
+        margin-bottom: 24px;
+
+        @include desktopStyle {
+            padding-bottom: 8rem;
+            padding-top: 8rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-width: 1rem;
+
+        }
+
+        &:last-child {
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        align-items: baseline;
+        width: 100%;
+        margin-bottom: 8px;
+        flex: 0 0 auto;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include desktopStyle {
+            margin-bottom: 12rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__in {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 18px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include desktopStyle {
+            margin-bottom: 0;
+            align-items: center;
+
+            &:first-child {
+                flex-grow: 5;
+                //width: 100%;
+                justify-content: flex-start;
+            }
+
+            &:last-child {
+                display: block;
+            }
+        }
+    }
+
+    &__img {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        flex: 0 0 auto;
+        line-height: 0;
+        order: 2;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 50%;
+
+        @include desktopStyle {
+            order: -1;
+            margin-right: 32rem;
+            width: 153rem;
+            height: 153rem;
+        }
+
+        img  {
+            @include coverImg;
+        }
+
+        //img:nth-child(2) {
+        //    display: none;
+        //}
+    }
+
+    &__info {
+        padding-top: 4px;
+
+        @include desktopStyle {
+            &:first-child {
+                flex: 1;
+            }
+        }
+    }
+
+    &__department {
+        margin: 0;
+        @include getFont($oswaldMedium, 14, true);
+        color: color(goldDark);
+
+        @include desktopStyle {
+            font-size: 14rem;
+        }
+    }
+
+    &__name {
+        margin: 0;
+        @include getFont($oswaldRegular, 24, true);
+        color: color(gray5);
+
+        @include desktopStyle {
+            font-size: 28rem;
+            line-height: 140%;
+            letter-spacing: 0.05em;
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__activity {
+        margin: 0;
+        @include getFont($sansRegular, 16, false);
+        color: color(gray5);
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 18, false, rem);
+        }
+    }
+
+    &__link {
+        display: block;
+        @include getFont($sansRegular, 16, true);
+        color: color(gray5);
+        margin: 0;
+        margin-left: 8px;
+        text-decoration-color: transparent;
+        @include baseTransitionStyle(text-decoration-color);
+
+        &:hover {
+            text-decoration-color: color(gray5);
+            @include baseTransitionStyle(text-decoration-color);
+        }
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 18, true, rem);
+            margin-left: 8rem;
+        }
+    }
+
+    .text-heading {
+        margin-bottom: 0;
+        color: color(goldDark);
+    }
+}

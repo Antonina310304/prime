@@ -1,0 +1,24 @@
+/************ catalog-header-list ***************/
+@import "src/style/_";
+
+.catalog-header-list {
+    @include baseListStyle();
+    margin-bottom: -8px;
+
+    @include desktopStyle {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -4rem -4rem;
+
+    }
+
+    &__item {
+        padding-bottom: 8px;
+        @include desktopStyle {
+            display: flex;
+            width: 25%;
+            box-sizing: border-box;
+            padding: 0 4rem 4rem;
+        }
+    }
+}

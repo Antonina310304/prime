@@ -1,0 +1,12 @@
+extends ../pug/layout/layout.pug
+block var
+    include ../pug/_var
+    - var pageTitle = pages.index.title;
+    - var isLinkLogo = pages.catalog.isLinkLogo;
+    - var mainClass = 'news-page';
+    - var isFullHead = false;
+    - var className = names.DEFAULT;
+    - var pageName = names.DEFAULT;
+
+block content
+    +newsPage2

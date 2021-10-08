@@ -1,0 +1,10 @@
+mixin makerLogo(name)
+    p.maker-logo&attributes(attributes)
+        if(name == 'merlo')
+            include merlo.svg
+        else if(name == 'pistenbully')
+            include pistenbully.svg
+        else if (name == 'fae')
+            include fae.svg
+        else if (name == 'reform')
+            include reform.svg

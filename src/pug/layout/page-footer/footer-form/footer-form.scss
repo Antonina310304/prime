@@ -1,0 +1,50 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+.footer-form {
+
+    &__in {
+       padding: 24px 24px 40px;
+
+        @include desktopStyle {
+            padding: 74rem 64rem 122rem;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        @include getFont($sansRegular, 16, false);
+        color: color(gray2);
+        text-align: center;
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 20, false, rem);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-family: 'Oswald Light';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 32px;
+        line-height: 110%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #C0A968;
+        margin-bottom: 16px;
+
+        @include desktopStyle {
+            font-size: 48rem;
+            margin-bottom: 16rem;
+        }
+    }
+
+    &__form {
+        margin: 0 -1px;
+
+        @include desktopStyle {
+            margin: 0 -1rem;
+        }
+    }
+}

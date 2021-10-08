@@ -1,0 +1,124 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+
+.insta {
+    &__in {
+        padding: 4px;
+
+        @include desktopStyle {
+            padding: 4rem;
+        }
+    }
+
+    &__content {
+        position: relative;
+    }
+
+    &__header {
+        padding: 0 8px 11px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+
+        @include desktopStyle {
+            padding: 0 16rem 11rem;
+        }
+    }
+
+    &__wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        @include desktopStyle {
+            width: auto;
+        }
+    }
+
+    &__title {
+        display: inline-block;
+        padding-right: 28px;
+        position: relative;
+        @include getFont($oswaldRegular, 20, true);
+        color: color(gray1);
+
+        &:before {
+            @include baseImgStyle(url('i/icons/instagram.svg'));
+
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 24, true, rem);
+            padding-right: 36rem;
+
+            &:before {
+                width: 24rem;
+                height: 24rem;
+            }
+        }
+    }
+
+    &__link {
+        margin-left: auto;
+        position: relative;
+        @include getFont($oswaldRegular, 16);
+        color: color(goldlight);
+        flex: 50%;
+        padding-right: 20px;
+        box-sizing: border-box;
+        text-decoration: none;
+        @include baseTransitionStyle(color);
+
+        &:hover {
+            color: color(goldDark);
+            @include baseTransitionStyle(color);
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 20px;
+            background: color(goldlight);
+        }
+
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 18, false, rem);
+            padding-right: 24rem;
+            flex: initial;
+
+            &:before {
+                width: 1rem;
+                right: 12rem;
+                height: 20rem;
+            }
+        }
+    }
+
+    &__counter {
+        flex: 0 1;
+
+        @include desktopStyle {
+            width: auto;
+        }
+        //padding: 4px;
+        //
+        //@include desktopStyle {
+        //    padding: 4rem;
+        //}
+    }
+}

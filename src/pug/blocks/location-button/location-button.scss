@@ -1,0 +1,52 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+
+.location-button {
+    @include baseBtnStyle();
+    @include getFont($oswaldRegular, 16, true);
+    @include baseTransitionStyle(color);
+
+    display: flex;
+    align-items: center;
+    color: color(gray2);
+    line-height: 125%;
+    cursor: pointer;
+
+    &:hover {
+        color: color(goldDark);
+        @include baseTransitionStyle(color);
+
+        path, circle {
+            fill: color(goldDark);
+            @include baseTransitionStyle(fill);
+        }
+
+    }
+
+    @include desktopStyle {
+        font-size: 16rem;
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        padding-right: 8px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        path, circle {
+            fill: color(goldlight);
+            @include baseTransitionStyle(fill);
+        }
+
+        @include desktopStyle {
+            width: 16rem;
+            height: 16rem;
+        }
+    }
+
+}

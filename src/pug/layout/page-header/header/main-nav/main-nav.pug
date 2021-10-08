@@ -1,0 +1,5 @@
+mixin mainNav(mainMenu)
+    ul.main-nav
+        each val in mainMenu
+            ._item
+                a(href=val.link)._link=val.title

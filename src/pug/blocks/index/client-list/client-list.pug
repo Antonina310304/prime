@@ -1,0 +1,8 @@
+include data
+
+mixin clientList
+    ul.client-list
+        each val, index in clienList
+            li._item
+                p._img
+                    img(src=`i/clients/${val.img}` alt=val.alt)

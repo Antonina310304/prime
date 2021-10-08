@@ -1,0 +1,13 @@
+include ../_
+doctype html
+html(lang="ru")
+    block var
+    +head(pageTitle)
+    body(class=isFullHead ? 'maker' : 'main' class=isFullHead ? 'header-full' : '' class=className)
+        +pageHeader(isFullHead, pageName, catalogDropdown)
+            block header
+        main.page(class=mainClass  class=gradient ? 'gradient' : '')
+            block content
+        +pageFooter
+        .page__modals
+        +scripts

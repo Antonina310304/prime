@@ -1,0 +1,55 @@
+
+mixin content2
+    .catalog__section
+        p.catalog__title-tab Механический привод
+        .catalog__separator
+            .separator-light
+        .catalog-card-list.js-catalog-list
+             each val2 in catalogList3Tab3
+                 ._item
+                     +catalogCard(val2)
+
+mixin content3
+    .catalog__section
+        p.catalog__title-tab Гидромеханический привод
+        .catalog__separator
+            .separator-light
+        .catalog-card-list.js-catalog-list
+             each val3 in catalogList3Part2
+                 ._item
+                     +catalogCard(val3)
+-
+    var Tabnav = [
+        {title: 'Все виды', selected: true, content: 'all'},
+        {title: 'Механический привод', selected: false, content: 'content2'},
+        {title: 'гидромеханический привод', selected: false, content: 'content3'}
+    ];
+
+mixin _catalog3Tab
+    +Tabs('catalog-tab')
+        +tabNav({
+            nav: Tabnav,
+            group: 'catalog-tab',
+            content: true
+        })
+            each val, index in ['content1', 'content2', 'content3']
+                +tabContent({selected: Tabnav[index].selected, content: val})
+                    case val
+                        when 'content1'
+                            //-- +content1
+                        when 'content2'
+                            +content2
+                        when 'content3'
+                            +content3
+
+
+mixin catalog3Tab
+    +Tabs('catalog-tab')(class="tab-content")
+        each val, index in ['content2', 'content3']
+            +tabContent({selected: true, content: val})
+                case val
+                    when 'content2'
+                        +content2
+                    when 'content3'
+                        +content3
+

@@ -1,0 +1,47 @@
+/************ main-nav ***************/
+@import "src/style/_";
+@import "../../mixin";
+
+.main-nav {
+    @include mobileMenuWrap;
+
+    @include desktopStyle {
+        display: flex;
+        border: none;
+        background: transparent;
+    }
+
+
+    &__item {
+        @include mobileMenuItem;
+
+        @include desktopStyle {
+            border: none;
+        }
+    }
+
+    &__link {
+        @include mobileMenuLink;
+        //display: block;
+        //width: 100%;
+        //box-sizing: border-box;
+        //padding: 16px;
+        //color: color(gray1);
+        //@include getFont($oswaldRegular, 16, true);
+        //transition: color 300ms ease-in;
+        //text-decoration: none;
+        //
+        //&:hover {
+        //    transition: color 300ms ease-in;
+        //    color: color(goldlight);
+        //}
+
+        @include desktopStyle {
+            padding: 23.5rem 12rem;
+            font-size: 18rem;
+            line-height: 140%;
+            letter-spacing: 0.045em;
+            text-transform: uppercase;
+        }
+    }
+}

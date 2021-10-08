@@ -1,0 +1,197 @@
+/************ шапка сайта ***************/
+
+@import "src/style/_";
+
+@mixin before($side) {
+    content: "";
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 32px;
+    height: 1px;
+    //border-bottom: 1px solid color(dark);
+    border-bottom: 1px solid transparent;
+
+    @include baseTransitionStyle(border-bottom);
+    #{$side}: 0;
+}
+
+.page-header {
+    position: relative;
+    //margin: 0 -16px;
+
+    @include desktopStyle {
+        //margin: 0 -80rem;
+    }
+
+    &__wrap {
+        margin-top: -66px;
+
+        @include desktopStyle {
+            position: relative;
+            margin-top: -220rem;
+        }
+    }
+
+    &__top {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+        overflow: hidden;
+        background: url("i/noise_.png"), linear-gradient(180deg, rgba(10, 11, 10, 0) 48.44%, #0A0B0A 100%);
+
+        @include desktopStyle {
+            padding-bottom: 50%;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: -1;
+        width: 100% !important;
+        height: 100% !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        background-size: auto 100% !important;
+        backface-visibility: hidden !important;
+        transform-style: preserve-3d !important;
+        will-change: transform, opacity !important;
+        object-fit: cover !important;
+
+        @include desktopStyle {
+            background-size: 100% auto !important;
+        }
+    }
+
+    &__title-name {
+        position: relative;
+        display: inline-block;
+        padding: 0 48px;
+        overflow: hidden;
+        line-height: 120%;
+        //opacity: 0;
+        color: transparent;
+
+        //@each $name in ('reform', 'fae', 'merlo', 'pistenbully') {
+        //    color: color($name);
+        //}
+
+        @each $color in merlo, reform, fae, pistenbully {
+            body.#{$color} & {
+                animation: animate-maker-title-#{$color} 700ms ease-in-out forwards;
+                animation-delay: 400ms;
+            }
+        }
+
+        &::before,
+        &::after {
+            animation: border-color 700ms ease-in-out forwards;
+            animation-delay: 600ms;
+        }
+
+        &::before {
+
+            @include before(left);
+            //border-bottom: 1px solid color(dark);
+            border-bottom: 1px solid transparent;
+        }
+
+        &::after {
+
+            @include before(right);
+            border-bottom: 1px solid transparent;
+        }
+
+
+        @include desktopStyle {
+            padding: 0 40rem;
+
+            &::before,
+            &::after {
+                width: 128rem;
+                height: 1rem;
+            }
+        }
+
+        @include desktopStyle {
+            padding: 0 168rem;
+        }
+    }
+
+    &__title {
+        position: relative;
+        margin: 0 0 8px;
+        font-weight: 300;
+        font-size: 48px;
+        line-height: 120%;
+        line-height: 0;
+        font-family: "Oswald Light";
+        text-align: center;
+        color: transparent;
+        text-transform: uppercase;
+        font-style: normal;
+        letter-spacing: -0.005em;
+
+
+        //@each $color in merlo, reform, fae, pistenbully {
+        //    &.#{$color} {
+        //        color: color($color);
+        //    }
+        //}
+
+        @include desktopStyle {
+            margin-bottom: 16rem;
+            font-size: 128rem;
+        }
+
+        .block {
+            position: absolute;
+            background: color(goldlight);
+            transform: translate(100%, 0%) matrix(1, 0, 0, 1, 0, 0);
+            inset: 0;
+
+            @include backdrop;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        padding: 0 16px;
+        text-align: center;
+        color: color(gray2);
+
+        @include getFont($sansRegular, 18, false);
+
+
+        @include desktopStyle {
+            padding: 0;
+            font-size: 20rem;
+        }
+    }
+}
+
+@each $color in merlo, reform, fae, pistenbully {
+
+    @keyframes animate-maker-title-#{$color} {
+        from {
+            color: transparent;
+        }
+
+        to {
+            color: color($color);
+        }
+    }
+}
+
+@keyframes border-color {
+    from {
+        border-color: transparent;
+    }
+
+    to {
+        border-color: color(dark);
+    }
+}

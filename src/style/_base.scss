@@ -1,0 +1,93 @@
+/************ базовые стили ***************/
+@import "_";
+
+html {
+    @include desktopStyle {
+        font-size: calc(100vw / 1440);
+    }
+
+    @include stopResize {
+        font-size: calc(#{$widthStopResize}px / 1440);
+    }
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: color(gray1);
+    backface-visibility: hidden;
+    //will-change: transform;
+    //translateZ: 0px;
+    
+
+    @include desktopStyle {
+        font-size: 16rem;
+    }
+}
+
+body.default main.news-page {
+    padding-top: 65px;
+
+    @include desktopStyle {
+        padding-top: 72rem;
+    }
+}
+
+main {
+    position: relative;
+    padding-top: 65px;
+
+    @include desktopStyle {
+        padding-top: 72rem;
+
+        body.header-full &:not(.catalog) {
+            padding-top: 114rem;
+        }
+    }
+
+    &.catalog, &.news-page {
+        padding-top: 0;
+    }
+
+
+    &.index {
+        position: relative;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            background: url("i/noise_.png"), #0A0B0A;
+            background-size: contain;
+            z-index: -2;
+        }
+    }
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.overflow-mob {
+    @media (max-width: 1023px) {
+        overflow: hidden;
+    }
+}
+
+.hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+}
+
+.hide {
+    display: none;
+}

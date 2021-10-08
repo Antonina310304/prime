@@ -1,0 +1,124 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+
+.insta-list {
+
+    @include desktopStyle {
+        padding-left: 50%;
+        position: relative;
+    }
+
+
+    &__list {
+        @include baseListStyle();
+        display: flex;
+        flex-wrap: wrap;
+
+        @include desktopStyle {
+            justify-content: flex-end;
+        }
+
+    }
+
+    &__item {
+        width: 33.333%;
+        padding: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+        overflow: hidden;
+
+        &:first-child {
+            width: 100%;
+        }
+
+        @include desktopStyle {
+            padding: 4rem;
+            width: 212rem;
+            width: 33.333%;
+
+            &:first-child {
+                top: 4rem;
+                padding: 0;
+                width: calc(50% - 8rem);
+                position: absolute;
+                left: 4rem;
+            }
+        }
+
+    }
+
+    &__in {
+        @include baseTransitionStyle(border-radius);
+        transition: border-radius 200ms ease-in-out;
+
+        overflow: hidden;
+        border-radius: 4px;
+
+        &:hover {
+            @include baseTransitionStyle(border-radius);
+            transition: border-radius 200ms ease-in-out;
+            background: rgba(217, 217, 214, 0.06);
+
+            border-radius: 50%;
+        }
+
+    }
+
+    &__link {
+        display: block;
+        position: relative;
+        height: 0;
+        padding-bottom: 100%;
+        line-height: 0;
+
+        &:before {
+            opacity: 0;
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            @include baseImgStyle(url('i/icons/arrow-right.svg'));
+            @include baseTransitionStyle(opacity);
+            z-index: 2;
+        }
+
+
+        img {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            min-width: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            flex-shrink: 0;
+            max-width: none;
+            -o-object-fit: contain;
+            object-fit: contain;
+            transition: filter 200ms ease-in-out;
+
+            .insta-list__in:hover & {
+                filter: blur(48px);
+                transition: filter 200ms ease-in-out;
+            }
+        }
+
+        @include desktopStyle {
+
+            &:hover {
+                &:before {
+                    opacity: 1;
+                    @include baseTransitionStyle(opacity);
+                }
+            }
+
+            &:before {
+                width: 24rem;
+                height: 24rem;
+            }
+        }
+    }
+}

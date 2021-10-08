@@ -1,0 +1,12 @@
+extends ../pug/layout/layout.pug
+block var
+    include ../pug/_var
+    - var pageTitle = pages.index.title;
+    - var isLinkLogo = pages.catalog.isLinkLogo;
+    - var mainClass = pages.catalog.mainClass;
+    - var isFullHead = true;
+    - var className = names.PISTENBULLY
+    - var pageName = names.PISTENBULLY
+
+block content
+    +repairParts

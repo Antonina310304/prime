@@ -1,0 +1,28 @@
+{
+  "projectName": "html-prime",
+  "pages": {
+    "index.html": "Главная страница",
+    "index-merlo.html": "Главная страница merlo",
+    "index-fae.html": "Главная страница fae",
+    "index-pistenbully.html": "Главная страница pistenbully",
+    "index-reform.html": "Главная страница reform",
+    "catalog-1.html": "Каталог/ Уровень 1",
+    "catalog-2.html": "Каталог/ Уровень 2",
+    "catalog-3.html": "Каталог/ Уровень 3 - Список техники",
+    "special.html": "Список спецпредложений",
+    "product-card.html": "Карточка товара",
+    "product-card-2.html": "Карточка товара навесного оборудования",
+    "special-card.html": "Карточка товара поддержанного оборудования",
+    "service.html": "Сервис",
+    "repair-parts.html": "Дополнительное оборудование",
+    "news.html": "Список новостей",
+    "news-empty.html": "Список новостей (нет новостей)",
+    "news-2.html": "Список новостей (одна новость)",
+    "news-3.html": "Список новостей (две новости)",
+    "news-detail.html": "Детальная новости",
+    "about.html": "О компании",
+    "contacts.html": "Контакты",
+    "policy.html": "Политика конфиденциальности",
+    "404.html": "404"
+  }
+}

@@ -1,0 +1,85 @@
+include data
+mixin newsDetail
+    section.news-page__top
+        +pageHead({theme: 'light', img: 'i/news/news-detail.jpg', alt: 'Новость'})
+        //--.news-page__img
+        //--    .news-page__top-in
+        //--    img(src="i/news/news-detail.jpg" alt="Новость").js-parallax-news
+        .container.js-scroll-to
+            .page__breadcrumbs
+                +breadcrumbs(['Главная', 'Медиа', 'новое оборудование для уборки снега'], 'light')
+            h1.news-page__news-title.light
+                p
+                    | Новое оборудование для уборки снега
+                    span.animate-title-block
+            .news-page__info
+                p.news-page__date 22 ДЕК
+                    span 2020
+                p.news-page__maker Reform
+
+            .news-page__separator
+                .separator-light
+    section.news-page__content
+        .container
+            p Наличие подготовленной трассы – одно из обязательных условий безопасной езды на снегоходе. Дороги для такого транспорта устраивают в природных парках, в зимних курортных зонах, а также в местах, где невозможно передвижение на обычных колесных транспортных средствах.
+            hr
+            p Современный снегоход – скоростной транспорт. Препятствия под слоем снега, крутой поворот, наличие на пути канавы, ямы, может вызывать опрокидывание снегохода и тяжелые травмы водителя и пассажиров. Особую опасность представляет движение по глубокому снегу, под ним легко не заметить глыбу льда, камни и другие препятствия.
+            hr
+            p Поверхность трассы должна быть ровной и достаточно плотной для того, чтобы лыжа снегохода оставалась на поверхности. Для подготовки трасс для снегоходов применяют ратраками или другими снегоходами.
+            h2 Примеры списков
+            h3 маркированый
+            ul
+                li Удаляют пни, валуны, другие возможные препятствия.
+                li Размечают маршрут с допустимыми углами поворотов, подъемов и спусков.
+                li Расставляют указатели и уплотняют снег.
+            h3 нумерованый
+            ol
+                li Обеспечивают ровное, плотное покрытие.
+                li Экономят время подготовки трассы.
+                li Позволяют срезать наледь.
+                li Заполняют ямы и удаляют наплывы.
+
+            p Строительство и содержание снегоходных трасс – комплексное мероприятие. Для безопасной езды необходимо поддерживать плотность покрытия при положительных температурах, снегопадах, а также восстанавливать его при интенсивном движении. Приобрести или арендовать спецтехнику для уплотнения снега (ратрак) – отличный способ снизить затраты.
+            h2 Пример таблицы
+            .table
+                +table(dataTable2)
+
+            h2 Примеры медиа-вложений
+            h3 Одиничное видео
+            .video-wrapper
+                .video-wrapper__in
+                    iframe(width="100%" height="100%" src="https://www.youtube.com/embed/oFE0kZgEPHc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+            h3 Одиничное фото
+            img(src="i/news/news-detail-2.jpg")
+
+            .picture-slider
+                h3 Галерея фото
+                +gallerySlider({list: productCardGalleryMain, params: {isNeedFractionPagination: true, isNeedBtn: false, isNeedBullet: true}})
+            .video-slider
+                h3 Галерея фото
+                +_videoSlider({list: productCardVideo, params: {isNeedFractionPagination: true, isNeedBtn: false, isNeedBullet: true}})
+            h2 Пример разделителя
+            p Наличие подготовленной трассы – одно из обязательных условий безопасной езды на снегоходе. Дороги для такого транспорта устраивают в природных парках, в зимних курортных зонах, а также в местах, где невозможно передвижение на обычных колесных транспортных средствах.
+            hr
+            p Современный снегоход – скоростной транспорт. Препятствия под слоем снега, крутой поворот, наличие на пути канавы, ямы, может вызывать опрокидывание снегохода и тяжелые травмы водителя и пассажиров. Особую опасность представляет движение по глубокому снегу, под ним легко не заметить глыбу льда, камни и другие препятствия.
+    section.news-page__footer
+        .container
+            .news-page__subtitle Другие материалы
+            .news-page__separator
+                .separator-light
+            .news-page__news-list
+                +news({list: newsListIndexMerlo, newsClass: "row",slider: true, newsDetail: true, isNeedBtn: false})(class="light")
+                ._button
+                    +_defaultButton({
+                        text: 'Ко всем новостям',
+                        data_type: 'default',
+                        theme: 'light',
+                        icon: false,
+                        iconName: 'arrow',
+                        tag: 'a'
+                    })
+
+
+
+

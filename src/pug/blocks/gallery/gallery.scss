@@ -1,0 +1,149 @@
+/************ шапка ***************/
+
+@import "src/style/_";
+
+.gallery {
+    position: relative;
+    display: block;
+    height: 0;
+    padding-bottom: 75.2%;
+    overflow: hidden;
+    line-height: 0;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+        img {
+
+            transform: scale(1.1);
+
+            @include baseTransitionStyle(transform);
+        }
+    }
+
+    @include desktopStyle {
+        border-radius: 4rem;
+    }
+
+    img {
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        @include coverImg;
+
+        @include baseTransitionStyle(transform);
+    }
+}
+
+.modal-gallery {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    @include desktopStyle {
+        padding: 54rem 80rem;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        transform: none !important;
+        object-fit: contain;
+    }
+
+    &__arrow {
+        display: none;
+
+        @include desktopStyle {
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 80rem;
+            height: 100%;
+            outline: none;
+            cursor: pointer;
+
+            &.left {
+                left: 0;
+            }
+
+            &.right {
+                right: 0;
+            }
+
+            &.disabled {
+                cursor: default;
+                opacity: 0.5;
+            }
+        }
+    }
+
+    &__arrow-in {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 24rem;
+        height: 32rem;
+        transform: translate(-50%, -50%);
+
+        @include baseImgStyle(url("i/icons/arrow-gallery-right.svg"));
+
+        @include baseTransitionStyle(background-image);
+
+        .modal-gallery__arrow.left & {
+            transform: translate(-50%, -50%) rotate(180deg);
+        }
+
+        .modal-gallery__arrow:not(.disabled):hover & {
+            background-image: url("i/icons/arrow-gallery-right-hover.svg");
+
+            @include baseTransitionStyle(background-image);
+        }
+    }
+
+    &__container {
+        width: 100%;
+
+        @include desktopStyle {
+            height: 100%;
+        }
+    }
+
+    .gallery {
+
+
+        @include desktopStyle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            height: inherit;
+            padding: 0;
+            text-align: center;
+
+            img {
+                position: static;
+                min-width: inherit;
+                max-width: 100%;
+                min-height: inherit;
+                max-height: 100%;
+                border-radius: 4rem;
+                transform: none !important;
+                margin-bottom: 0 !important;
+            }
+        }
+    }
+
+    &__bullets {
+        position: absolute;
+        bottom: 24px;
+        left: 0;
+        width: 100%;
+        padding: 0 20px;
+
+        @include desktopStyle {
+            bottom: 24px;
+        }
+    }
+}

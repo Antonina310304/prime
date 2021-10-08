@@ -1,0 +1,89 @@
+/************ ����� ***************/
+
+@import "src/style/_";
+
+.spoiler-bar {
+
+    &__head {
+        cursor: pointer;
+    }
+
+    &__head-in {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 5px;
+        border-bottom: 2px solid color(dark);
+        margin-bottom: 4px;
+
+
+        @include desktopStyle {
+            padding-bottom: 4rem;
+            border-width: 2rem;
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__title {
+        @include getFont($oswaldRegular, 16, false);
+        color: color(gray5);
+        margin: 0;
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 20, false, rem);
+        }
+    }
+
+    &__body {
+        overflow: hidden;
+        height: 0;
+    }
+
+    &.show &__body {
+        height: auto;
+    }
+
+    &__body-in {
+        padding-bottom: 16px;
+        padding-top: 32px;
+
+        @include desktopStyle {
+            padding-bottom: 32rem;
+            padding-top: 8rem;
+        }
+    }
+
+    &__button {
+        @include getFont($oswaldRegular, 14, true);
+        @include baseBtnStyle($color: color(goldDark));
+        padding-right: 18px;
+        position: relative;
+        cursor: pointer;
+
+        &:before {
+            content: " ";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+            width: 16px;
+            height: 16px;
+            @include baseTransitionStyle(transform);
+            @include baseImgStyle(url('i/icons/tick.svg'));
+
+            .spoiler-bar.show & {
+                transform: translateY(-50%) rotate(0);
+                @include baseTransitionStyle(transform);
+            }
+        }
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 16, true, rem);
+            padding-right: 18rem;
+
+            &:before {
+                width: 16rem;
+                height: 16rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,293 @@
+/************ шапка сайта ***************/
+
+@import "src/style/_";
+
+
+.button {
+    position: relative;
+    position: relative;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    color: color(gray1);
+    text-decoration: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    transition: background 200ms ease-in-out, color 200ms ease-in-out;
+    appearance: none;
+
+    @include getFont($oswaldRegular, 14, true);
+
+    @include baseBtnStyle();
+
+    // для сафари версии
+    &:visited div {
+        border-color: #5F5E58;
+    }
+
+
+    &[type="submit"] .button__icon {
+        display: none;
+    }
+
+    &[type="submit"][disabled] .button__icon {
+        display: block;
+    }
+
+
+    &:visited span {
+        border-color: #C0A968;
+    }
+
+    path {
+        fill: #ffffff;
+
+        @include baseTransitionStyle(fill);
+    }
+
+    &:hover {
+        path {
+            fill: color(goldlight);
+        }
+    }
+
+
+    &.callback {
+        path {
+            fill: #ffffff;
+
+            @include baseTransitionStyle(fill);
+        }
+
+        &:hover {
+            path {
+                fill: color(goldlight);
+            }
+        }
+    }
+
+    &[disabled] {
+        color: color(goldlight) !important;
+        cursor: not-allowed;
+        transition: background 200ms ease-in-out, color 200ms ease-in-out;
+
+        .button__in {
+            padding: 12px;
+
+            @include desktopStyle {
+                padding: 12rem;
+            }
+        }
+
+        .border__in > span {
+            width: 100%;
+            height: 100%;
+            transition: width 200ms ease-in-out, height 200ms ease-in-out;
+        }
+
+        .button__icon {
+            animation: disabled-button 800ms linear infinite;
+        }
+
+        path {
+            fill: color(goldlight) !important;
+        }
+    }
+
+    &.light[disabled] {
+        color: #ffffff !important;
+
+        @include baseTransitionStyle(color);
+
+        &::before {
+
+            @include baseTransitionStyle(background);
+            background: color(goldDark) !important;
+        }
+
+        path {
+            fill: #ffffff !important;
+        }
+    }
+
+    &__icon {
+        display: block;
+        width: 32px;
+        height: 32px;
+
+        .button.callback & {
+            width: 24px;
+            height: 24px;
+        }
+
+        .button.arrow & {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            transform: rotate(-90deg);
+
+            path {
+                fill: color(goldlight);
+                @include baseTransitionStyle(fill);
+            }
+        }
+
+        .button.arrow:hover & {
+            path {
+                fill: #fff;
+                @include baseTransitionStyle(fill);
+            }
+        }
+
+        @include desktopStyle {
+            width: 32rem;
+            height: 32rem;
+
+            .button.callback & {
+                width: 24rem;
+                height: 24rem;
+            }
+
+            .button.arrow & {
+                width: 16rem;
+                height: 16rem;
+            }
+        }
+    }
+
+
+    &__text {
+        margin-right: 8px;
+
+        .button.callback & {
+
+            @include desktopStyle {
+                display: none;
+            }
+        }
+    }
+
+
+    &__in {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    &:hover {
+        color: color(goldlight);
+        transition: background 200ms ease-in-out, color 200ms ease-in-out;
+
+
+        .border__in > span {
+            width: 100%;
+            height: 100%;
+            transition: width 200ms ease-in-out, height 200ms ease-in-out;
+        }
+    }
+
+
+    @include desktopStyle {
+
+        @include getFont($oswaldRegular, 16, true, rem);
+    }
+
+    &__in {
+        padding: 17px;
+
+        @include desktopStyle {
+            padding: 17rem;
+        }
+
+        .button.callback & {
+            padding: 12px;
+
+            @include desktopStyle {
+                padding: 12rem;
+            }
+        }
+    }
+
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0.5px;
+        right: 1px;
+        bottom: 0.5px;
+        left: 1px;
+        z-index: -1;
+        background: rgba(133, 113, 77, 0.4);
+
+        @include baseTransitionStyle(background);
+    }
+
+    &.light {
+        color: #C0A968;
+
+        &::before {
+            background: color(darkgray);
+        }
+
+        &:hover {
+            color: #ffffff;
+
+            @include baseTransitionStyle(color);
+
+            &::before {
+
+                @include baseTransitionStyle(background);
+                background: color(goldDark);
+            }
+        }
+    }
+}
+
+.button-back {
+
+    @include baseBtnStyle();
+
+    @include getFont($oswaldRegular, 16, true);
+
+    @include baseTransitionStyle(color);
+    display: flex;
+    color: color(goldlight);
+    outline: none;
+
+    &__icon {
+        display: block;
+        width: 16px;
+        height: 16px;
+        padding-right: 4px;
+    }
+
+    path {
+        fill: color(goldlight);
+
+        @include baseTransitionStyle(fill);
+    }
+
+    &:hover {
+        color: color(goldDark);
+
+        @include baseTransitionStyle(color);
+
+        path {
+            fill: color(goldDark);
+
+            @include baseTransitionStyle(fill);
+        }
+    }
+}
+
+@keyframes disabled-button {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}

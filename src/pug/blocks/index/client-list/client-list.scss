@@ -1,0 +1,40 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+.client-list {
+    @include baseListStyle();
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+
+    &__item {
+        width: 50%;
+        max-width: 160px;
+        text-align: center;
+        padding: 16px 0;
+        line-height: 0;
+
+        @include desktopStyle {
+            padding: 40rem 0 32rem;
+            max-width: none;
+            width: calc(100% / 6 );
+            box-sizing: border-box;
+        }
+    }
+
+    &__img {
+        margin: 0;
+        height: 48px;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        @include desktopStyle {
+            height: 72rem;
+        }
+
+    }
+}

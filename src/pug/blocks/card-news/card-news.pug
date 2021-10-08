@@ -1,0 +1,13 @@
+mixin cardNews(news, index)
+    a(href="/" class=index == 0 ? "card-news--first" : "").card-news&attributes(attributes)
+        ._img
+            ._img-in
+                img(src=`i/news/${news.img}` alt=news.title)
+        ._body
+            p._title=news.title
+            ._wrap
+                p._date
+                    span._day=news.date_day
+                    span._year=news.date_year
+                if(news.maker)
+                    p._maker=news.maker

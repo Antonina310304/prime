@@ -1,0 +1,78 @@
+mixin specialCardTop
+    .product-card__wrapper.container
+        .product-card__breadcrumbs
+            +breadcrumbs(['Главная', 'PistenBully', 'Каталог', 'спецпредложения', 'FAE 500/S-250 FRESA FORESTALE / STABILIZZATRICE'], 'light')
+        h1.product-card__title.js-card-title.light
+            p.product-card__title-text.headline.js-title-text FAE 500/S-250 FRESA FORESTALE / STABILIZZATRICE
+                span.animate-title-block
+        .product-card__pin-list
+            +pinList
+        .product-card__top-wrapper
+            .product-card__info
+                .product-card__top-inner
+                    .product-card__top-slider
+                        +productSlider(sliderProductCard)(class="product-slider--header")
+                    .product-card__specifications
+                        +specifications(['depth', 'diameter', 'power'])
+                    .product-card__descriptions
+                        h3 Возможный подзаголовок краткого описания
+                        p Несущая рама вил выполнена из коробчатого оребренного листового металла.
+                        p  Пики с коническим наконечником крестообразного сечения для лучшего захода в материал выполнены из высокопрочной штампованной стали. (A2301: вилы с 9 пиками; A2300-A2303: вилы с 10 пиками). Прижим с гидроприводом и изогнутыми, коническими и крестообразными пиками; прижим с 9 пиками.
+            .product-card__form
+                p.product-card__subtitle Уточнить цену
+                +form({
+                    event: 'js-form',
+                    theme: 'light',
+                    action: 'action-address.php',
+                    btnType: 'light',
+                    btnText: 'Запросить цену',
+                    agreementText: 'Отправляя запрос вы соглашаетесь с ',
+                    inputs: [
+                        {
+                            isDisabled: false,
+                            isError: false,
+                            theme: '',
+                            placeholder: 'Ваше имя',
+                            value: '',
+                            type: 'text',
+                            required: true
+                        },
+                        {
+                            isDisabled: false,
+                            isError: false,
+                            theme: '',
+                            placeholder: 'Номер телефона',
+                            value: '',
+                            type: 'tel',
+                            required: true
+                        },
+                        {
+                            isDisabled: false,
+                            isError: false,
+                            theme: '',
+                            placeholder: 'Электронная почта',
+                            value: '',
+                            type: 'email',
+                            required: true
+                        },
+                        {
+                            isDisabled: false,
+                            isError: false,
+                            theme: '',
+                            placeholder: 'Ваш комментарий',
+                            value: '',
+                            type: 'textarea',
+                            required: true
+                        },
+                    ]
+                })
+
+mixin pinList
+    ul.pin-list
+        li._item
+            .pin
+                span 2300
+                | €
+        each val in ['Спецпредложение', 'Восстановленная техника', 'Бывшее в эксплуатации']
+            li._item
+                .pin=val

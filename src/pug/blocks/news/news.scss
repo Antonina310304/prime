@@ -1,0 +1,98 @@
+/************ news ***************/
+@import "src/style/_";
+
+.news {
+    position: relative;
+
+    @include desktopStyle {
+        border-top: 1rem solid color(dark);
+    }
+
+    &__empty {
+        text-align: center;
+
+        .news-page & {
+            padding-top: 24px;
+
+            @include desktopStyle {
+                padding-top: 48rem;
+            }
+        }
+    }
+
+    &__img {
+        margin: 0 0 32px;
+        padding: 0 94px;
+        line-height: 0;
+
+        @include desktopStyle {
+            width: 239rem;
+            height: 220rem;
+            margin: 0 auto 32rem;
+        }
+    }
+
+    &__empty-wrap {
+        margin-top: 48px;
+        @include desktopStyle {
+            margin-top: 96rem;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 50%;
+            z-index: 1;
+        }
+    }
+
+    &__title {
+        margin: 0 0 8px;
+        @include getFont($oswaldRegular, 20, true);
+        color: color(gray1);
+
+        .news.light & {
+            color: color(gray5);
+        }
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 24, true);
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        @include getFont($sansRegular, 16, false);
+        color: color(gray1);
+
+        .news.light & {
+            color: color(gray5);
+        }
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 18, false);
+        }
+    }
+
+    &__list {
+        margin: 0 -16px 8px;
+        
+        .news-list--simple & {
+            margin: 0;
+        }
+        
+
+        @include desktopStyle {
+            margin: 0;
+        }
+    }
+    
+    &__button {
+        @include desktopStyle {
+            max-width: 50%;
+            margin-left: auto;
+
+            main.news-page.detail & {
+                max-width: 100%;
+            }
+        }
+    }
+}

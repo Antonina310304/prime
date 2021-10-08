@@ -1,0 +1,9 @@
+mixin specifications(params)
+    .specifications
+        each val in params
+            ._item
+                ._icon
+                    img(src=`i/icons/${val}.svg`)
+                ._wrap
+                    ._value=(val == 'length') ? '400-500 л.с.' : (val == 'weight') ? '400-500 л.с.' : (val == 'depth') ? '105 см' : (val == 'power') ? '400-500 л.с.' : 'Ø60 СМ'
+                    ._name=(val == 'length') ? 'Длина' : (val == 'weight') ? 'Вес' : (val == 'depth') ? 'Глубина' : (val == 'power') ? 'Мощность' : 'Макс. диаметр'

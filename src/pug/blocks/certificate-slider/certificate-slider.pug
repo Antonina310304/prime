@@ -1,0 +1,75 @@
+mixin fractionPagination
+    p.custom-slider__fraction-pagination
+        span.custom-slider__activeNum
+        | /
+        span.custom-slider__count
+
+mixin certificateSlider(params)
+    .slider.custom-slider.js-custom-gallery-slider(class=params.theme ? 'dark' : 'light')
+        if(params.params.isNeedBtn)
+            .slider-controls.custom-slider__controls.container
+                button(type=button).custom-slider__prev назад
+                button(type=button).custom-slider__next вперед
+        .container
+            .custom-slider__slider-track
+                each val in params.list
+                    .slider__item
+                        .certificate.js-full-size-gallery
+                            img(src=val.img alt="сертификат")
+            if(params.params.isNeedBullet)
+                ul.custom-slider__bullet-list
+
+mixin gallerySlider(params)
+    .slider.custom-slider.js-custom-gallery-slider(class=params.theme ? 'dark' : 'light')
+        if(params.params.isNeedBtn)
+            .slider-controls.custom-slider__controls.container
+                button(type=button).custom-slider__prev назад
+                button(type=button).custom-slider__next вперед
+        .container
+            .custom-slider__slider-track
+                each val in params.list
+                    .slider__item
+                        .gallery.js-full-size-gallery
+                            img(src=val.img alt="изображение галлереи")
+            if(params.params.isNeedBullet)
+                ul.custom-slider__bullet-list
+            if(params.params.isNeedFractionPagination)
+                +fractionPagination
+
+
+
+mixin _videoSlider(params)
+    .custom-slider.slider-video.js-slider-video(class=params.theme ? 'dark' : 'light')
+        if(params.params.isNeedBtn)
+            .slider-controls.custom-slider__controls.container
+                button(type=button).custom-slider__prev назад
+                button(type=button).custom-slider__next вперед
+        .container
+            .slider-video__in
+                .custom-slider__slider-track
+                    each val in params.list
+                        .slider-video__item
+                            .slider-video__iframe(data-id=val.videoId)
+                                iframe(id=`yt-video-${val.videoId}` width='100%' height='100%' src='https://www.youtube.com/embed/' + val.videoId + '?enablejsapi=1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+            if(params.params.isNeedBullet)
+                ul.custom-slider__bullet-list
+            if(params.params.isNeedFractionPagination)
+                +fractionPagination
+
+
+mixin certificateSwiper(params)
+    .slider.custom-slider.js-certificate-swiper(class=params.theme ? 'dark' : 'light')
+        if(params.params.isNeedBtn)
+            .slider-controls.custom-slider__controls.container
+                button(type=button).custom-slider__prev назад
+                button(type=button).custom-slider__next вперед
+        .swiper-container.container
+            .swiper-wrapper
+                each val in params.list
+                    .slider__item.swiper-slide
+                        .gallery.js-full-size-gallery
+                            img(src=val.img alt="сертификат")
+            if(params.params.isNeedBullet)
+                ul.custom-slider__bullet-list
+            if(params.params.isNeedFractionPagination)
+                +fractionPagination

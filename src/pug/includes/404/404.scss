@@ -1,0 +1,83 @@
+/************ page-404 ***************/
+@import "src/style/_";
+
+.page-404 {
+    padding-top: 32px;
+    padding-bottom: 48px;
+    background: url('i/noise_.png');
+
+    @include desktopStyle {
+        padding-bottom: 128rem;
+    }
+
+    &__in {
+        max-width: 640px;
+        padding: 0 16px;
+        margin: 0 auto;
+
+        @include desktopStyle {
+            max-width: 640rem;
+        }
+    }
+
+
+
+    @include desktopStyle {
+        padding-top: 96rem;
+    }
+
+    &__img {
+        width: 156px;
+        margin: 0 auto 32px;
+
+        @include desktopStyle {
+            width: 260rem;
+            margin-bottom: 32rem;
+        }
+    }
+
+    &__img-in {
+        margin: 0;
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: 92.30%;
+        line-height: 0;
+
+        img {
+            @include containImg
+        }
+    }
+
+    &__title {
+        font-family: "Oswald Light";
+        font-style: normal;
+        font-weight: 300;
+        font-size: 40px;
+        line-height: 110%;
+        text-align: center;
+
+        letter-spacing: -0.005em;
+        text-transform: uppercase;
+        color: color(gray5);
+        margin: 0 0 8px;
+
+        @include desktopStyle {
+            font-size: 64rem;
+            margin-bottom: 16rem;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        color: color(gray5);
+        text-align: center;
+
+        @include getFont($sansRegular, 18, false);
+
+        @include desktopStyle {
+
+            @include getFont($sansRegular, 20, false, rem);
+        }
+    }
+}

@@ -1,0 +1,846 @@
+@mixin baseListStyle($margin: 0, $padding: 0) {
+    margin: $margin;
+    padding: $padding;
+    list-style: none;
+}
+
+@mixin get-adaptive($point) {
+
+    @if ($point == 0) {
+        @content;
+    }
+
+    @else {
+
+        @media (min-width: #{$point}px) {
+            @content;
+        }
+    }
+}
+
+@mixin baseBtnStyle($padding: 0, $border: none, $bg: transparent, $color: inherit) {
+    border: $border;
+    background: $bg;
+    padding: $padding;
+    color: $color;
+}
+
+@mixin baseImgStyle($bg, $bg-repeat: no-repeat, $bg-position: center, $bg-size: contain) {
+    background: $bg;
+    background-repeat: $bg-repeat;
+    background-position: $bg-position;
+    background-size: $bg-size;
+}
+
+@mixin baseTransitionStyle($style, $time: 200ms, $type: ease-in-out) {
+    transition: $style $time $type;
+}
+
+@mixin desktopStyle() {
+
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin stopResize() {
+    @media (min-width: #{$widthStopResize}px) {
+        @content;
+    }
+}
+//
+//@mixin link {
+//    font-family: $fontOpenSans;
+//    color: color(blue);
+//    transition: opacity 300ms ease-in;
+//
+//    &:hover {
+//        opacity: 0.8;
+//        transition: opacity 300ms ease-in;
+//    }
+//
+//}
+
+@function get ($map, $key) {
+
+    @if map-has-key($map, $key) {
+
+        @return map-get($map, $key);
+    }
+
+    @warn "Unknown `#{$key}` in `#{$map}`.";
+
+    @return null;
+}
+
+
+@function color($key) {
+
+    @return get($colors, $key);
+}
+
+
+@mixin bodyBg($position: relative) {
+    background: url("i/noise_.png");
+    position: $position;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        //bottom: 0;
+        height: 100%;
+        //background: radial-gradient(204.38% 100% at 50% 0%, rgba(171, 54, 43, 0.52) 0.01%, rgba(116, 95, 57, 0.64) 0.02%, rgba(15, 16, 15, 0.2) 49.48%);;
+        //background: url("i/noise_.png");
+        //background-size: 100% auto;
+        z-index: -1;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        //bottom: 0;
+        background: #0A0B0A;
+        z-index: -2;
+        height: 100%;
+    }
+
+}
+
+@mixin bgFilter($position: relative, $bg: rgba(0, 0, 0, 0.88)) {
+    position: $position;
+
+    &:before {
+        position: absolute;
+        display: block;
+        content: "";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: $bg;
+        @include backdrop;
+        z-index: -1;
+
+    }
+
+}
+
+@mixin OswaldLight {
+    font-family: 'Oswald Light', sans-serif;
+    font-weight: 300;
+}
+
+@mixin _getParam($top, $right, $bottom, $left, $type) {
+
+    @if $top == 'auto' {
+        top: auto;
+    } @else {
+        top: #{$top + $type};
+    }
+
+    @if $right == 'auto' {
+        right: auto;
+    } @else {
+        right: #{$right + $type};
+    }
+
+    @if $left == 'auto' {
+        left: auto;
+    } @else {
+        left: #{$left + $type};
+    }
+
+
+    @if $bottom == 'auto' {
+        bottom: auto;
+    } @else {
+        bottom: #{$bottom + $type};
+    }
+}
+@mixin getParam($top, $right, $bottom, $left) {
+
+    @include _getParam($top, $right, $bottom, $left, px);
+    @include desktopStyle {
+        @include _getParam($top, $right, $bottom, $left, rem);
+    }
+}
+
+$type_vertical: vertical;
+$type_horizontal: horizontal;
+$size: calc(100% - 22px);
+$sizeD: calc(100% - 22rem);
+$base: 'base';
+
+@mixin borderItem($type, $side, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: absolute;
+    //background: #5F5E58;
+    //background: red;
+    @include getParam($top, $right, $bottom, $left);
+
+    @if $type == $type_horizontal {
+        width: $size;
+        height: 0px;
+        border-#{$side}: 1px solid red;
+
+        @include desktopStyle {
+            width: $sizeD;
+            border-width: 1rem;
+        }
+    }
+
+    @if $type == $type_vertical {
+        width: 0px;
+        height: $size;
+        border-#{$side}: 1px solid red;
+
+        @include desktopStyle {
+            height: $sizeD;
+            border-width: 1rem;
+        }
+    }
+
+}
+
+@mixin _borderItem($type, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: absolute;
+    background: #5F5E58;
+    @include getParam($top, $right, $bottom, $left);
+
+    @if $type == $type_horizontal {
+        width: $size;
+        height: 1px;
+
+        @include desktopStyle {
+            width: $sizeD;
+            height: 1rem;
+        }
+    }
+
+    @if $type == $type_vertical {
+        width: 1px;
+        height: $size;
+
+        @include desktopStyle {
+            width: 1rem;
+            height: $sizeD;
+        }
+    }
+}
+
+
+@mixin _cornerHorizontal($pos: right, $type: $base) {
+    &:before,
+    &:after {
+        position: absolute;
+        background: color(goldlight);
+        content: "";
+        width: 2px;
+        width: 0;
+        border-right: 2px solid color(goldlight);
+        height: 8px;
+        z-index: 2;
+        #{$pos}: -2px;
+        box-sizing: border-box;
+        //background: red;
+
+        @include desktopStyle {
+            width: 2rem;
+            border-width: 2rem;
+            height: 8rem;
+            #{$pos}: -2rem;
+        }
+    }
+
+    @if($type != $base) {
+        &:before {
+            top: -11px;
+
+            @include desktopStyle {
+                top: -11rem;
+            }
+        }
+
+        &:after {
+            bottom: -11px;
+
+            @include desktopStyle {
+                bottom: -11rem;
+            }
+        }
+
+    } @else {
+        &:before {
+            top: -10px;
+
+            @include desktopStyle {
+                top: -10rem;
+            }
+        }
+
+        &:after {
+            bottom: -11px;
+
+            @include desktopStyle {
+                bottom: -11rem;
+            }
+        }
+
+    }
+
+}
+@mixin cornerHorizontal($pos: right, $type: $base) {
+    &:before,
+    &:after {
+        position: absolute;
+        background: color(goldlight);
+        content: "";
+        width: 2px;
+        width: 2px;
+        height: 8px;
+        z-index: 2;
+        #{$pos}: 0;
+        //background: red;
+
+        @include desktopStyle {
+            width: 2rem;
+            height: 8rem;
+        }
+    }
+
+    @if($type != $base) {
+        &:before {
+            top: -10px;
+
+            @include desktopStyle {
+                top: -10rem;
+            }
+        }
+
+        &:after {
+            bottom: -10px;
+
+            @include desktopStyle {
+                bottom: -10rem;
+            }
+        }
+
+    } @else {
+        &:before {
+            top: -10px;
+
+            @include desktopStyle {
+                top: -10rem;
+            }
+        }
+
+        &:after {
+            bottom: -11px;
+
+            @include desktopStyle {
+                bottom: -11rem;
+            }
+        }
+
+    }
+
+}
+
+@mixin _cornerVertical($pos: top, $type: $base) {
+
+    &:before,
+    &:after {
+        position: absolute;
+        background: color(goldlight);
+        content: "";
+        width: 8px;
+        border-top: 2px solid color(goldlight);
+        height: 2px;
+        #{$pos}: -2px;
+        z-index: 2;
+        box-sizing: border-box;
+
+        @include desktopStyle {
+            width: 8rem;
+            border-width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    @if($type != $base) {
+        &:before {
+            left: -11px;
+
+            @include desktopStyle {
+                left: -11rem;
+            }
+        }
+        &:after {
+            right: -11px;
+
+            @include desktopStyle {
+                right: -11rem;
+            }
+
+        }
+
+    } @else {
+        &:before {
+            left: -11px;
+
+            @include desktopStyle {
+                left: -11rem;
+            }
+        }
+
+        &:after {
+            right: -11px;
+
+            @include desktopStyle {
+                right: -11rem;
+            }
+        }
+    }
+
+}
+@mixin cornerVertical($pos: top, $type: $base) {
+
+    &:before,
+    &:after {
+        position: absolute;
+        background: color(goldlight);
+        content: "";
+        width: 8px;
+        height: 2px;
+        #{$pos}: 0;
+        z-index: 2;
+
+        @include desktopStyle {
+            width: 8rem;
+            height: 2rem;
+        }
+    }
+
+    @if($type != $base) {
+        &:before {
+            left: -10px;
+
+            @include desktopStyle {
+                left: -10rem;
+            }
+        }
+        &:after {
+            right: -10px;
+
+            @include desktopStyle {
+                right: -10rem;
+            }
+
+        }
+
+    } @else {
+        &:before {
+            left: -11px;
+
+            @include desktopStyle {
+                left: -11rem;
+            }
+        }
+
+        &:after {
+            right: -11px;
+
+            @include desktopStyle {
+                right: -11rem;
+            }
+        }
+    }
+
+}
+
+
+@mixin card-arrow($parent, $bottom: 16px, $right: 16px) {
+    position: relative;
+
+    &:before {
+        @include baseImgStyle(url('i/icons/arrow-right-down.svg'));
+        transition-timing-function: cubic-bezier(0, 0, 0.15, 1);
+        @include baseTransitionStyle(transform);
+        display: block;
+        position: absolute;
+        content: "";
+        right: $right;
+        bottom: $bottom;
+        width: 24px;
+        height: 24px;
+
+        @include desktopStyle {
+            width: 24rem;
+            height: 24rem;
+        }
+    }
+
+    .#{$parent}:hover & {
+        &:before {
+            transform: rotate(-45deg);
+            @include baseTransitionStyle(transform);
+            transition-timing-function: cubic-bezier(0, 0, 0.15, 1);
+        }
+    }
+
+}
+
+
+@mixin horizontalSpan($posVert, $posHor) {
+    position: absolute;
+    #{$posVert}: 0; //top bottom
+    #{$posHor}: -11px; //left right
+    width: 9px;
+    height: 0;
+    border-#{$posVert}: 2px solid #C0A968;
+
+    @include desktopStyle {
+        width: 9rem;
+        #{$posHor}: -11rem;
+        border-width: 2rem;
+    }
+}
+
+
+@mixin verticalSpan2($posVert, $posHor) {
+    position: absolute;
+    #{$posVert}: -11px; //top bottom
+    #{$posHor}: 0; //left right
+    width: 9px;
+    height: 9px;
+    box-sizing: border-box;
+    //border-width: 0;
+    border-#{$posVert}-width: 2px;
+    border-left-width: 2px;
+    border: 1px solid #C0A968;
+    border-right: 0;
+
+    @include desktopStyle {
+        #{$posVert}: -11rem; //top bottom
+        border-width: 2rem;
+        height: 9rem;
+        width: 9rem;
+    }
+
+
+}
+
+@mixin verticalSpan($posVert, $posHor) {
+    position: absolute;
+    #{$posVert}: -11px; //top bottom
+    #{$posHor}: -1px; //left right
+    width: 0;
+    border-#{$posHor}: 2px solid #C0A968;
+    height: 9px;
+    //background: #C0A968;
+
+    @include desktopStyle {
+        #{$posVert}: -11rem; //top bottom
+        border-width: 2rem;
+        height: 9rem;
+        //#{$posHor}: -1rem; //left right
+    }
+
+    @media(min-width: 1440px) {
+        #{$posHor}: -1rem; //left right
+    }
+
+}
+
+@mixin _verticalDiv($posHor) {
+    position: absolute;
+    top: 11px;
+    bottom: 11px;
+    width: 1px;
+    #{$posHor}: 0; //leftl right
+    //background: color(dark);
+    border-#{$posHor}: 1px solid color(dark);
+    border-#{$posHor}-color: #5F5E58;
+    box-sizing: border-box;
+
+    @include desktopStyle {
+        top: 11rem;
+        bottom: 11rem;
+        width: 1rem;
+        border-#{$posHor}: 1rem solid color(dark);
+    }
+}
+
+@mixin verticalDiv($posHor) {
+    position: absolute;
+    top: 11px;
+    bottom: 11px;
+    width: 1px;
+    #{$posHor}: 0; //leftl right
+    background: color(dark);
+
+    @include desktopStyle {
+        top: 11rem;
+        bottom: 11rem;
+        width: 1rem;
+    }
+}
+
+@mixin _verticalDiv($posHor) {
+    position: absolute;
+    top: 11px;
+    bottom: 11px;
+    width: 1px;
+    #{$posHor}: 0; //leftl right
+    border-#{$posHor}: 1px solid color(dark);
+
+    @include desktopStyle {
+        top: 11rem;
+        bottom: 11rem;
+        width: 1rem;
+        border-width: 1rem;
+    }
+}
+
+@mixin _horizontalDiv($posHor) {
+    position: absolute;
+    #{$posHor}: 0; // top bottom
+    left: 11px;
+    right: 11px;
+    height: 1px;
+    //background: color(dark);
+    border-#{$posHor}: 1px solid color(dark);
+    border-#{$posHor}-color: #5F5E58;
+    box-sizing: border-box;
+
+    @include desktopStyle{
+        left: 11rem;
+        right: 11rem;
+        height: 1rem;
+        border-#{$posHor}: 1rem solid color(dark);
+
+    }
+}
+
+@mixin horizontalDiv($posHor) {
+    position: absolute;
+    #{$posHor}: 0; // top bottom
+    left: 11px;
+    right: 11px;
+    height: 1px;
+    background: color(dark);
+
+    @include desktopStyle{
+        left: 11rem;
+        right: 11rem;
+        height: 1rem;
+
+    }
+}
+
+@mixin newHorizontalSpan($posVert, $posHor) {
+    @include horizontalSpan($posVert, $posHor);
+        #{$posHor}: -10px; //left right
+
+        @include desktopStyle {
+            #{$posHor}: -10rem;
+        }
+}
+
+@mixin newVerticalSpan($posVert, $posHor) {
+    @include verticalSpan($posVert, $posHor);
+        #{$posVert}: -10px; //left right
+
+    @include desktopStyle {
+        #{$posVert}: -10rem; //left right
+    }
+}
+
+@mixin newVerticalDiv($posHor) {
+    @include verticalDiv($posHor);
+    top: 12px;
+    bottom: 12px;
+
+    @include desktopStyle {
+        top: 12rem;
+        bottom: 12rem;
+    }
+
+}
+
+@mixin newHorizontalDiv($posHor) {
+    @include horizontalDiv($posHor);
+        left: 12px;
+        right: 12px;
+
+    @include desktopStyle {
+        left: 12rem;
+        right: 12rem;
+
+    }
+}
+
+@mixin coverImg {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    flex-shrink: 0;
+    max-width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+
+}
+@mixin containImg {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    flex-shrink: 0;
+    max-height: 100%;
+    max-width: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+
+}
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder { @content; }
+    &:-moz-placeholder           { @content; }
+    &::-moz-placeholder          { @content; }
+    &:-ms-input-placeholder      { @content; }
+}
+
+@mixin darkTheme() {
+    background: url("i/noise_.png"), #0A0B0A;
+}
+
+@mixin lightTheme() {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: url("i/noise_.png");
+        z-index: -1;
+    }
+}
+
+
+@mixin backdrop {
+    backdrop-filter: blur(56px) saturate(180%);
+}
+
+@mixin tableStyle {
+
+    table {
+        width: 100%;
+    }
+
+    tbody {
+        overflow: scroll;
+    }
+
+    //заголовок таблица
+    tr th {
+        @include getFont($oswaldMedium, 14, true);
+        color: color(goldDark);
+        text-align: right;
+        padding: 0 16px;
+
+        &:last-child {
+            padding-right: 0;
+        }
+
+        @include desktopStyle {
+            @include getFont($oswaldMedium, 16, true, rem);
+            padding: 0 16rem;
+        }
+    }
+
+    caption {
+        @include getFont($oswaldRegular, 18, true);
+        color: color(gray5);
+        margin: 0 0 13px;
+        text-align: left;
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 24, true, rem);
+            margin-bottom: -22rem;
+        }
+    }
+
+    td {
+        padding: 12px 16px 8px;
+        box-sizing: border-box;
+        border-bottom: 1px solid color(dark);
+        min-width: 103px;
+        flex: 1;
+        vertical-align:bottom;
+
+        @include getFont($sansRegular, 14, false);
+        text-align: right;
+
+        &:first-child {
+            text-align: left;
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+
+        @include desktopStyle {
+            border-width: 1rem;
+            @include getFont($sansRegular, 18, false, rem);
+            //width: 50%;
+            flex: 1;
+            padding: 24rem 16rem 12rem;
+        }
+    }
+
+}
+
+
+@mixin contentBaseStyle($marginTop, $marginBottom, $DMarginBottom) {
+    width: 100%;
+    box-sizing: border-box;
+    margin: $marginTop auto $marginBottom;
+    max-width: 747px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include desktopStyle {
+        width: 747rem;
+        margin-left: 213rem;
+        margin-bottom: $DMarginBottom;
+    }
+}
+
+@mixin _contentBaseStyle($marginTop, $marginBottom, $DMarginBottom) {
+    width: 100%;
+    box-sizing: border-box;
+
+    @include desktopStyle {
+        width: 747rem;
+        margin-left: 0;
+        margin-bottom: $DMarginBottom;
+    }
+}

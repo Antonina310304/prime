@@ -1,0 +1,129 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+.specifications {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 -16px -16px;
+    
+    .product-card__specifications & {
+        margin: 0 0 -16px;
+    }
+
+    @include desktopStyle {
+        margin: 0 0 -16rem;
+
+        .product-card__specifications & {
+            margin: 0 -40rem -16rem;
+        }
+    }
+
+    .catalog-card & {
+        border: none;
+    }
+
+
+    &__item {
+        box-sizing: border-box;
+        padding: 0 16px;
+        width: 50%;
+        border: 0;
+        border-right: 1px solid color(dark);
+        text-align: center;
+        margin-bottom: 16px;
+
+        .product-card__specifications & {
+            width: 33.333%;
+            border-right: 0;
+            padding: 0;
+            
+            @include desktopStyle {
+                width: auto;
+            }
+           
+        }
+
+        &:last-child {
+            border-right: 0;
+        }
+
+        @include desktopStyle {
+            display: flex;
+            flex: inherit;
+            width: inherit;
+            margin-bottom: 16rem;
+            padding: 0 16rem;
+            border-width: 1rem;
+            border-right: 0;
+            position: relative;
+
+            .product-card__specifications & {
+                padding: 0 40rem;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 46rem;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                border-right: 1rem solid #5F5E58;
+            }
+
+            &:last-child {
+                &:before {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &__icon {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 auto;
+        margin: 0 auto 8px;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        @include desktopStyle {
+            width: 40rem;
+            height: 40rem;
+            margin: 0;
+            margin-right: 12rem;
+            display: flex;
+            height: 100%;
+        }
+    }
+
+    &__value {
+        @include getFont($oswaldRegular, 14, true);
+        color: color(goldDark);
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 16, true, rem);
+        }
+    }
+
+    &__name {
+        @include getFont($sansRegular, 14, false);
+        color: color(gray5);
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 16, false, rem);
+        }
+    }
+
+    &__wrap {
+        @include desktopStyle {
+            text-align: left;
+            flex: 1;
+        }
+    }
+}

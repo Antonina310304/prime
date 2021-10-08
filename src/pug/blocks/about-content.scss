@@ -1,0 +1,67 @@
+/************ шапка ***************/
+
+@import "src/style/_";
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    @include desktopStyle {
+        align-items: center;
+    }
+
+    &__content {
+        width: 100%;
+
+        @include desktopStyle {
+            flex: 1;
+        }
+    }
+
+    &__in {
+
+        @include desktopStyle {
+            width: 640rem;
+        }
+
+        p:not(.title-group__wrap) {
+            @include getFont($sansRegular, 16, false);
+            margin: 0 0  16px 24px;
+            color: color(gray5);
+
+            @include desktopStyle {
+                margin: 0 0  24rem 24rem;
+                @include getFont($sansRegular, 18, false, rem);
+            }
+        }
+    }
+
+    &__img-wrap {
+        margin: 0;
+        position: relative;
+        padding-bottom: 133.333%;
+        line-height: 0;
+        border-radius: 4px;
+        overflow: hidden;
+
+        img {
+            @include containImg;
+        }
+
+        @include desktopStyle {
+            border-radius: 4rem;
+        }
+    }
+
+    &__img {
+        line-height: 0;
+        width: 100%;
+
+        @include desktopStyle {
+            position: relative;
+            flex: 0 0 auto;
+            width: 427rem;
+        }
+    }
+}

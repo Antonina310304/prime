@@ -1,0 +1,8 @@
+mixin sliderCard(params, index)
+    a(href='#').slider-card
+        ._in
+            p._img
+                img(src=params.img alt=params.title)
+            ._body
+                p._title=params.title
+                p._subtitle=params.subtitle

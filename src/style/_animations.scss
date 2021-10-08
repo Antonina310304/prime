@@ -1,0 +1,32 @@
+
+.js-soa {
+    opacity: 0;
+    
+    .js-animate-load & {
+        animation: opacity-section 300ms ease-in-out forwards;
+        animation-delay: 250ms;
+    }
+}
+
+#jarallax-container-0 > div {
+    top: 0;
+    bottom: 0;
+    max-height: 100% !important;
+}
+
+
+
+.a-subtitle {
+    opacity: 0;
+    animation: subtitle 900ms ease-in-out 300ms forwards;
+}
+
+@keyframes subtitle {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes opacity-section {
+    from {opacity: 0}
+    to {opacity: 1}
+}

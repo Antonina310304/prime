@@ -1,0 +1,110 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+
+.docs {
+    @include baseListStyle();
+    margin: 0 -20px -24px;
+
+    @include desktopStyle {
+        display: flex;
+        margin: 0 -20rem -40rem;
+    }
+
+    &__item {
+         display: inline-block;
+         margin: 0 20px 24px;
+
+
+        @include desktopStyle {
+            margin: 0 20rem 40rem;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+        
+        
+
+
+    }
+
+    &__link {
+        display: block;
+        position: relative;
+        padding-left: 64px;
+        text-decoration: none;
+        min-height: 56px;
+
+
+        &:before {
+            position: absolute;
+            content: "";
+            width: 56px;
+            height: 56px;
+            display: block;
+            @include baseImgStyle(url("i/icons/pdf.svg"));
+            top: 0;
+            left: 0;
+        }
+
+        @include desktopStyle {
+            padding-left: 64rem;
+            min-height: 56rem;
+
+            &:before {
+                width: 56rem;
+                height: 56rem;
+
+            }
+        }
+    }
+
+    &__name {
+        margin: 0 0 4px;
+        color: color(gray5);
+        @include getFont($oswaldRegular, 16, true);
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 18, true, rem);
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__wrap {
+        margin: 0;
+
+    }
+
+    &__size {
+        color: color(gray3);
+        @include getFont($oswaldRegular, 14, true);
+        padding-right: 8px;
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 16, true, rem);
+        }
+    }
+
+    &__btn {
+        color: color(goldDark);
+        text-decoration: none;
+        font-family: "Oswald Regular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        @include baseTransitionStyle(color);
+
+        @include desktopStyle {
+            font-size: 16rem;
+            line-height: 125%;
+        }
+        
+        .docs__item:hover & {
+            color: color(goldlight);
+            @include baseTransitionStyle(color);
+        }
+    }
+}

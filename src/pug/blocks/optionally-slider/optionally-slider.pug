@@ -1,0 +1,17 @@
+mixin sliderOptionally(params)
+    .optionally-slider.js-optionally-slider
+        ._arrows.container
+            ._arrow.left
+                +arrowLeft({size: 'max', theme: 'dark'})
+            ._arrow.right
+                +arrowRight({size: 'max', theme: 'dark'})
+        if(params.needTitle)
+            //--._title заголовок
+            //--._separator
+            //--    .separator.light
+        ._in
+            ._container.swiper-container.container
+                ._wrapper.swiper-wrapper
+                      each item in params.list
+                         ._item.swiper-slide
+                             +catalogCard(item)(class=params.cardClass)

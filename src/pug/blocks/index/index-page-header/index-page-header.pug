@@ -1,0 +1,19 @@
+mixin indexPageHeader(type)
+    .index-page-header.flex
+        .col-12.col-md-6
+            +companyName('index-page-header__conpany')
+            h1.main-title.js-main-title.dark
+                each val in ['Легендарная', 'Европейская', 'Техника']
+                    div._in
+                        p=val
+                            span.animate-title-block(class=type)
+
+        .col-12.col-md-6
+            .index-page-header__in
+                .index-page-header__logo
+                    .logo
+                        img(src="i/logo-2.svg" alt="логотип кампании")
+                .index-page-header__slogan
+                    .slogan
+                        p Здесь наш ёмкий слоган о чем-то очень важном
+

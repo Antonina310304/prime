@@ -1,0 +1,348 @@
+/************ product-card ***************/
+@import "src/style/_";
+
+
+.product-card {
+    &__wrapper {
+        padding-top: 96px;
+
+        @include desktopStyle {
+            padding-top: 201rem;
+        }
+    }
+
+    &__top-wrapper {
+
+        @include desktopStyle {
+            display: flex;
+        }
+    }
+
+    &__title {
+        line-height: 0;
+        margin: 0 0 12px;
+
+        @include desktopStyle {
+            margin-bottom: 8rem;
+        }
+    }
+
+    &__title-text {
+        display: inline-block;
+        overflow: hidden;
+        margin: 0;
+        position: relative;
+        font-family: "Oswald Light";
+        font-weight: 300;
+        font-size: 48px;
+        line-height: 110%;
+        letter-spacing: -0.005em;
+        text-transform: uppercase;
+        color: color(gray5);
+        color: transparent;
+        animation: product-card-title 700ms ease-in-out forwards;
+        animation-delay: 400ms;
+
+        &.headline {
+            font-size: 40px;
+        }
+
+        @include desktopStyle {
+            font-size: 96rem;
+
+            &.headline {
+                font-size: 80rem;
+            }
+
+        }
+    }
+
+    &__top {
+        background: url('i/noise_.png');
+    }
+
+    &__top-in {
+        margin-top: -40px;
+        position: relative;
+        z-index: 1;
+
+        @include desktopStyle {
+            margin-top: -140rem;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__info {
+
+        @include desktopStyle {
+            padding-right: 213rem;
+            box-sizing: border-box;
+            flex: 1;
+        }
+
+        .swiper-wrapper {
+            height: auto !important;
+        }
+    }
+
+    &__specifications {
+        padding: 16px 0;
+        margin-bottom: 40px;
+        border-top: 1px solid color(dark);
+        border-bottom: 1px solid color(dark);
+
+        @include desktopStyle {
+            padding: 16rem 0;
+            margin-bottom: 40rem;
+            border-width: 1rem;
+        }
+    }
+
+    &__form {
+        @include desktopStyle {
+            margin-top: 40rem;
+            box-sizing: border-box;
+            width: 320rem;
+            flex: 0 0 auto;
+        }
+    }
+
+    &__pin-list {
+        margin-bottom: 40px;
+        margin-left: 2px;
+
+        @include desktopStyle {
+            margin-bottom: 40rem;
+            margin-left: 4rem;
+        }
+    }
+
+    &__breadcrumbs {
+        margin-bottom: 8px;
+
+        @include desktopStyle {
+            margin-bottom: 0;
+        }
+    }
+
+    &__top-inner {
+        @include desktopStyle {
+            width: 640rem;
+            margin-right: auto;
+        }
+    }
+
+    &__descriptions {
+        margin-bottom: 24px;
+
+        h3 {
+            @include getFont($oswaldRegular, 20, true);
+            margin: 40px 0 12px;
+            color: color(gray5);
+        }
+
+        p {
+            @include getFont($sansRegular, 16, false);
+            color: color(gray5);
+            margin: 0 0 24px;
+        }
+
+        ul {
+            @include baseListStyle();
+            margin-bottom: 40px;
+        }
+
+        li {
+            display: block;
+            padding-left: 18px;
+            position: relative;
+            margin: 0;
+            @include getFont($sansRegular, 16, false);
+            color: color(gray5);
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 7px;
+                width: 10px;
+                height: 10px;
+                @include baseImgStyle(url('i/icons/star.svg'))
+            }
+        }
+
+        @include desktopStyle {
+            margin-bottom: 24rem;
+
+            h3 {
+                @include getFont($oswaldRegular, 24, true, rem);
+                margin: 56rem 0 16rem;
+            }
+
+            p {
+                @include getFont($sansRegular, 18, false, rem);
+                margin-bottom: 24rem;
+            }
+
+            ul {
+                margin-bottom: 56rem;
+            }
+
+            li {
+                @include getFont($sansRegular, 18, false, rem);
+                padding-left: 22rem;
+
+                &:before {
+                    top: 9rem;
+                    width: 10rem;
+                    height: 10rem;
+                }
+            }
+        }
+
+        h3:first-child {
+            margin-top: 0;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__info {
+        margin-bottom: 40px;
+
+        @include desktopStyle {
+            margin-bottom: 0;
+        }
+    }
+
+    &__subtitle {
+        margin: 0 0 20px;
+        font-family: "Oswald Regular";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 26px;
+        line-height: 140%;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: color(gray5);
+        text-align: center;
+
+        @include desktopStyle {
+            font-size: 26rem;
+            margin-bottom: 20rem;
+        }
+    }
+
+    &__title-wrap {
+        @include desktopStyle {
+            width: 620rem;
+        }
+    }
+    
+    &__title-wrap-slider {
+        @include desktopStyle {
+            margin-bottom: -88rem;
+        }
+    }
+
+    &__h3 {
+        @include getFont($oswaldRegular, 16, false);
+        color: color(gray5);
+        padding-bottom: 4px;
+        border-bottom: 2px solid color(dark);
+        margin: 0 0 4px;
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 20, false, rem);
+            border-width: 2rem;
+            padding-bottom: 4rem;
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__separatop {
+        margin-bottom: 16px;
+
+        @include desktopStyle {
+            margin-bottom: 32rem;
+        }
+    }
+
+    &__slider {
+        margin-bottom: 48px;
+
+        @include desktopStyle {
+            width: 994rem;
+            margin: 0 auto 96rem;
+        }
+    }
+
+    &__top-slider {
+        margin-bottom: 40px;
+
+        @include desktopStyle {
+            margin-bottom: 56rem;
+        }
+
+    }
+
+    &__section {
+        border-bottom: 1px solid color(dark);
+        padding-bottom: 40px;
+        margin-bottom: 32px;
+
+
+        @include desktopStyle {
+            border-width: 1rem;
+            padding-bottom: 80rem;
+            margin-bottom: 40rem;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__docs {
+        overflow: hidden;
+    }
+    
+    &__side-page-content {
+        display: none;
+    }
+}
+
+
+@keyframes product-card-title {
+    from {color: transparent}
+    to {color: color(gray5)}
+}
+
+@keyframes product-card-title-reform {
+    from {color: transparent}
+    to {color: #c0a968}
+}
+
+@keyframes product-card-title-fae {
+    from {color: transparent}
+    to {color: #c0a968}
+}
+
+@keyframes product-card-title-merlo {
+    from {color: transparent}
+    to {color: #c0a968}
+}
+
+@keyframes product-card-title-pistenbully {
+    from {color: transparent}
+    to {color: #c0a968}
+}

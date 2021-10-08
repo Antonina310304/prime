@@ -1,0 +1,6 @@
+mixin cardDefaultList(params)
+    .card-default-list
+        each val in params
+            ._item
+                +cardDefault(val)
+                    block

@@ -1,0 +1,14 @@
+mixin insta(instaList)
+    .insta&attributes(attributes)
+        ._header
+            ._title Мы в instagram
+            ._wrap
+                a(href="https://www.instagram.com/prime_pride_co/?hl=ru" target="_blank")._link @prime_pride
+                ._counter
+                    p.js-counter-title.counter-title
+
+        ._content
+            +_border
+            ._in
+                ._list
+                    +instaList(instaList)

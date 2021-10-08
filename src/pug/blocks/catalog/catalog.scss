@@ -1,0 +1,145 @@
+/************ catalog-title ***************/
+@import "src/style/_";
+
+.catalog {
+
+    &__top {
+        margin-top: -66px;
+
+        @include desktopStyle {
+            margin-top: -220rem;
+        }
+    }
+
+    &__description {
+
+        p {
+            @include getFont($sansRegular, 16, false);
+            color: color(gray1);
+            margin: 0 0 24px;
+
+            @include desktopStyle {
+                @include getFont($sansRegular, 18, false, rem);
+                margin-bottom: 24rem;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        @include desktopStyle {
+            width: 50%;
+        }
+    }
+
+    //&__header {
+    //    @include darkTheme;
+    //    padding-top: 32px;
+    //    padding-bottom: 48px;
+    //
+    //    @include desktopStyle {
+    //        padding-top: 88rem;
+    //        padding-bottom: 96rem;
+    //    }
+    //}
+
+    &__title-tab {
+        margin: 0 0 4px;
+        color: color(gray5);
+        @include getFont($oswaldRegular, 16, false);
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 20, false, rem);
+            margin: 0 0 4rem;
+        }
+    }
+
+    &__separator {
+        border-top: 2px solid color(dark);
+        padding-top: 4px;
+        margin-bottom: 8px;
+
+        @include desktopStyle {
+            border-width: 2rem;
+            padding-top: 4rem;
+            margin-bottom: 8rem;
+        }
+    }
+
+    &__wrapper {
+        margin-bottom: 24px;
+
+        @include desktopStyle {
+            margin-bottom: 40rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            .title-group {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__breadcrumbs {
+        margin-bottom: 8px;
+
+        @include desktopStyle {
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        font-family: 'Oswald Light';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 48px;
+        line-height: 110%;
+        line-height: 0;
+        letter-spacing: -0.005em;
+        text-transform: uppercase;
+        color: color(gray1);
+        color: transparent;
+        margin: 0 0 12px;
+        text-align: left;
+
+        @include desktopStyle {
+            font-size: 80rem;
+            margin-bottom: 16rem;
+        }
+    }
+
+    &__title-text {
+        display: inline-block;
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        max-width: 100%;
+        overflow-wrap: break-word;
+        line-height: 110%;
+        animation: animation-catalog-title 700ms ease-in forwards;
+        animation-delay: 400ms;
+    }
+
+    &__list {
+        margin-top: 24px;
+
+        @include desktopStyle {
+            margin-top: 40rem;
+        }
+    }
+
+    &__section {
+        margin-bottom: 48px;
+
+        @include desktopStyle {
+            margin-bottom: 64rem;
+        }
+    }
+}
+
+@keyframes animation-catalog-title {
+    form {color: transparent}
+    to {color: color(gray1)}
+}

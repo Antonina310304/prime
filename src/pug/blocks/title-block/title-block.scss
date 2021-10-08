@@ -1,0 +1,127 @@
+/************ шапка ***************/
+
+@import "src/style/_";
+
+.title-group {
+    margin-bottom: 24px;
+
+    &.center {
+        text-align: center;
+    }
+
+    @include desktopStyle {
+
+        .page__group-wrap & {
+            margin-bottom: 0;
+        }
+
+        margin-bottom: 40rem;
+    }
+
+    & &__wrap {
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+        max-width: 100%;
+        margin: 0;
+        padding-left: 18px;
+        overflow: hidden;
+        line-height: 110%;
+
+        @include desktopStyle {
+            padding-left: 18rem;
+        }
+    }
+
+    &__counter {
+        position: absolute;
+        top: 6px;
+        left: 0;
+
+        @include desktopStyle {
+            top: 10rem;
+        }
+    }
+
+    &__text {
+        position: relative;
+        max-width: 100%;
+        word-wrap: break-word;
+        word-break: keep-all;
+        overflow-wrap: break-word;
+    }
+
+    &__title {
+        position: relative;
+        margin: 0 0 12px;
+        font-weight: 300;
+        font-size: 44px;
+        line-height: 0;
+        font-family: "Oswald Light";
+        color: transparent;
+        text-transform: uppercase;
+        font-style: normal;
+        letter-spacing: -0.005em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .js-animate-load .title-group.dark & {
+            animation: title-group-dark-animate 600ms ease-in-out forwards;
+            animation-delay: 400ms;
+            //color: color(gray5);
+        }
+
+        .js-animate-load .title-group.light & {
+            animation: title-group-light-animate 600ms ease-in-out forwards;
+            animation-delay: 400ms;
+            //color: color(goldlight);
+        }
+
+        @include desktopStyle {
+            margin-bottom: 16rem;
+            font-size: 72rem;
+            letter-spacing: inherit;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        padding-left: 20px;
+
+        @include getFont($sansRegular, 18, false);
+        color: color(gray5);
+
+        @include desktopStyle {
+            padding-left: 20rem;
+            font-size: 20rem;
+        }
+    }
+}
+
+
+@keyframes title-group-dark-animate {
+    from {
+        color: transparent;
+    }
+
+    to {
+        color: color(goldlight);
+    }
+}
+
+
+@keyframes title-group-light-animate {
+    0% {
+        color: transparent;
+    }
+
+    25% {
+        color: transparent;
+    }
+
+    100% {
+        color: color(gray5);
+    }
+}

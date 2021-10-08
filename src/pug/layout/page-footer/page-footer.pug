@@ -1,0 +1,40 @@
+mixin pageFooter
+    footer(class=needFloatNav ? 'page-footer--padding' : '').page-footer
+        .container
+            .page-footer__separatop
+                .separator
+            .page-footer__top
+                .page-footer__item
+                    .page-footer__counter
+                        p.js-counter-title.counter-title
+                    .page-footer__inner
+                        +companyInfo
+                .page-footer__separator
+                    .separator
+                .page-footer__item
+                    .page-footer__counter
+                        p.js-counter-title.counter-title
+                    +footerForm
+            .page-footer__middle
+                +footerMakerList
+                .page-footer__region.d-none.d-dt-block
+                    +locationButton
+
+            .page-footer__bottom
+                .page-footer__text
+                    .info-text Для повышения качества услуг сайт использует cookies. Используя сайт, вы соглашаетесь с
+                        a(href="#").gold-link   правилами использования cookies
+                .page-footer__region.d-dt-none
+                    +locationButton
+                .page-footer__copyright © 2021, Prime Pride
+        if(needFloatNav)
+            +floatNav({list: floatNavCatalog, type: floatNavType, activeSlide: activeFloatNavSlide})
+
+        .modal
+            ._close
+                +buttinClose
+            ._inner
+        +cookies
+        +selectLocation
+
+

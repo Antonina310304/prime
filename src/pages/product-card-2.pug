@@ -1,0 +1,50 @@
+extends ../pug/layout/layout.pug
+block var
+    include ../pug/_var
+    - var pageTitle = pages.index.title;
+    - var isLinkLogo = pages.catalog.isLinkLogo;
+    - var mainClass = pages.catalog.mainClass;
+    - var isFullHead = true;
+    - var className = names.REFORM;
+    - var pageName = names.REFORM;
+    - var needFloatNav = true;
+    - var floatNavType = 'full';
+
+    -
+        var floatNavCatalog = [
+            {
+                title: 'Длинный заголовок для теста',
+                img: 'i/float-nav/1.png',
+            },
+            {
+                title: 'Boki mini',
+                img: 'i/float-nav/2.png',
+            },
+            {
+                title: 'Metron',
+                img: 'i/float-nav/1.png',
+            },
+            {
+                title: 'Muli',
+                img: 'i/float-nav/3.png',
+            },
+            {
+                title: 'Muli new',
+                img: 'i/float-nav/1.png',
+            },
+            {
+                title: 'Mounty',
+                img: 'i/float-nav/1.png',
+            },
+            {
+                title: 'PistenBully 600 E',
+                img: 'i/float-nav/1.png',
+            },
+            {
+                title: 'Boki mini',
+                img: 'i/float-nav/1.png',
+            }
+        ]
+
+block content
+    +productCard2

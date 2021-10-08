@@ -1,0 +1,272 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+.card-news {
+    display: flex;
+    text-decoration: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+
+
+    @include desktopStyle {
+        //display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        //border-right: 0;
+        flex: inherit;
+    }
+
+
+    &__wrap {
+        margin-top: auto;
+    }
+
+    &__btn {
+        display: none;
+
+        @include desktopStyle {
+            display: block;
+        }
+    }
+
+
+    &--first {
+        .column & {
+            @include desktopStyle {
+                flex-direction: column;
+                border-left: 0;
+                border-bottom: 0;
+                width: 100%;
+                flex: 1;
+            }
+        }
+    }
+
+
+    &__img {
+        flex: 0 0 auto;
+        padding: 7px 7px 24px;
+        box-sizing: border-box;
+        overflow: hidden;
+        width: 100%;
+
+        @include desktopStyle {
+            order: 2;
+            width: 240rem;
+            flex: 0 0 auto;
+            padding: 6.84rem 0;
+
+            .column .card-news--first & {
+                order: -1;
+                width: auto;
+                padding-top: 8rem;
+                padding-bottom: 0;
+
+            }
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            @include baseTransitionStyle(transform);
+
+            .card-news:hover & {
+                transform: scale(1.1);
+                @include baseTransitionStyle(transform);
+            }
+        }
+    }
+
+    &__img-in {
+        height: 0;
+        padding-bottom: 61.8%;
+        line-height: 0;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        display: block;
+        line-height: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            position: absolute;
+            min-width: 100%;
+            min-height: 100%;
+            flex-shrink: 0;
+            max-width: none;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+
+    &__body {
+        padding: 0 15px 15px;
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        &:before {
+            @include baseImgStyle(url('i/icons/arrow-right-down.svg'));
+            @include baseTransitionStyle(transform);
+            display: block;
+            position: absolute;
+            content: "";
+            right: 16px;
+            bottom: 16px;
+            width: 24px;
+            height: 24px;
+        }
+
+        .card-news:hover & {
+            &:before {
+                transform: rotate(-45deg);
+                @include baseTransitionStyle(transform);
+            }
+        }
+
+        @include desktopStyle {
+            padding: 32rem 24rem 24rem;
+            display: flex;
+            flex-wrap: wrap;
+
+            &:before {
+                right: 24rem;
+                bottom: 24rem;
+                width: 24rem;
+                height: 24rem;
+            }
+
+            .card-news--first & {
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 26rem;
+
+            }
+        }
+    }
+
+    &__wrap {
+        @include desktopStyle {
+            display: flex;
+            align-items: center;
+
+            .card-news--first & {
+                margin-top: auto;
+            }
+        }
+    }
+
+    &__title {
+        @include getFont($oswaldRegular, 20, false);
+        @include baseTransitionStyle(color);
+        margin: 0 0 16px;
+        color: color(gray1);
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 24, false, rem);
+            margin-bottom: 16rem;
+
+            .card-news--first & {
+                font-size: 28rem;
+                letter-spacing: 0.005em;
+            }
+
+        }
+        
+        .news.light & {
+            color: color(gray5);
+            @include baseTransitionStyle(color);
+
+            .card-news:hover & {
+                color: color(goldlight);
+                @include baseTransitionStyle(color);
+            }
+        }
+    
+        .card-news:hover & {
+            color: color(goldlight);
+            @include baseTransitionStyle(color);
+        }
+    }
+
+    &__date {
+        margin: 0;
+        @include getFont($oswaldMedium, 14, true);
+
+        @include desktopStyle {
+            @include getFont($oswaldMedium, 14, true, rem);
+        }
+    }
+
+    &__day {
+        display: inline-block;
+        color: color(goldlight);
+        padding-right: 2px;
+
+        .news.light & {
+            color: color(goldDark);
+        }
+
+    }
+
+    &__year {
+        color: color(goldDark);
+
+        &:before {
+            display: inline-block;
+            content: "/";
+            padding: 0 2px;
+
+
+            @include desktopStyle {
+                padding: 0 2rem;
+            }
+
+        }
+
+        .news.light & {
+            color: color(gray3);
+        }
+
+    }
+
+    &__maker {
+        margin: 0;
+        @include getFont($oswaldRegular, 16, false);
+        color: color(gray3);
+
+        .news.light & {
+            color: color(gray5);
+        }
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 16, false, rem);
+            display: inline-block;
+            position: relative;
+            padding-left: 32rem;
+
+            &:before {
+                position: absolute;
+                left: 16rem;
+                top: 50%;
+                transform: translateY(-50%);
+                display: inline-block;
+                width: 1px;
+                height: 16rem;
+                content: "";
+                padding-right: 16rem;
+                border-left: 1rem solid color(dark);
+            }
+        }
+    }
+}

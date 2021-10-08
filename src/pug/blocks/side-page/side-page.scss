@@ -1,0 +1,230 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+
+.side-page {
+    position: fixed;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: -100%;
+    width: 100%;
+    z-index: 150;
+    background: url("i/noise_.png"), #FCFDFC;
+    
+    @include desktopStyle {
+	right: -576rem;
+    }
+    
+    &.dark {
+	background: url("i/noise_.png"), #0A0B0A;
+    }
+    
+    &:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	@include backdrop;
+	
+    }
+    
+    @include desktopStyle {
+	width: 576rem;
+    }
+    
+    &__inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+    }
+    
+    &__in {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	
+	
+    }
+    
+    &__form {
+	padding-bottom: 48px;
+	@include desktopStyle {
+	    padding-bottom: 96rem;
+	}
+    
+    }
+    
+    &__wrap {
+	margin-bottom: 32px;
+	
+	@include desktopStyle {
+	    margin-bottom: 48rem;
+	}
+    }
+    
+    &__title {
+	font-family: 'Oswald Light';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 110%;
+	letter-spacing: -0.005em;
+	text-transform: uppercase;
+	color: color(gray5);
+	margin: 0 0 24px;
+
+	@include desktopStyle {
+	    font-size: 64rem;
+	    margin-bottom: 40rem;
+	}
+    }
+    
+    &__title-gold {
+	font-family: "Oswald Light";
+	font-style: normal;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 110%;
+	text-align: center;
+	letter-spacing: -0.005em;
+	text-transform: uppercase;
+	color: color(goldlight);
+	margin: 0 0 16px;
+ 
+	@include desktopStyle {
+	    font-size: 48rem;
+	    margin-bottom: 16rem;
+	}
+    
+    }
+    
+    &__wrapper {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	padding: 0 48px;
+	
+	@include desktopStyle {
+	    padding: 0;
+	}
+    }
+    
+    &__subtitle {
+	@include getFont($sansRegular, 16, false);
+	color: color(gray1);
+	margin: 0 0 24px;
+	
+	
+	@include desktopStyle {
+	    @include getFont($sansRegular, 18, false, rem);
+	    margin-bottom: 24rem;
+	}
+	
+	&:last-child {
+	    margin-bottom: 0;
+	}
+    }
+    
+    
+    &__text {
+	@include getFont($sansRegular, 16, false);
+	color: color(gray5);
+	margin: 0 0 24px;
+	
+	@include desktopStyle {
+	    @include getFont($sansRegular, 18, false, rem);
+	    margin-bottom: 24rem;
+	}
+	
+	&:last-child {
+	    margin-bottom: 0;
+	}
+	
+    }
+    
+    &__head {
+	height: 48px;
+	flex: 0 0 auto;
+	
+	@include desktopStyle {
+	    height: 96rem;
+	}
+    }
+    
+    &__body {
+	display: flex;
+	flex: 1;
+	overflow-y: auto;
+	width: 100%;
+	box-sizing: border-box;
+	
+	&.scroll-wrapper {
+	    padding: 0 16px !important;
+	}
+	
+	@include desktopStyle {
+	    &.scroll-wrapper {
+		padding: 0 64rem !important;
+	    }
+	}
+    }
+    
+    &__close {
+	position: absolute;
+	z-index: 10;
+	top: 8px;
+	right: 8px;
+	
+	@include desktopStyle {
+	    top: 8rem;
+	    right: 8rem;
+	}
+    }
+    
+    .scroll-element_track {
+	display: none !important;
+    }
+    
+    .scroll-bar {
+	background: color(goldDark) !important;
+	opacity: 1 !important;
+    }
+    
+    .scroll-element_outer {
+	@include desktopStyle {
+	    border-radius: 8rem !important;
+	}
+    }
+    
+    .scrollbar-inner > .scroll-element.scroll-y {
+	
+	@include desktopStyle {
+	    right: 4rem;
+	}
+    }
+    
+    &__select {
+	margin-bottom: 24px;
+	
+	@include desktopStyle {
+	    margin-bottom: 24rem;
+	}
+    }
+    
+    &__list {
+	padding-bottom: 24px;
+	
+	@include desktopStyle {
+	    padding-bottom: 24rem;
+	}
+    }
+}

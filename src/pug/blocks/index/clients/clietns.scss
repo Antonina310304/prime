@@ -1,0 +1,62 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+@mixin line {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 59px;
+    height: 1px;
+    border-bottom: 1px solid color(dark);
+    top: 50%;
+
+    @include desktopStyle {
+        width: 240rem;
+    }
+}
+.clients {
+    &__list {
+        margin-bottom: 24px;
+
+        @include desktopStyle {
+            margin-bottom: 24rem;
+        }
+    }
+
+    &__separator {
+        text-align: center;
+
+
+        p {
+            @include getFont($sansRegular, 16, false);
+            position: relative;
+            width: 50%;
+            margin: auto;
+            text-align: center;
+            padding-left: 24px;
+            padding-right: 24px;
+            color: color(gray1);
+
+            &:before {
+                @include line;
+                left: 0;
+                transform: translate(-100%, -50%);
+            }
+
+            &:after {
+                @include line;
+                right: 0;
+                transform: translate(100%, -50%);
+            }
+
+            @include desktopStyle {
+                display: inline-block;
+                width: auto;
+                @include getFont($sansRegular, 18, false, rem);
+                padding-left: 24rem;
+                padding-right: 24rem;
+                color: color(goldlight);
+            }
+        }
+    }
+}

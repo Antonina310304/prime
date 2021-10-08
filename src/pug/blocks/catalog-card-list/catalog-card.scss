@@ -1,0 +1,36 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+
+.catalog-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -8px;
+
+    @media(min-width: 576px) {
+        margin: 0 -4px -8px;
+    }
+
+    @include desktopStyle {
+        margin: 0 -4rem -8rem;
+    }
+
+    &__item {
+        box-sizing: border-box;
+        width: 100%;
+        margin-bottom: 8px;
+        display: flex;
+
+        @media(min-width: 576px) {
+            width: 50%;
+            padding: 0 4px;
+        }
+
+        @include desktopStyle {
+            width: 33.3333%;
+            margin-bottom: 8rem;
+            padding: 0 4rem;
+        }
+    }
+
+}

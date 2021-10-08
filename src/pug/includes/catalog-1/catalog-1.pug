@@ -1,0 +1,27 @@
+include data
+
+mixin catalog1
+    .catalog
+        header._header.dark-page-head
+            ._in.container
+                ._breadcrumbs
+                    +breadcrumbs(breadcrumbsCatalog1, 'dark')
+                +_catalogTitle('Каталог fae')
+                //h1.catalog__title
+            ._list.container
+                .catalog-header-list
+                    each val in catalog1List
+                        ._item
+                            +cardDefaultNoLink(val)
+                                +arrowList(val.sublist)
+        section._content.page__section.dark.js-animate
+            .container
+                +titleBlock({aling: 'left', theme: 'light', title: ['Сертификаты'], subtitle: 'Являемся официальным дилером продукции Merlo в Самарской и Ульяновской областях'})
+            .catalog__slider.js-soa.is-scroll-invisible
+                +certificateSlider({theme: 'dark', list: sliderCertificates, params: {isNeedBtn: false, isNeedBullet: true}})
+        section._content.page__section
+            .container.js-animate
+                include two-column
+        section._content.page__section
+            .container.js-animate
+                +staffBlock

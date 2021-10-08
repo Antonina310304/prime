@@ -1,0 +1,27 @@
+include data
+
+mixin special
+    .catalog
+        header._header.dark-page-head
+            ._in.container
+                ._breadcrumbs
+                    +breadcrumbs(breadcrumbsCatalog1, 'dark')
+                +_catalogTitle2
+                .catalog__description.a-subtitle
+                    p Если вы ищете ищет подержанную машину или навесное оборудование, компания PrimeTech предлагает парк таких машин, как мульчеры, фрезы, гусеничные машины и тракторы. Все они находятся в отличном состоянии и способны удовлетворить потребности вашего бизнеса. Это проверенные машины, прошедшие техническое обслуживание, готовые к поставке.
+
+        section._content.page__section.dark.js-animate
+            .container
+                +titleBlock({
+                    aling: 'left',
+                    theme: 'light',
+                    title: ['Модели'],
+                })
+                .catalog-card-list.js-catalog-list.js-soa.is-scroll-invisible
+                    each val in catalogSpecialList
+                        ._item
+                            +catalogCard(val)
+
+        section._content.page__section
+            .container.js-animate
+                +staffBlock

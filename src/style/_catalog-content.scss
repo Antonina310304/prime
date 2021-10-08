@@ -1,0 +1,296 @@
+.catalog-content {
+
+
+    .img-wrap {
+        line-height: 0;
+        height: 0;
+        padding-bottom: 56.25%;
+        position: relative;
+
+        img {
+            @include coverImg();
+        }
+    }
+
+    [class ^= col] .img-wrap {
+        padding-bottom: 61.80%;
+        line-height: 0;
+        height: 0;
+        position: relative;
+    }
+
+    @include getFont($sansRegular, 16, false);
+    color: color(gray5);
+
+    @include desktopStyle {
+        @include getFont($sansRegular, 18, false, rem);
+    }
+
+    b {
+        @include getFont($oswaldBold, 14, false);
+
+        @include desktopStyle {
+            @include getFont($oswaldBold, 18, false, rem);
+        }
+    }
+
+    h4 {
+        color: color(gray5);
+        @include getFont($sansRegular, 18, false);
+        margin-bottom: 24px;
+        margin-left: 20px;
+
+        @include desktopStyle {
+            width: 50%;
+            @include getFont($sansRegular, 20, false, rem);
+            margin-left: 20rem;
+            margin-bottom: 40rem;
+        }
+
+    }
+    h3 {
+        @include getFont($oswaldRegular, 20, true);
+        margin: 40px 0 12px;
+        color: color(gray5);
+        padding: 0 18px;
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 24, true, rem);
+            margin: 56rem 0 16rem;
+            padding: 0 16rem;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+
+    }
+
+    p {
+        @include getFont($sansRegular, 16, false);
+        margin: 0 0 24px;
+        color: color(gray5);
+        padding: 0 18px;
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 18, false, rem);
+            margin-bottom: 24rem;
+            padding: 0 16rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    ul {
+        @include baseListStyle();
+        margin-bottom: 40px;
+        padding: 0 18px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include desktopStyle {
+            margin-bottom: 56rem;
+            padding: 0 16rem;
+        }
+    }
+
+
+    li {
+        display: block;
+        padding-left: 18px;
+        position: relative;
+        margin: 0;
+        @include getFont($sansRegular, 16, false);
+        color: color(gray5);
+
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 10px;
+            height: 10px;
+            @include baseImgStyle(url('i/icons/star.svg'))
+        }
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 18, false, rem);
+            padding-left: 22rem;
+
+            &:before {
+                top: 9rem;
+                width: 10rem;
+                height: 10rem;
+            }
+        }
+    }
+
+
+    img, .img-wrap {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 4px;
+        margin-bottom: 32px;
+        margin-top: 40px;
+        line-height: 0;
+        
+        &.img-d-10 {
+            @include desktopStyle {
+                width: 83.33%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @include desktopStyle {
+            border-radius: 4rem;
+            margin-top: 32rem;
+            margin-top: 40rem;
+            margin-bottom: 32rem;
+            
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    img + h3,
+    .img-wrap + h3 {
+        margin-top: 0;
+    }
+    
+    h4 + img,
+    h4 + .img-wrap {
+        margin-top: 0;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .table-wrap {
+        margin-bottom: 32px;
+
+        @include desktopStyle {
+            padding-left: 18rem;
+            padding-right: 18rem;
+            margin-bottom: 64rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+    }
+
+    tbody {
+        overflow: scroll;
+    }
+
+    //заголовок таблица
+    tr th {
+        @include getFont($oswaldMedium, 14, true);
+        color: color(goldDark);
+        text-align: right;
+        padding: 0 16px;
+        
+        &:last-child {
+            padding-right: 0;
+        }
+
+        @include desktopStyle {
+            @include getFont($oswaldMedium, 16, true, rem);
+            padding: 0 16rem;
+        }
+    }
+
+    caption {
+        @include getFont($oswaldRegular, 18, true);
+        color: color(gray5);
+        margin: 0 0 13px;
+        text-align: left;
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 24, true, rem);
+            margin-bottom: -22rem;
+        }
+    }
+
+    td {
+        padding: 12px 16px 8px;
+        box-sizing: border-box;
+        border-bottom: 1px solid color(dark);
+        min-width: 103px;
+        flex: 1;
+        vertical-align:bottom;
+
+        @include getFont($sansRegular, 14, false);
+        text-align: right;
+
+        &:first-child {
+            text-align: left;
+            padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+
+        @include desktopStyle {
+            border-width: 1rem;
+            @include getFont($sansRegular, 18, false, rem);
+            //width: 50%;
+            flex: 1;
+            padding: 24rem 16rem 12rem;
+        }
+    }
+}
+
+@media(min-width: 576px) and (max-width: 767px) {
+    .catalog-content .col-md-2:nth-child(2) h3:first-child {
+        margin-top: 0;
+    }
+
+    .catalog-content .col-md-2:nth-child(2) img:first-child,
+    .catalog-content .col-md-2:nth-child(2) .img-wrap:first-child {
+        margin-top: 0;
+    }
+
+}
+
+@media(max-width: 767px) {
+    .col-d-2:first-child h3:first-child {
+        margin-top: 0;
+    }
+
+    .col-d-3:first-child h3:first-child {
+        margin-top: 0;
+    }
+
+    .catalog-content .col-d-2:first-child img,
+    .catalog-content .col-d-2:first-child .img-wrap {
+        margin-top: 0;
+    }
+    .catalog-content .col-d-3:first-child img,
+    .catalog-content .col-d-3:first-child .img-wrap {
+        margin-top: 0;
+    }
+
+    .catalog-content img,
+    .catalog-content .img-wrap {
+        margin-top: 40px;
+    }
+}

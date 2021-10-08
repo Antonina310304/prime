@@ -1,0 +1,8 @@
+mixin instaList(instaList)
+    .insta-list
+        ul.__list
+            each val, index in instaList
+                li._item
+                    ._in
+                        a(href="#")._link
+                            img(src=`i/insta/${val.img}`)

@@ -1,0 +1,171 @@
+/************ типографика ***************/
+
+/*основные типы шрифтов*/
+
+
+@mixin getFont($font, $size, $isCaps: false, $unit: px) {
+    @include getFontFamily($font);
+    font-size: #{$size}#{$unit};
+    @include getLettesSpacing($font, $size, $isCaps);
+}
+
+@mixin getFontFamily($font) {
+    @if $font == $sansRegular {
+        font-family: 'Open Sans Regular', sans-serif;
+        font-weight: 400;
+        line-height: 150%;
+
+    } @else if $font == $sansSemibold {
+        font-family: "Open Sans Semibold" , sans-serif;
+        font-weight: 600;
+        line-height: 150%;
+
+    } @else if $font == $sansBold {
+        font-family: "Open Sans Bold" , sans-serif;
+        font-weight: 700;
+        line-height: 150%;
+
+    } @else if $font == $oswaldRegular {
+        font-family: "Oswald Regular" , sans-serif;
+        font-weight: 400;
+        line-height: 140%;
+
+    } @else if $font == $oswaldMedium {
+        font-family: "Oswald Medium" , sans-serif;
+        font-weight: 500;
+        line-height: 140%;
+    }
+}
+
+
+@mixin getLettesSpacing($font, $size, $isCaps) {
+    @if $font == $sansRegular {
+        @include getLettesSpacingSansRegular($size);
+
+    } @else if $font == $sansSemibold {
+        @include getLettesSpacingSansSemibold($size);
+
+    } @else if $font == $sansBold {
+        @include getLettesSpacingSansBold($size);
+
+    } @else if $font == $oswaldRegular {
+        @include getLettesSpacingOswaldRegular($size, $isCaps);
+
+    } @else if $font == $oswaldMedium {
+        @include getLettesSpacingOswaldMedium($size, $isCaps);
+    }
+}
+
+@mixin getLettesSpacingOswaldRegular($size, $isCaps) {
+    @if $size == 16 and $isCaps == false {
+        letter-spacing: 0.0325em;
+
+    }  @else if $size == 16 and $isCaps == true {
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+    } @else if $size == 14 and $isCaps == true {
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+    } @else if $size == 18 and $isCaps == false {
+        letter-spacing: 0.03em;
+
+    } @else if $size == 18 and $isCaps == true {
+        letter-spacing: 0.045em;
+        text-transform: uppercase;
+
+    } @else if $size == 20 and $isCaps == false {
+        letter-spacing: 0.025em;
+
+    } @else if $size == 20 and $isCaps == true {
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+
+    } @else if ($size == 24 or $size > 24) and $isCaps == true {
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+
+    } @else if ($size == 24 or $size > 24)  and $isCaps == false {
+        letter-spacing: 0.02em;
+    }
+}
+
+@mixin getLettesSpacingOswaldMedium($size, $isCaps) {
+    @if $size == 14 and $isCaps == true {
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+
+    } @if $size == 16 and $isCaps == true {
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+
+    } @if $size == 16 and $isCaps == false {
+        letter-spacing: 0.0325em;
+
+    } @else if $size == 18 and $isCaps == true {
+        letter-spacing: 0.045em;
+        text-transform: uppercase;
+
+    } @else if $size == 18 and $isCaps == false {
+        letter-spacing: 0.03em;
+
+    } @else if $size == 20 and $isCaps == false {
+        letter-spacing: 0.015em;
+
+    } @else if $size == 20 and $isCaps == true{
+        letter-spacing: 0.01em;
+
+    } @else if ($size == 24 or $size > 24) and $isCaps == false {
+        letter-spacing: 0.005em;
+
+    } @else if ($size == 24 or $size > 24) and $isCaps == true {
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+    }
+}
+//
+//@mixin getLettesSpacingOswaldMedium($size) {
+//    @if $size == 16 {
+//        letter-spacing: 0.0325em;
+//    } @else if $size == 18 {
+//        letter-spacing: 0.03em;
+//    } @else if $size == 20 {
+//        letter-spacing: 0.015em;
+//    } @else if $size == 24 and $size > 24 {
+//        letter-spacing: 0.005em;
+//    }
+//}
+
+
+
+@mixin getLettesSpacingSansRegular($size) {
+    @if $size == 16 {
+        letter-spacing: -0.002em;
+    } @else if $size == 18 {
+        letter-spacing: -0.01em;
+    } @else if $size == 20 or $size > 20{
+        letter-spacing: -0.01em;
+    }
+}
+
+@mixin getLettesSpacingSansSemibold($size) {
+    @if $size == 16 {
+        letter-spacing: -0.005em;
+    } @else if $size == 18 {
+        letter-spacing: -0.015em;
+    } @else if $size == 20 or $size > 20 {
+        letter-spacing: -0.015em;
+    }
+}
+
+@mixin getLettesSpacingSansBold($size) {
+    @if $size == 16 {
+        letter-spacing: -0.01em;
+    } @else if $size == 18 {
+        letter-spacing: -0.02em;
+    } @else if $size == 20 or $size > 20 {
+        letter-spacing: -0.02em;
+    }
+}
+

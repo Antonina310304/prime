@@ -1,0 +1,145 @@
+@import "_";
+
+
+/************ стили сетки ***************/
+
+.d-none {
+    display: none;
+}
+
+.d-dt-block {
+    @include desktopStyle {
+        display: block !important;
+    }
+
+}
+.d-none {
+    display: none;
+}
+
+.d-dt-none {
+    @include desktopStyle {
+        display: none;
+    }
+
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.col-md-6 {
+    @include desktopStyle {
+        width: 50%;
+    }
+
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
+
+    @include desktopStyle {
+        padding-left: 80rem;
+        padding-right: 80rem;
+
+    }
+
+    @include stopResize {
+        width: #{$widthStopResize}px;
+        margin: auto;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include desktopStyle {
+        margin: 0;
+    }
+}
+
+.col-d-2 {
+    width: 100%;
+    padding: 0 18px 24px;
+    padding: 0;
+
+    @include desktopStyle {
+        box-sizing: border-box;
+        width: 50%;
+        padding: 0 24rem;
+        padding: 0;
+    }
+}
+.col-d-3 {
+    @include desktopStyle {
+        margin-top: 40rem;
+    }
+
+    width: 100%;
+    padding: 0 18px 0;
+    padding: 0;
+
+    @include desktopStyle {
+        box-sizing: border-box;
+        width: 33.333%;
+        padding: 0 24rem;
+        padding: 0 8rem;
+    }
+}
+
+.col-d-10 {
+    width: 100%;
+    padding: 0 18px 0;
+    padding: 0;
+    
+
+    @include desktopStyle {
+        box-sizing: border-box;
+        width: 83.33%;
+        padding: 0 24rem;
+        padding: 0 8rem;
+        margin: 0 auto;
+    }
+}
+
+.col-md-2 {
+
+    @include desktopStyle {
+        margin-top: 40rem;
+
+        &:first-child, &:nth-child(2) {
+            margin-top: 0;
+        }
+    }
+
+    @media(min-width: 576px) and (max-width: 767px) {
+        width: 50%;
+        box-sizing: border-box;
+        padding: 0 4px;
+    
+        &:last-child {
+            flex: 1;
+        }
+    }
+    
+}
+
+
+.col-d-3 {
+
+    @include desktopStyle {
+        margin-top: 40rem;
+
+        &:first-child, &:nth-child(2), &:nth-child(3) {
+            margin-top: 0;
+        }
+    }
+}

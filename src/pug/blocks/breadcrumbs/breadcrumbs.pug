@@ -1,0 +1,8 @@
+mixin breadcrumbs(list, theme)
+    ul(class=theme).breadcrumbs
+        each val, index in list
+            li._item
+                if(index == list.length - 1)
+                    p._link.disabled=val
+                else
+                    a(href="#")._link=val

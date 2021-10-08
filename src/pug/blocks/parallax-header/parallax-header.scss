@@ -1,0 +1,43 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+.parallax-header {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%;
+    background: url('i/noise_.png'), linear-gradient(180deg,rgba(10, 11, 10, 0) 48.44%, #0A0B0A 100%);
+    background: url('i/noise_.png'), linear-gradient(180deg, rgba(10, 11, 10, 0.0001) 0%, rgba(10, 11, 10, 0.01) 33.33%, rgba(10, 11, 10, 0.03) 40.52%, rgba(10, 11, 10, 0.1) 48.1%, rgba(10, 11, 10, 0.2) 57.1%, rgba(10, 11, 10, 0.290196) 65.11%, rgba(10, 11, 10, 0.392157) 72.44%, rgba(10, 11, 10, 0.501961) 78.49%, rgba(10, 11, 10, 0.607843) 83.41%, rgba(10, 11, 10, 0.709804) 87.17%, rgba(10, 11, 10, 0.8) 90.14%, rgba(10, 11, 10, 0.88) 93.54%, rgba(10, 11, 10, 0.96) 96.66%, #0A0B0A 100%);
+    overflow: hidden;
+
+    &.light {
+        background: url('i/noise_.png'), linear-gradient(180deg, rgba(252, 253, 252, 0) 52.6%, #FCFDFC 100%);
+        background: url('i/noise_.png'), linear-gradient(180deg, rgba(252, 253, 252, 0.0001) 0%, rgba(252, 253, 252, 0.01) 33.33%, rgba(252, 253, 252, 0.03) 40.52%, rgba(252, 253, 252, 0.1) 48.1%, rgba(252, 253, 252, 0.2) 57.1%, rgba(252, 253, 252, 0.290196) 65.11%, rgba(252, 253, 252, 0.392157) 72.44%, rgba(252, 253, 252, 0.501961) 78.49%, rgba(252, 253, 252, 0.607843) 83.41%, rgba(252, 253, 252, 0.709804) 87.17%, rgba(252, 253, 252, 0.8) 90.14%, rgba(252, 253, 252, 0.88) 93.54%, rgba(252, 253, 252, 0.96) 96.66%, #FCFDFC 100%);
+    }
+
+    @include desktopStyle {
+        padding-bottom: 50%;
+    }
+
+
+    &__img {
+        position: absolute;
+        -o-object-fit: cover !important;
+        object-fit: cover !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: -1;
+        background-size: auto 100% !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        transform-style: preserve-3d !important;
+        backface-visibility: hidden !important;
+        will-change: transform, opacity !important;
+
+        @include desktopStyle {
+            background-size: 100% auto !important;
+        }
+    }
+}

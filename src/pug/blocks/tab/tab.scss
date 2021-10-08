@@ -1,0 +1,118 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+.tabs {
+    position: relative;
+}
+
+.tab-content {
+    @include baseListStyle();
+
+    &__item {
+        position: absolute;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        visibility: hidden;
+
+        &.active {
+            position: static;
+            z-index: 0;
+            display: block;
+            visibility: visible;
+        }
+    }
+}
+
+.nav-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    @include baseListStyle();
+
+    &__item {
+        padding: 8px 24px 8px 0;
+
+        &:last-child {
+            padding-right: 0;
+        }
+
+
+        @include desktopStyle {
+            position: relative;
+            padding-right: 24rem;
+            margin-right: 24rem;
+
+            &:before {
+                position: absolute;
+                display: block;
+                content: "";
+                width: 0;
+                border-right: 1rem solid color(dark);
+                height: 24rem;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                //background: color(dark);
+            }
+
+            &:last-child {
+                padding-right: 24rem;
+                margin-right: 0;
+
+            }
+        }
+
+
+    }
+}
+
+.tab {
+    display: block;
+    margin: 0;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    @include getFont($oswaldRegular, 14, true);
+
+    @include desktopStyle {
+        @include getFont($oswaldRegular, 16, true, rem);
+
+    }
+
+    .active & {
+        border-bottom: 2px dashed color(goldDark);
+        padding-bottom: 3px;
+
+        @include desktopStyle {
+            padding-bottom: 3rem;
+            border-width: 2rem;
+        }
+    }
+
+    &__title {
+        padding-right: 4px;
+        color: color(gray5);
+        @include baseTransitionStyle(color);
+
+        @include desktopStyle {
+            padding-right: 4rem;
+        }
+
+        &:hover {
+            color: color(goldDark);
+            @include baseTransitionStyle(color);
+        }
+
+        .active & {
+            color: color(goldDark);
+            @include baseTransitionStyle(color);
+        }
+
+    }
+
+    &__count {
+        color: color(gray3);
+    }
+}

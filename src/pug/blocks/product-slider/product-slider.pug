@@ -1,0 +1,15 @@
+mixin productSlider(list)
+    .product-slider.js-product-slider&attributes(attributes)
+        ._container.swiper-container
+            ._wrapper.swiper-wrapper
+                each val in list
+                    ._item.swiper-slide.js-full-size-gallery
+                        p._img
+                            img(src=val alt="alt текст")
+            ._arrows
+                ._arrow.left
+                    +arrowLeft({size: 'max', theme: 'dark'})
+                ._arrow.right
+                    +arrowRight({size: 'max', theme: 'dark'})
+            ._bullets
+                .bullet-list

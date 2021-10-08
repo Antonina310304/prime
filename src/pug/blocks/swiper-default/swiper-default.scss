@@ -1,0 +1,71 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+.swiper-arrow {
+    @include baseBtnStyle();
+    width: 32rem;
+    height: 32rem;
+    border-radius: 50%;
+    background: color(gray1);
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    @include baseTransitionStyle(background);
+
+    &.min {
+        width: 32rem;
+        height: 32rem;
+    }
+
+    &.max {
+        width: 48rem;
+        height: 48rem;
+    }
+
+   &.dark:hover {
+        background: color(darkGray);
+        @include baseTransitionStyle(background);
+
+       path {
+           fill: color(goldlight);
+           @include baseTransitionStyle(fill);
+       }
+   }
+
+    &.light:hover {
+        background: color(goldDark);
+        @include baseTransitionStyle(background);
+
+       path {
+           fill: color(goldlight);
+           @include baseTransitionStyle(fill);
+       }
+   }
+
+  .disabled &, &.disabled {
+        cursor: default;
+        opacity: 0.3;
+        background: color(gray1) !important;
+
+        path {
+            fill: color(gray5) !important;
+        }
+    }
+
+    i {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 16rem;
+        height: 16rem;
+        display: block;
+        line-height: 0;
+    }
+
+    path {
+        fill: color(gray5);
+        @include baseTransitionStyle(fill);
+    }
+
+}

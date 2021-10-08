@@ -1,0 +1,157 @@
+/************ шапка сайта ***************/
+
+@import "src/style/_";
+
+
+.news-list {
+
+    &--simple {
+        padding: 0 16px;
+
+        @include desktopStyle {
+            padding: 0;
+        }
+    }
+
+
+    .swiper-container {
+        padding: 0 16px;
+
+        @include desktopStyle {
+            padding: 0;
+            overflow: inherit;
+        }
+    }
+
+    &__btn {
+        display: none;
+
+        @include desktopStyle {
+            display: block;
+        }
+    }
+
+    @include desktopStyle {
+        padding: 0;
+    }
+
+    &__wrap {
+        display: flex;
+        width: 100%;
+
+        @include desktopStyle {
+            .news-list__item:first-child & {
+                position: sticky;
+                top: 90rem;
+                flex-direction: column;
+                width: auto;
+
+                header.header-full & {
+                    top: 130rem;
+                }
+            }
+        }
+    }
+
+    &__list {
+
+        @include baseListStyle();
+        height: auto;
+
+        @include desktopStyle {
+            display: block;
+        }
+
+        &.column {
+
+            @include desktopStyle {
+                position: relative;
+                display: block;
+                width: 50%;
+                padding-left: 50%;
+            }
+        }
+
+        &.row {
+            flex-wrap: nowrap;
+
+            @include desktopStyle {
+                flex-wrap: wrap;
+            }
+        }
+
+    }
+
+
+    &__item {
+        display: flex;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        width: 100%;
+        height: auto;
+        border: 1px solid color(dark);
+
+
+
+
+
+        .news-list--simple & {
+            margin-bottom: 8px;
+
+            @include desktopStyle {
+                margin-bottom: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+
+        @include desktopStyle {
+            margin-bottom: 0;
+
+            .row & {
+                border-left: 1rem solid color(dark);
+            }
+
+            &:last-child {
+                //border-bottom: 0 !important;
+            }
+        }
+
+
+        .swiper-container-initialized & {
+            width: 75.23%;
+        }
+
+        @include desktopStyle {
+            display: flex;
+            width: 100%;
+            border-width: 0;
+            border-bottom-width: 1rem;
+            //border-left-width: 1rem;
+
+            .news-list__list.column & {
+                &:first-child {
+                    position: absolute;
+                    left: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    float: left;
+                    width: 50%;
+                    height: 100%;
+                    padding-right: 8rem;
+                    border-right: 1px solid color(dark);
+                    border-bottom: 0;
+                    border-left: 0;
+                }
+            }
+
+            &:last-child {
+                border-bottom: 1px solid color(dark);
+            }
+        }
+    }
+}

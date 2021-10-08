@@ -1,0 +1,414 @@
+/************ page base ***************/
+
+@import "src/style/_";
+
+.index {
+    padding-top: 128px;
+    padding-bottom: 56px;
+
+    @include desktopStyle {
+        padding-top: 208rem;
+        padding-bottom: 56rem;
+    }
+
+
+    &.gradient {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: -1;
+            display: block;
+            width: 100%;
+            height: 680px;
+            background: radial-gradient(204.38% 100% at 50% 0%, rgba(171, 54, 43, 0.52) 0.01%, rgba(116, 95, 57, 0.64) 0.02%, rgba(15, 16, 15, 0.2) 49.48%);
+
+            @include desktopStyle {
+                height: 900rem;
+            }
+        }
+    }
+
+    .maker & {
+        padding-top: 65px;
+        padding-top: 0;
+
+        @include desktopStyle {
+            padding-top: 130rem;
+            padding-top: 0 !important;
+        }
+    }
+
+    &.merlo {
+        padding-top: 0;
+    }
+
+    &__header {
+        margin-bottom: 48px;
+
+
+        @include desktopStyle {
+            margin-bottom: 96rem;
+        }
+    }
+
+
+    &__section {
+        padding-bottom: 96px;
+
+        @include desktopStyle {
+            padding-bottom: 192rem;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+    &__in {
+        padding-bottom: 48px;
+
+        @include desktopStyle {
+            padding-bottom: 96rem;
+        }
+    }
+
+    &__main-header {
+        margin-bottom: 40px;
+
+        @include desktopStyle {
+            margin-bottom: 40rem;
+        }
+    }
+}
+
+.section-header {
+    margin-bottom: 24px;
+
+    @include desktopStyle {
+        margin-bottom: 40rem;
+
+        &--news { // подумать
+            margin-bottom: 16rem;
+            text-align: left;
+        }
+    }
+}
+
+.counter-title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 100%;
+    font-family: "Oswald Medium";
+    color: color(gray3);
+    text-transform: uppercase;
+    font-style: normal;
+
+    .js-section-title & {
+        color: transparent;
+    }
+
+    .js-animate-load & {
+        animation: js-counter-title 600ms ease-in-out forwards;
+        animation-delay: 350ms;
+    }
+
+    @include desktopStyle {
+        font-size: 14rem;
+        letter-spacing: 0.01em;
+    }
+}
+
+.page {
+
+    &__spoiler {
+        margin-bottom: 32px;
+
+        @include desktopStyle {
+            margin-bottom: 64rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__tabs {
+        display: flex;
+        //padding-left: 18px;
+
+        @include desktopStyle {
+            padding-left: 0;
+            justify-content: flex-end;
+        }
+    }
+
+    &__breadcrumbs {
+        margin-bottom: 8px;
+
+        @include desktopStyle {
+            margin-bottom: 0;
+        }
+    }
+
+    &__form {
+
+        @include desktopStyle {
+            margin-top: 40rem;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+
+        @include getFont($sansRegular, 16, false);
+        color: color(gray1);
+
+        @include desktopStyle {
+
+            @include getFont($sansRegular, 18, false);
+        }
+    }
+
+    .heading-counter p {
+        padding-left: 18px;
+
+        @include desktopStyle {
+            padding-left: 20rem;
+        }
+    }
+
+
+    &__heading {
+        margin: 0 0 12px;
+        line-height: 0;
+
+        @include desktopStyle {
+            margin-bottom: 16rem;
+            margin-left: -1rem;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+
+        &.black p {
+            animation: section-title-animate-black 600ms ease-in-out forwards;
+            animation-delay: 400ms;
+        }
+
+
+        p {
+            @include OswaldLight;
+            position: relative;
+            display: inline-block;
+            margin: 0;
+            overflow: hidden;
+            font-weight: 300;
+            font-size: 48px;
+            line-height: 110%;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: -0.005em;
+            animation: section-title-animate 600ms ease-in-out forwards;
+            animation-delay: 400ms;
+            word-wrap: break-word;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            max-width: 100%;
+
+            @include desktopStyle {
+                font-size: 80rem;
+                letter-spacing: inherit;
+            }
+        }
+
+        span {
+            word-wrap: break-word;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+            display: inline-block;
+            padding-bottom: 5px;
+
+            @include desktopStyle {
+                padding-bottom: 8rem;
+            }
+
+        }
+    }
+
+    &__top-wrapper {
+
+        @include desktopStyle {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__group-wrap {
+        flex: auto;
+        margin-bottom: 24px;
+
+        @include desktopStyle {
+            margin-bottom: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__wrap {
+        padding-top: 65px;
+
+        @include desktopStyle {
+            body.header-full & {
+                padding-top: 114rem;
+            }
+
+            padding-top: 72rem;
+        }
+    }
+
+    &__aside {
+        margin-bottom: 40px;
+
+        @include desktopStyle {
+            width: 640rem;
+            margin-bottom: 0;
+        }
+    }
+
+    &__slider {
+        position: relative;
+        padding: 48px 0 0;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: url("i/noise_.png"), #0A0B0A;
+        }
+
+        @include desktopStyle {
+            padding: 96rem 0 0;
+        }
+    }
+
+    &__section {
+        padding: 48px 0;
+
+        @include lightTheme();
+
+        @include desktopStyle {
+            padding: 96rem 0;
+        }
+
+        &.dark {
+            &::before {
+                background: url("i/noise_.png"), #EFEEEC;
+            }
+        }
+
+        &.black {
+            &::before {
+                background: url("i/noise_.png"), #0A0B0A;
+            }
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        .product-card &:last-child,
+        .catalog &:last-child {
+            padding-bottom: 48px;
+
+            @include desktopStyle {
+                padding-bottom: 96rem;
+            }
+        }
+    }
+
+    &__separator {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            display: block;
+            width: calc(100% - 32px);
+            height: 0;
+            border-bottom: 1px solid color(dark);
+        }
+
+        @include desktopStyle {
+            &::after {
+                left: 80rem;
+                width: calc(100% - 160rem);
+                border-width: 2rem;
+            }
+        }
+    }
+
+
+    &__top {
+        position: relative;
+        padding-top: 32px;
+        padding-bottom: 24px;
+
+        & + .page__section {
+            padding-top: 0 !important;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            background: url("i/noise_.png");
+        }
+
+        @include desktopStyle {
+            padding-top: 96rem;
+            padding-bottom: 40rem;
+        }
+    }
+
+    &__group {
+        position: relative;
+
+
+        @include desktopStyle {
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+}
+
+.jarallax img {
+
+    @include coverImg; }
+
+@keyframes js-counter-title {
+    from {
+        color: transparent;
+    }
+
+    to {
+        color: color(gray3);
+    }
+}

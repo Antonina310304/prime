@@ -1,0 +1,61 @@
+mixin _base(params)
+    button(type=params.type class=`${params.data_type} ${params.theme}`).button
+        if(params.icon)
+            i._icon
+                include icog.svg
+        span=params.text
+
+mixin btnBack(params)
+    button(type=button class=params.event).button-back
+        i._icon
+            include arrow-filled.svg
+        span назад
+
+mixin _defaultButton(params)
+        - var tag = params.tag ? params.tag : 'button'
+        +btn(params, tag)
+            +_border
+            .button__in
+                span.button__text=params.text
+                if(params.icon)
+                    i.button__icon
+                        if(params.iconName == 'default')
+                            include icog.svg
+                        if(params.iconName == 'phone')
+                            include phone.svg
+                        if(params.iconName == 'arrow')
+                            include arrow-filled.svg
+                if(params.type == 'submit')
+                    i.button__icon
+                        include cog.svg
+
+
+mixin defaultButton(params)
+    button(type=params.type class=`${params.data_type} ${params.theme}`).button
+        +_border
+            .button__in
+                if(params.icon)
+                    i._icon
+                        include icog.svg
+                span=params.text
+
+
+mixin callbackButton()
+    +_defaultButton({
+        text: 'Обратный звонок',
+        data_type: 'callback',
+        theme: 'dark',
+        icon: true,
+        iconName: 'phone',
+        evt: 'js-callback',
+        hint: 'Заказать обратный звонок'
+    })
+
+mixin btn(params, tag)
+    -var hint = params.hint ? params.hint : false;
+    if(tag == 'a')
+        a(href='#' type=params.type title=hint class=`${params.evt} ${params.data_type} ${params.theme}`).button&attributes(attributes)
+            block
+    else
+        button(href='#' type=params.type title=hint class=`${params.evt} ${params.data_type} ${params.theme}`).button&attributes(attributes)
+            block

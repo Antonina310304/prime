@@ -1,0 +1,93 @@
+/************ шапка сайта ***************/
+
+@import "src/style/_";
+
+
+.catalog-dropdown {
+    padding: 0 16px 40px;
+
+    @include desktopStyle {
+        padding: 8rem 0 40rem;
+    }
+
+    &__head {
+        min-width: 100%;
+        top: 0;
+        padding: 26px 16px 3px;
+        z-index: 2;
+        box-sizing: border-box;
+        //@include bgFilter(sticky, rgba(0, 0, 0, 0.88));
+
+        @include desktopStyle {
+            display: none;
+        }
+    }
+
+    &__in {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid color(dark);
+        margin-bottom: 4px;
+
+    }
+
+    &__subtitle {
+        @include getFont($oswaldRegular, 16, false);
+        color: color(gray1);
+    }
+
+    &__wrap {
+
+        @include desktopStyle {
+            padding: 0 80rem;
+        }
+        
+        @include stopResize {
+            box-sizing: border-box;
+            width: #{$widthStopResize}px;
+            margin: auto;
+        }
+    }
+
+
+    &__list {
+        @include baseListStyle();
+        display: flex;
+        flex-wrap: wrap;
+
+
+        @include desktopStyle {
+            margin: -4rem;
+        }
+    }
+
+    &__item {
+        width: 100%;
+        margin-bottom: 8px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include desktopStyle {
+            margin-bottom: 0;
+            width: 25%;
+            display: flex;
+            box-sizing: border-box;
+            padding: 4rem;
+        }
+    }
+
+    &__separator {
+        margin-bottom: 8px;
+
+        @include desktopStyle {
+            display: none;
+        }
+    }
+}
+
+@keyframes aminate {
+    from { opacity: 0; }
+    to {opacity: 1;}
+}

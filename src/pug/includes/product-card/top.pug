@@ -1,0 +1,79 @@
+mixin productTop
+    +parallaxHeader({img: `i/parallax-card.jpg`, theme: 'light'})
+    .product-card__top-in.container.js-scroll-to
+        .product-card__info
+            .product-card__breadcrumbs
+                +breadcrumbs(['Главная', 'PistenBully', 'Каталог', 'Снегоуплотнительная', 'PistenBully 600'], 'light')
+            h1.product-card__title.js-card-title.light
+                p.product-card__title-text.js-title-text PistenBully 600
+                    span.animate-title-block
+            .product-card__pin-list
+                .pin от
+                    span 518 554
+                    | €
+
+            .product-card__top-inner
+                .product-card__specifications
+                    +specifications(['depth', 'diameter', 'power'])
+                .product-card__descriptions
+                    h3 лесной мульчер uml/s/dt с ротором, с фиксированными зубьями, для тракторов мощностью 130-190 л.с.
+                    p В европейских Альпах, на японских горнолыжных комплексах острова Хоккайдо, в австралийских горах или Скалистых горах в США – ратраки PistenBully остаются номером один в мире для подготовки горнолыжных склонов и трасс для беговых лыж. Неважно, является ли PistenBully Kassbohrer единственным ратраком или их целый парк, используется ли он в маленьком горнолыжном комплексе или на крупном горнолыжном курорте – PistenBully всегда там, где ценят мощность, новаторские решения, последние разработки и тенденции. Для всех тех, кто не хочет довольствоваться малым.
+                    ul
+                        li список пункт 1
+                        li список пункт 2
+                        li список пункт 3
+                .product-card__features
+                    +features([
+                        {title: 'Лизинг', id: 'leasing'},
+                        {title: 'Рассрочка', id: 'installment'},
+                        {title: 'Возможна демонстрация', id: 'demo'}])(class='light')
+        .product-card__form
+            //--p.product-card__subtitle Уточнить цену
+            +form({
+                title: 'Уточнить цену',
+                event: 'js-form',
+                theme: 'light',
+                action: 'action-address.php',
+                btnType: 'light',
+                btnText: 'Запросить цену',
+                agreementText: 'Отправляя запрос вы соглашаетесь с ',
+                inputs: [
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: '',
+                        placeholder: 'Ваше имя',
+                        value: '',
+                        type: 'text',
+                        required: true
+                    },
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: '',
+                        placeholder: 'Номер телефона',
+                        value: '',
+                        type: 'tel',
+                        required: true
+                    },
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: '',
+                        placeholder: 'Электронная почта',
+                        value: '',
+                        type: 'email',
+                        required: true
+                    },
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: '',
+                        placeholder: 'Ваш комментарий',
+                        value: '',
+                        type: 'textarea',
+                        required: true
+                    },
+                ]
+            })
+

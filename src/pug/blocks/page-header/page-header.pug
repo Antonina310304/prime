@@ -1,0 +1,8 @@
+mixin pageContentHeader(name, subtitle)
+    .page-header.js-scrollbanner.dark
+        +parallaxHeader({img: `i/index/parallax/${name}-parallax.jpg` , theme: 'dark'})
+        ._wrap.js-scroll-to.container
+            h1(class=name).page-header__title.js-title-maker
+                span.page-header__title-name.js-title-text=name
+                    span.animate-title-block
+            h3.a-subtitle.page-header__subtitle=subtitle

@@ -1,0 +1,9 @@
+mixin catalogDropdown(dropdownList)
+    .catalog-dropdown
+        ._wrap
+            ._list
+                each val in dropdownList
+                    ._item
+                        +cardDefaultNoLink(val)(class='menu')
+                            if(val.list)
+                                +arrowList(val.list)

@@ -1,0 +1,12 @@
+include ../../_var
+
+mixin contactLink
+    .contact-links
+        ._item
+            a(href=contacts.tel.link)._link
+                .link=contacts.tel.mask
+                p._time 24
+                    span часа
+        ._item
+            a(href=contacts.email.link)._link.link.link--email=contacts.email.mask
+

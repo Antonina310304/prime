@@ -1,0 +1,67 @@
+-
+    var sliderAboutPage1 = [
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'}
+    ];
+
+-
+    var sliderAboutPage2 = [
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+    ];
+
+-
+    var sliderAboutPage3 = [
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+    ];
+
+-
+    var sliderAboutPage4 = [
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+        {img: 'i/index/sertificates/1.png'},
+    ];
+
+mixin merlo
+    +certificateSlider({list: sliderAboutPage1, params: {isNeedBtn: false, isNeedBullet: true}})
+
+mixin fae
+    +certificateSlider({list: sliderAboutPage2, params: {isNeedBtn: false, isNeedBullet: true}})
+
+mixin reform
+    +certificateSlider({list: sliderAboutPage3, params: {isNeedBtn: false, isNeedBullet: true}})
+
+mixin pistenbully
+    +certificateSlider({list: sliderAboutPage4, params: {isNeedBtn: false, isNeedBullet: true}})
+
+-
+    var TabNavAbout = [
+        {title: 'MERLO', selected: true, content: 'merlo'},
+        {title: 'PISTENBULLY', selected: false, content: 'pistenbully'},
+        {title: 'FAE', selected: false, content: 'fae'},
+        {title: 'Reform', selected: false, content: 'reform'}
+    ];
+
+
+mixin aboutTab
+    +Tabs('about-tab')(class="tab-content")
+        each val, index in ['merlo', 'fae', 'reform', 'pistenbully']
+            +tabContent({selected: index == 0, content: val})
+                case val
+                    when 'merlo'
+                        +merlo
+                    when 'fae'
+                        +fae
+                    when 'reform'
+                        +reform
+                    when 'pistenbully'
+                        +pistenbully
+

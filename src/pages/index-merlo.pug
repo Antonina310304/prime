@@ -1,0 +1,27 @@
+extends ../pug/layout/layout.pug
+block var
+    include ../pug/_var
+    - var pageTitle = pages.index.title;
+    - var isLinkLogo = pages.index.isLinkLogo;
+    - var mainClass = pages.index.mainClass;
+    - var isFullHead = true;
+    - var className = names.MERLO
+    - var pageName = names.MERLO
+    -
+        var catalogDropdown = [
+            {
+                img: adress + '1.png',
+                title: 'Телескопические погрузчики',
+            },
+            {
+                img: adress + '2.png',
+                title: 'Транспортеры cingo',
+            },
+            {
+                img: adress + '3.png',
+                title: 'самоходные бетоносмесители dbm',
+            },
+        ]
+
+block content
+    +indexMerlo

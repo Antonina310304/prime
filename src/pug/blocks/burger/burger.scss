@@ -1,0 +1,61 @@
+/************ burger ***************/
+@import "src/style/_";
+$step: 7px;
+.burger {
+    position: relative;
+    outline: none;
+    @include baseBtnStyle();
+    width: 100%;
+    height: 18px;
+
+    &__item {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 2px;
+        background: color(gray1);
+        opacity: 1;
+        transition: all 200ms ease-in-out;
+
+        &:first-child {
+            top: 0;
+            @include baseTransitionStyle(all);
+        }
+
+        &:nth-of-type(2) {
+            top: $step;
+        }
+
+        &:nth-of-type(3) {
+            top: $step;
+        }
+
+        &:nth-of-type(4) {
+            top: $step*2;
+            @include baseTransitionStyle(all);
+        }
+
+        .burger.open & {
+            background: color(goldlight);
+            &:first-child {
+                top: 9.5px;
+                opacity: 0;
+                @include baseTransitionStyle(all);
+            }
+
+            &:nth-of-type(2) {
+                transform: rotate(45deg);
+            }
+            &:nth-of-type(3) {
+                transform: rotate(-45deg);
+            }
+
+            &:nth-of-type(4) {
+                top: 9.5px;
+                opacity: 0;
+                @include baseTransitionStyle(all);
+            }
+        }
+    }
+}

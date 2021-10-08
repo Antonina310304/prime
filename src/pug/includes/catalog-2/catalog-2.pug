@@ -1,0 +1,25 @@
+include data
+
+mixin catalog2
+    .catalog
+        header._header.dark-page-head
+            ._in.container
+                ._breadcrumbs
+                    +breadcrumbs(breadcrumbsCatalog2, 'dark')
+                +_catalogTitle('Расчистка местности')
+            ._list.container
+                .catalog-header-list
+                    each val in catalog2List
+                        ._item
+                            +cardDefault(val)
+        section._content.page__section.dark.js-animate
+            .container
+                +titleBlock({aling: 'left', theme: 'light', title: ['Сертификаты'], subtitle: 'Являемся официальным дилером продукции Merlo в Самарской и Ульяновской областях'})
+            .catalog__slider.js-soa.is-scroll-invisible
+                +certificateSlider({list: sliderCertificates, params: {isNeedBtn: false, isNeedBullet: true}})
+        section._content.page__section
+            .container.js-animate
+                include two-column
+        section._content.page__section
+            .container.js-animate
+                +staffBlock

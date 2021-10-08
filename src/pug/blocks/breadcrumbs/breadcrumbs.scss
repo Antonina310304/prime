@@ -1,0 +1,94 @@
+/************ breadcrumbs ***************/
+@import "src/style/_";
+
+
+.breadcrumbs {
+    @include baseListStyle();
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+        position: relative;
+        padding-right: 22px;
+
+        &:before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            right: 8px;
+            @include baseImgStyle(url("i/icons/star.svg"));
+        }
+
+        &:last-child {
+            padding-right: 0;
+            &:before {
+                content: none;
+            }
+        }
+
+
+
+        @include desktopStyle {
+            padding-right: 22rem;
+
+            &:before {
+                width: 6rem;
+                height: 6rem;
+                @include baseImgStyle(url("i/icons/star.svg"));
+            }
+        }
+
+    }
+
+    &__link {
+        margin: 0;
+        @include getFont($oswaldRegular, 14, true);
+        text-decoration: none;
+        @include baseTransitionStyle(color);
+
+
+        .dark & {
+            color: color(gray2);
+
+            &:not(.disabled):hover {
+                color: color(gray1);
+                @include baseTransitionStyle(color);
+            }
+
+            &.disabled {
+                color: color(gray2);
+            }
+
+        }
+
+        .light & {
+            color: color(gray4);
+
+            &:not(.disabled):hover {
+                color: color(gray3);
+                @include baseTransitionStyle(color);
+            }
+
+            &.disabled {
+                color: color(gray4);
+            }
+        }
+
+        &.disabled {
+            opacity: 0.5;
+        }
+
+
+
+        .breadcrumbs__item:last-child & {
+            opacity: 0.5;
+        }
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 14, true, rem);
+        }
+    }
+}

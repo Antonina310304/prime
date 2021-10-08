@@ -1,0 +1,75 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+.company-info {
+
+    &__logo {
+        line-height: 0;
+        width: 174.5px;
+        margin: 0 auto 32px;
+
+        @include desktopStyle {
+            margin-bottom: 48rem;
+            width: 175.5rem;
+        }
+    }
+
+    &__item {
+        margin-bottom: 16px;
+
+        &:last-child {
+            margin-bottom: 24px;
+        }
+
+        @include desktopStyle {
+            display: flex;
+            margin: 0 -16rem;
+            margin-bottom: 40rem;
+
+            .wrapper {
+                width: 50%;
+                padding: 0 16rem;
+            }
+        }
+    }
+
+    .link {
+        @include getFont($oswaldRegular, 18, false);
+
+        @include desktopStyle {
+            font-size: 18rem;
+        }
+    }
+
+    .link--email {
+        @include getFont($sansRegular, 16, false);
+
+        @include desktopStyle {
+            @include getFont($sansRegular, 18, false, rem);
+        }
+    }
+
+    .contact-links__link {
+        justify-content: flex-start;
+    }
+
+    .contact-links__time {
+        @include getFont($oswaldRegular, 18, false);
+
+        @include desktopStyle {
+            font-size: 18rem;
+        }
+
+        span {
+            font-size: 12px;
+            line-height: 120%;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+
+            @include desktopStyle {
+                font-size: 12rem;
+            }
+        }
+    }
+
+}

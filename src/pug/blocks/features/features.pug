@@ -1,0 +1,6 @@
+mixin features(list)
+    ul.features&attributes(attributes)
+        each val in list
+            li(data-content=val.id)._item.js-features
+                span._text=val.title
+

@@ -1,0 +1,23 @@
+extends ../pug/layout/layout.pug
+block var
+    include ../pug/_var
+    - var pageTitle = pages.index.title;
+    - var isLinkLogo = pages.index.isLinkLogo;
+    - var mainClass = pages.index.mainClass;
+    - var isFullHead = false;
+    - var pageName = names.DEFAULT;
+
+block content
+    .container
+        button.js-init-header запустить
+        .index__section
+            +indexPageHeader
+    .container
+        button.js-init-header запустить
+        .index__section
+            +indexPageHeader('gold')
+
+    .container
+        button.js-init-header запустить
+        .index__section
+            +indexPageHeader('black')

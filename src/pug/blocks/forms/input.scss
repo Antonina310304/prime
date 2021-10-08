@@ -1,0 +1,156 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+.input {
+    position: relative;
+    z-index: 0;
+    border: 1px solid color(dark);
+    border-bottom-color: transparent;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 200ms ease-in-out;
+    display: flex;
+    align-items: center;
+
+    @include desktopStyle {
+        border-width: 1rem;
+    }
+
+    &.focus {
+        border-color: color(goldlight);
+    }
+
+
+    &.dark, .form.dark & {
+        border-color: color(dark) !important;
+        border-bottom-color: transparent !important;
+
+        &.focus {
+            border-color: color(goldlight) !important;
+            box-shadow: inset 0 0 0 1px color(goldlight) !important;
+            transition: box-shadow 200ms ease-in-out, border-color 200ms ease-in-out;
+
+            @include desktopStyle {
+                box-shadow: inset 0 0 0 1rem color(goldlight) !important;
+            }
+        }
+    }
+
+    &.light, .form.light & {
+        border-color: color(dark);
+        border-bottom-color: transparent;
+
+        &.focus {
+            border-color: color(goldDark);
+            box-shadow: inset 0 0 0 1px color(goldDark);
+            transition: box-shadow 200ms ease-in-out, border-color 200ms ease-in-out;
+
+            @include desktopStyle {
+                box-shadow: inset 0 0 0 1rem color(goldDark);
+            }
+
+        }
+        
+        .side-page__select & {
+            border-bottom-color: color(dark);
+        }
+    }
+
+    &:not(.disabled):hover {
+        border-color: color(gray2) !important;
+        @include baseTransitionStyle(border-color);
+        //z-index: 1;
+    }
+    
+    .form.light &:not(.disabled):hover {
+        border-color: color(goldDark) !important;
+        //border-color: red !important;
+        @include baseTransitionStyle(border-color);
+    }
+
+    &.errow {
+        border-color: color(dark);
+
+    }
+
+    @include desktopStyle {
+        border-width: 1rem;
+
+    }
+
+}
+
+.input__error {
+    display: none;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+    padding-right: 14px;
+
+    @include desktopStyle {
+        width: 24rem;
+        height: 24rem;
+        padding-right: 22rem;
+    }
+
+    .input.error & {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.input__input {
+    width: 100%;
+    background: transparent;
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    padding: 14px 16px;
+    outline: none;
+    @include getFont($oswaldRegular, 14, true);
+    @include baseTransitionStyle(color);
+
+    @include placeholder {
+        @include getFont($oswaldRegular, 14, true);
+        color: color(gray3);
+    }
+
+    @include desktopStyle {
+        padding: 18rem 24rem;
+        @include getFont($oswaldRegular, 16, true, rem);
+
+        @include placeholder {
+            @include getFont($oswaldRegular, 16, true, rem);
+        }
+
+    }
+
+    .form.dark &, .input.dark & {
+        color: color(gray1);
+
+        @include placeholder {
+            color: color(gray3);
+            @include baseTransitionStyle(color);
+        }
+    }
+
+    .form.light &, .input.light & {
+        color: color(gray5);
+
+        @include placeholder {
+            color: color(gray2);
+            @include baseTransitionStyle(color);
+        }
+
+        &:hover {
+            @include placeholder {
+                color: color(gray3);
+                @include baseTransitionStyle(color);
+            }
+        }
+    }
+}
+
+

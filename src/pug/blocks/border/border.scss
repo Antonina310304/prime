@@ -1,0 +1,231 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+$new: 'new';
+//.border {
+//    position: relative;
+//    z-index: 2;
+//
+//    &__in {
+//        &:first-child {
+//            //@include _borderItem($type: $type_horizontal, $top: 0, $bottom: auto, $right: auto, $left: 11);
+//            @include borderItem($type: $type_horizontal, $side: 'top', $top: 0, $bottom: auto, $right: auto, $left: 11);
+//            //@include cornerVertical($type: $new);
+//            @include _cornerVertical($type: $new);
+//        }
+//
+//        &:nth-child(3) {
+//            //@include _borderItem($type: $type_horizontal, $top: auto, $bottom: 0, $right: auto, $left: 11);
+//            @include borderItem($type: $type_horizontal, $side: 'bottom', $top: auto, $bottom: 0, $right: auto, $left: 11);
+//            //@include cornerVertical($pos: bottom, $type: $new);
+//            @include _cornerVertical($pos: bottom, $type: $new);
+//
+//        }
+//
+//        &:nth-child(2) {
+//            //@include _borderItem($type: $type_vertical, $top: 11, $right: 0, $bottom: auto, $left: auto);
+//            @include borderItem($type: $type_vertical, $side: 'right', $top: 11, $right: 0, $bottom: auto, $left: auto);
+//            //@include cornerHorizontal($type: $new);
+//            @include _cornerHorizontal($pos: right, $type: $new);
+//        }
+//
+//        &:nth-child(4) {
+//            //left 1
+//            //@include _borderItem($type: $type_vertical, $top: 11, $right: auto, $bottom: auto, $left: 0);
+//            @include borderItem($type: $type_vertical, $side: 'left', $top: 11, $right: auto, $bottom: auto, $left: 0);
+//            //@include cornerHorizontal($pos: left, $type: $new);
+//            @include _cornerHorizontal($pos: left, $type: $new);
+//        }
+//    }
+//}
+
+//@media (max-width: 767px) {
+//
+//    .main-slider__item:first-child {
+//        .border__in {
+//            &:nth-child(2) {
+//                width: 0.5px;
+//
+//                &:after {
+//                    width: 1px;
+//                }
+//            }
+//
+//            &:nth-child(3) {
+//                &:after {
+//                    width: 1px;
+//                }
+//            }
+//        }
+//    }
+//
+//    .main-slider__item:not(:first-child) {
+//        .border__in {
+//            &:nth-child(4) {
+//               width: 0.5px;
+//
+//                &:before {
+//                    width: 1px;
+//                }
+//            }
+//
+//            &:nth-child(2) {
+//               width: 0.5px;
+//            }
+//
+//            &:first-child {
+//                &:after {
+//                    width: 1px;
+//                }
+//
+//            }
+//        }
+//    }
+//
+//    .main-slider__item:last-child {
+//        .border__in {
+//            &:nth-child(2) {
+//                width: 1px;
+//            }
+//        }
+//
+//    }
+//}
+
+//.b {
+//    position: absolute;
+//    left: 0;
+//    top: 0;
+//    right: 0;
+//    bottom: 0;
+//
+//    &__in:first-child {
+//        @include newHorizontalDiv(top);
+//
+//        span:first-child {
+//            @include horizontalSpan(top, left);
+//        }
+//
+//        span:last-child {
+//            @include horizontalSpan(top, right);
+//        }
+//    }
+//
+//    &__in:nth-child(3) {
+//        @include newHorizontalDiv(bottom);
+//
+//        span:first-child {
+//            @include horizontalSpan(bottom, left);
+//        }
+//
+//        span:last-child {
+//            @include horizontalSpan(bottom, right);
+//        }
+//    }
+//
+//    &__in:last-child {
+//        @include newVerticalDiv(left);
+//
+//        span:first-child {
+//            @include verticalSpan(top, left);
+//        }
+//
+//        span:last-child {
+//            @include verticalSpan(bottom, left);
+//        }
+//    }
+//
+//    &__in:nth-child(2) {
+//        @include _verticalDiv(right);
+//
+//        span:first-child {
+//            @include verticalSpan(top, right);
+//        }
+//
+//        span:last-child {
+//            @include verticalSpan(bottom, right);
+//        }
+//    }
+//}
+
+.border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    span {
+        transition: width 200ms ease-in-out, height 200ms ease-in-out;
+    }
+
+    &__in:first-child {
+        @include _horizontalDiv(top);
+
+        span:first-child {
+            @include horizontalSpan(top, left);
+            top: -1px;
+
+            @media(min-width: 1440px) {
+                top: -1rem;
+            }
+        }
+
+        span:last-child {
+            @include horizontalSpan(top, right);
+            top: -1px;
+
+            @media(min-width: 1440px) {
+                top: -1rem;
+            }
+        }
+    }
+
+    &__in:nth-child(3) {
+        @include _horizontalDiv(bottom);
+
+        span:first-child {
+            @include horizontalSpan(bottom, left);
+            bottom: -1px;
+
+            @media(min-width: 1440px) {
+                bottom: -1rem;
+            }
+        }
+
+        span:last-child {
+            @include horizontalSpan(bottom, right);
+            bottom: -1px;
+
+            @media(min-width: 1440px) {
+                bottom: -1rem;
+            }
+
+        }
+    }
+
+    &__in:last-child {
+        @include _verticalDiv(left);
+
+        span:first-child {
+            @include verticalSpan(top, left);
+        }
+
+        span:last-child {
+            @include verticalSpan(bottom, left);
+        }
+    }
+
+    &__in:nth-child(2) {
+        @include _verticalDiv(right);
+
+        span:first-child {
+            @include verticalSpan(top, right);
+
+        }
+
+        span:last-child {
+            @include verticalSpan(bottom, right);
+        }
+    }
+}

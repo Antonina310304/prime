@@ -1,0 +1,67 @@
+/************ contact-links ***************/
+@import "src/style/_";
+
+
+.contact-links {
+    display: block;
+    text-align: center;
+
+    &__item {
+        display: block;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+
+        @include desktopStyle {
+            justify-content: flex-start;
+        }
+    }
+
+    &__time {
+        position: relative;
+        padding-left: 8px;
+        margin: 0;
+        margin-left: 8px;
+        display: inline-flex;
+        align-items: flex-start;
+        color: color(goldlight);
+        @include getFont($oswaldRegular, 16, true);
+
+        @include desktopStyle {
+            font-size: 16rem;
+            padding-left: 8rem;
+            margin-left: 8rem;
+        }
+
+        span {
+            padding-top: 2px;
+            font-size: 12px;
+            line-height: 120%;
+
+            @include desktopStyle {
+                font-size: 12rem;
+            }
+        }
+
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 16px;
+            background: color(goldlight);
+
+
+            @include desktopStyle {
+                height: 16rem;
+            }
+        }
+    }
+}

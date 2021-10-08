@@ -1,0 +1,111 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+.product-slider {
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: grab;
+
+    @include desktopStyle {
+        margin: auto;
+        border-radius: 4rem;
+    }
+
+    &__wrapper {
+        width: 100%;
+    }
+
+    &__item {
+        width: 100%;
+        background: #fff;
+    }
+
+    &__img {
+        margin: 0;
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .product-slider--header & {
+            padding-bottom: 61.79%;
+        }
+
+        @include desktopStyle {
+            padding-bottom: 61.8%;
+        }
+
+
+        img {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            //@include coverImg();
+        }
+    }
+
+    &__arrow {
+        display: none;
+
+        @include desktopStyle {
+            display: block;
+        }
+    }
+
+    &__bullets {
+        position: absolute;
+        width: 100%;
+        bottom: 16px;
+        z-index: 2;
+
+        @include desktopStyle {
+            opacity: 0;
+            @include baseTransitionStyle(opacity);
+
+            .product-slider:hover & {
+                opacity: 1;
+                @include baseTransitionStyle(opacity);
+            }
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        opacity: 0;
+
+        &.left {
+            left: -48rem;
+
+            transition: opacity 200ms ease-in-out, left 200ms ease-in-out;
+
+            .product-slider:hover & {
+                left: 24rem;
+                opacity: 1;
+                transition: opacity 200ms ease-in-out, left 200ms ease-in-out;
+            }
+        }
+        &.right {
+            right: -48rem;
+
+            transition: opacity 200ms ease-in-out, right 200ms ease-in-out;
+
+            .product-slider:hover & {
+                right: 24rem;
+                opacity: 1;
+                transition: opacity 200ms ease-in-out, right 200ms ease-in-out;
+            }
+
+        }
+    }
+}

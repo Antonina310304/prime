@@ -1,0 +1,91 @@
+mixin sidePageTop
+    .side-page.light.js-check-location.js-side-page-default.js-side-page&attributes(attributes)
+        ._inner
+            ._head
+                ._close.js-side-page-close
+                    +buttinClose
+            ._body.scrollbar-inner.js-scrollbar-side-page
+                ._in
+                    block
+
+mixin selectLocation
+        +sidePageTop
+            h3._title Выберите город
+            .side-page__select
+                +input({
+                    isDisabled: false,
+                    isError: false,
+                    theme: 'light',
+                    type: 'input',
+                    placeholder: 'найти город в списке',
+                    value: '',
+                    required: true,
+                    event: 'js-select-location'
+                })
+            .side-page__list
+                +locationList()
+
+mixin sidePage
+    +sidePageTop
+        ._wrap
+            h3._title Лизинг
+            p._text Мы очень быстро предоставляем все документы, требуемые лизинговой компанией.
+            p._text This is what the combi track was originally designed for: suitable for use anywhere, from "normal" terrain to steep slopes. However, increasing amounts of machine-made snow also places.
+            h3._title Лизинг
+            p._text Мы очень быстро предоставляем все документы, требуемые лизинговой компанией.
+            p._text Оставьте заявку — наш специалист вскоре свяжется с вами и ответит на все вопросы:
+        ._form
+            +form({
+                event: 'js-form',
+                theme: 'light',
+                action: 'action-address.php',
+                btnType: 'light',
+                btnText: 'Оставить заявку',
+                agreementText: 'Отправляя запрос вы соглашаетесь с ',
+                inputs: [
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: '',
+                        placeholder: 'Ваше имя',
+                        value: '',
+                        type: 'text',
+                        required: true
+                    },
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: '',
+                        placeholder: 'Номер телефона',
+                        value: '',
+                        type: 'tel',
+                        required: true
+                    },
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: '',
+                        placeholder: 'Электронная почта',
+                        value: '',
+                        type: 'email',
+                        required: true
+                    },
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: '',
+                        placeholder: 'Комментарий',
+                        value: '',
+                        type: 'textarea',
+                        required: true
+                    },
+                ]
+            })
+
+
+mixin sidePageSuccess()
+    +sidePageTop(class="dark js-success-page")
+        ._wrapper
+            h3._title-gold Спасибо за&nbsp;заявку
+            p._subtitle В ближайшее время с вами свяжутся
+

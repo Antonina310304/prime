@@ -1,0 +1,10 @@
+/************ table-wrap ***************/
+@import "src/style/_";
+
+
+.table-wrap {
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}

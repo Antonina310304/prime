@@ -1,0 +1,17 @@
+-   var specialAtr = 'Спец&#8203предло&#8203жения';
+
+mixin catalogTitle(title)
+    h1.catalog-title.dark.js-title-maker
+        ._text.js-title-text=title
+            .animate-title-block
+
+
+mixin _catalogTitle(title)
+    h1.catalog__title.dark.js-catalog-title
+        p.catalog__title-text.js-title-text=title
+            span.animate-title-block
+
+mixin _catalogTitle2(title)
+    h1.catalog__title.dark.js-catalog-title
+        p.catalog__title-text.js-title-text !{specialAtr}
+            span.animate-title-block

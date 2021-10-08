@@ -1,0 +1,53 @@
+/************ catalog-title ***************/
+@import "src/style/_";
+
+.catalog-title {
+    font-family: "Oswald Light";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 110%;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+    color: transparent;
+
+    @each $color in merlo, reform, fae, pistenbully {
+        body.#{$color} & {
+            animation: animate-catalog-title-#{$color} 700ms ease-in-out forwards;
+            animation-delay: 400ms;
+        }
+    }
+
+    //@each $color in merlo, reform, fae, pistenbully {
+    //    body.#{$color} & {
+    //        color: color($color);
+    //    }
+    //}
+
+
+    @include desktopStyle {
+        margin-bottom: 16rem;
+        font-size: 96rem;
+    }
+
+    &__text {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+    }
+}
+
+
+@each $color in merlo, reform, fae, pistenbully {
+
+    @keyframes animate-catalog-title-#{$color} {
+        from {
+            color: transparent;
+        }
+
+        to {
+            color: color($color);
+        }
+    }
+}

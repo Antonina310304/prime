@@ -1,0 +1,14 @@
+mixin spoilerBar(params)
+    .spoiler-bar(class=params.isOpen ? 'show' : '')
+        div(data-target="spoiler")._head
+            ._head-in
+                ._title=params.title
+                button._button=params.isOpen ? 'Свернуть' : 'Развернуть'
+            ._separatop
+                .separator-light
+        ._body
+            ._body-in
+                block
+
+
+

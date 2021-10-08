@@ -1,0 +1,194 @@
+/************ main-nav ***************/
+@import "src/style/_";
+@import "../../mixin";
+
+
+.maker-nav {
+    @include mobileMenuWrap;
+
+    @include desktopStyle {
+        display: flex;
+        border: none;
+        background: transparent;
+    }
+    
+    @include stopResize {
+        width: 1200px;
+        margin:  0 auto;
+    }
+
+    &__item {
+        @include mobileMenuItem;
+
+        @include desktopStyle {
+            border: none;
+        }
+    }
+
+    &__link {
+        @include mobileMenuLink(flex);
+        align-items: center;
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 18, false, rem);
+            padding: 9.5rem 12rem 13.5rem;
+            padding: 5.5rem 12rem 9.5rem;
+            text-transform: inherit;
+        }
+
+        &.open {
+
+            @include desktopStyle {
+                color: color(goldlight);
+            }
+        }
+    }
+
+    &__arrow {
+        display: inline-flex;
+        width: 16px;
+        height: 16px;
+        margin-left: auto;
+        @include baseImgStyle(url('i/icons/arrow-right-filled.svg'));
+
+        @include desktopStyle {
+            margin-top: 4.5rem;
+            width: 16rem;
+            height: 16rem;
+            margin-left: 2rem;
+            background: none;
+            @include baseTransitionStyle(transform);
+
+            span {
+                line-height: 0;
+            }
+
+            path {
+                fill: color(gray1);
+                @include baseTransitionStyle(fill);
+            }
+
+            .open & {
+                transform: rotate(-180deg);
+                @include baseTransitionStyle(transform);
+
+                path {
+                    fill: color(goldlight);
+                    @include baseTransitionStyle(fill);
+                }
+
+            }
+        }
+
+        .maker-nav__item:hover & {
+            path {
+                fill: color(goldlight);
+                @include baseTransitionStyle(fill);
+            }
+        }
+    }
+
+    &__dropdown {
+        position: fixed;
+        width: 100%;
+        left: 100%;
+        top: 0;
+        padding-top: 65px;
+        bottom: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        overflow: hidden;
+        transition: left 400ms ease-in-out;
+        background: rgba(12, 10, 9, 0.7);
+        @include backdrop;
+
+        .dropdown-open & {
+            left: 0;
+            transition: left 400ms ease-in-out;
+        }
+
+        @include desktopStyle {
+            position: absolute;
+            height: calc(100% - 40rem);
+            //padding-top: 48rem;
+            left: 0;
+            padding-top: 0;
+            top: 40rem;
+            overflow: hidden;
+            width: 100%;
+            opacity: 0;
+            background: none;
+            //@include backdrop;
+            backdrop-filter: none;
+            background: transparent;
+            box-sizing: border-box;
+        }
+    }
+
+    &__in {
+        height: 100%;
+        overflow-y: auto;
+
+        @include desktopStyle {
+            overflow-y: initial;
+        }
+        //background: rgba(12, 10, 9, 0.7);
+        //backdrop-filter: blur(56px);
+        //
+        //@include desktopStyle {
+        //    background: none;
+        //    backdrop-filter: none;
+        //}
+    }
+
+    &__inner {
+        overflow: hidden;
+        //padding-top: 85px;
+        height: calc(100% - 85px);
+
+        @include desktopStyle {
+            overflow: initial;
+            height: 100%;
+            padding-top: 0;
+        }
+    }
+
+    &__in.scroll-wrapper {
+        //height: 100%;
+        //@include bgFilter();
+        //
+        //&:before {
+        //    background: rgba(12, 10, 9, 0.8);
+        //}
+
+        //@include desktopStyle {
+        //    вернуть если будет необходимо поменять функционал раскрытия
+        //    &:before {
+        //        content: none;
+        //    }
+        //}
+
+    }
+
+    .scrollbar-inner > .scroll-element .scroll-bar {
+        @include baseTransitionStyle(background-color);
+        width: 8rem !important;
+        background-color: color(goldDark);
+        opacity: 1;
+        cursor: pointer;
+
+        &:hover {
+            background-color: color(goldlight);
+            @include baseTransitionStyle(background-color);
+        }
+    }
+
+    .scroll-element_track {
+        background: transparent !important;
+    }
+
+    .scrollbar-inner > .scroll-element.scroll-y {
+        right: 4rem;
+        width: 8rem !important;
+    }
+}

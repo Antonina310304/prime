@@ -1,0 +1,15 @@
+mixin table(dataTable, title)
+    table(cellpadding=0 cellspacing=0)
+        if(title)
+            caption=title
+        tr
+            each val in dataTable[0]
+                th=val
+        each value, index in dataTable
+            if index !== 0
+                tr
+                    td
+                        b=value[0]
+                    each val, index1 in value
+                        if index1 !== 0
+                            td=val

@@ -1,0 +1,38 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+
+.slogan {
+    @include getFont($sansRegular, 14);
+    position: relative;
+    margin: 0;
+    padding-left: 61px;
+    color: color(gray1);
+
+    &:before {
+        position: absolute;
+        content: "";
+        width: 32px;
+        height: 11px;
+        border-bottom: 1px solid color(goldlight);
+        display: block;
+        left: 17px;
+        top: 0;
+    }
+
+    @include desktopStyle {
+        padding-left: 44rem;
+        @include getFont($sansRegular, 18, false, rem);
+
+        &:before {
+            left: 0;
+            width: 32rem;
+            height: 11rem;
+            border-bottom: 1rem solid color(goldlight);
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}

@@ -1,0 +1,353 @@
+/************ типографика ***************/
+
+.link {
+    @include getFont($oswaldRegular, 16, true);
+
+    position: relative;
+    text-decoration: none;
+    color: color(gray1);
+
+    &:hover {
+        text-decoration: underline;
+        color: color(gray1);
+    }
+
+    &--email {
+        @include getFont($sansRegular, 16);
+        text-transform: inherit;
+    }
+
+    @include desktopStyle {
+        font-size: 16rem;
+    }
+
+
+}
+
+.section-title {
+    @include OswaldLight;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 110%;
+    margin: 0;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+
+    &__text {
+        display: inline-block;
+        padding-right: 4px;
+        padding-left: 4px;
+
+        &:first-child {
+            position: relative;
+        }
+
+        @include desktopStyle {
+            padding-right: 4rem;
+            padding-left: 4rem;
+        }
+    }
+
+    p {
+        margin: 0;
+        position: relative;
+        display: inline-block;
+        //opacity: 0;
+        color: transparent;
+        overflow: hidden;
+        padding-left: 12px;
+        padding-right: 12px;
+
+        .about-page & {
+            padding: 0 !important;
+            margin: 0 -4px;
+
+            @include desktopStyle {
+                margin: 0 -4rem;
+            }
+        }
+        
+        .js-animate-load & {
+            animation: section-title-animate 600ms ease-in-out forwards;
+        }
+
+        @include desktopStyle {
+            padding-left: 12rem;
+            padding-right: 12rem;
+        }
+    }
+
+    i {
+        position: absolute;
+        left: -12px;
+        top: 8px;
+
+        @include desktopStyle {
+            left: -12rem;
+            top: 16rem;
+        }
+
+    }
+
+    &.dark .block {
+        background: color(goldlight);
+    }
+
+    &.light .block {
+        background: color(goldDark);
+    }
+
+
+    .block {
+        position: absolute;
+        background: #d9d9d6;
+        @include backdrop;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+    }
+
+    @include desktopStyle {
+        font-size: 80rem;
+        letter-spacing: inherit;
+    }
+}
+
+.section-title--wrap  {
+    margin-bottom: 12px;
+
+    @include desktopStyle {
+        margin-bottom: 16rem;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.section-subtitle {
+    margin: 0;
+    @include getFont($sansRegular, 18);
+    color: color(gray2);
+
+    @include desktopStyle {
+        @include getFont($sansRegular, 20, false, rem);
+    }
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.main-title {
+    @include OswaldLight;
+    margin: 0;
+    font-size: 48px;
+
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    //color: color(goldlight);
+    color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @include desktopStyle {
+        max-width: initial;
+    }
+
+    &__in {
+        line-height: 0;
+
+        &:first-child p {
+            //color: color(gray1);
+        }
+    }
+
+    p {
+        position: relative;
+        margin: 0;
+        opacity: 1;
+        display: inline-block;
+        overflow: hidden;
+        line-height: 120%;
+    }
+
+    //span {
+    //    position: absolute;
+    //    right: 0;
+    //    top: 0;
+    //    bottom: 0;
+    //    width: 100%;
+    //    height: 100%;
+    //    background: color(goldlight);
+    //    //backdrop-filter: blur(56px);
+    //
+    //    &.gold {
+    //        background: color(goldlight);
+    //    }
+    //
+    //    &.black {
+    //        background: color(goldDark);
+    //    }
+    //}
+
+    @include desktopStyle {
+        font-size: 80rem;
+    }
+}
+
+.text-heading {
+    @include getFont($oswaldMedium, 16, false);
+    color: color(goldlight);
+    margin: 0 0 4px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include desktopStyle {
+        font-size: 16rem;
+        margin-bottom: 6rem;
+    }
+}
+
+.text {
+    margin: 0;
+    color: color(gray1);
+    @include getFont($sansRegular, 16, false);
+
+    @include desktopStyle {
+        @include getFont($sansRegular, 18, false, rem);
+    }
+}
+
+.wrapper {
+    margin-bottom: 16px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include desktopStyle {
+        margin-bottom: 0;
+    }
+}
+
+.gold-link {
+    @include getFont($sansRegular, 14, false);
+    @include baseTransitionStyle(color);
+
+    color: color(goldlight);
+    text-decoration: none;
+
+    &:hover {
+        color: color(goldDark);
+        @include baseTransitionStyle(color);
+    }
+
+    @include desktopStyle {
+        @include getFont($sansRegular, 16, false, rem);
+    }
+
+}
+
+.info-text {
+    @include getFont($sansRegular, 14, false);
+    padding: 0;
+    margin: 0;
+    color: color(gray1);
+
+    @include desktopStyle {
+        @include getFont($sansRegular, 16, false, rem);
+    }
+
+}
+
+
+.animate-title-block {
+    position: absolute;
+    background: #d9d9d6;
+    @include backdrop;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    
+    .js-animate-load:not(.index__main-header) & {
+        animation: animate-block 600ms ease-in-out forwards;
+    }
+    
+    .product-card__top & {
+        animation: animate-block 600ms ease-in-out forwards;
+        animation-delay: 300ms;
+    }
+
+    .catalog__header & {
+        animation: animate-block 600ms ease-in-out forwards;
+        animation-delay: 300ms;
+    }
+    
+    .policy-page & {
+        animation: animate-block 600ms ease-in-out forwards;
+        animation-delay: 300ms;
+    }
+
+    .page-header__title & {
+        animation: animate-block 600ms ease-in-out forwards;
+        animation-delay: 300ms;
+    }
+
+    .news-page__news-title & {
+        animation: animate-block 600ms ease-in-out forwards;
+        animation-delay: 300ms;
+    }
+
+    .contacts-page .page__heading & {
+        animation: animate-block 600ms ease-in-out forwards;
+        animation-delay: 300ms;
+    }
+
+    //.page__top & {
+    //    animation: animate-block 600ms ease-in-out forwards;
+    //    animation-delay: 300ms;
+    //}
+    
+    .page__top-wrapper & {
+        animation: animate-block 600ms ease-in-out forwards;
+        animation-delay: 300ms;
+    }
+
+    .dark & {
+        background: color(goldlight);
+    }
+
+    .light & {
+        background: color(goldDark);
+    }
+}
+
+
+@keyframes section-title-animate {
+    from {color: transparent}
+    to {color: #c0a968}
+}
+
+@keyframes section-title-animate-black {
+    from {color: transparent}
+    to {color: color(gray5)}
+}
+
+@keyframes animate-block {
+    from {transform: translateX(0)}
+    to {transform: translateX(-202%)}
+}

@@ -1,0 +1,55 @@
+mixin catalogCard(params)
+    a(href="#").catalog-card&attributes(attributes)
+        +_border
+        ._in
+            ._top
+                ._wrap.js-top-wrap
+                    ._top-in
+                        p._name=params.title
+                        ._price
+                            p.pin
+                                | от
+                                span 234 000
+                                if(params.currency == 'dollar')
+                                    | $
+                                else if(params.currency == 'euro')
+                                    | ₽
+                                else
+                                    | €
+            ._img
+                if(params.img.length == 1)
+                    .catalog-card__img-in
+                        img(src=params.img[0] alt=params.title)
+                else
+                    .swiper-container.js-slider-card.catalog-card__slider
+                        .swiper-wrapper
+                            each val in params.img
+                                .swiper-slide
+                                    .catalog-card__img-in
+                                        img(src=val alt=params.title)
+                        .catalog-card__arrows
+                            .catalog-card__arrow.left
+                                +arrowLeft({size: 'min', theme: 'dark'})
+                            .catalog-card__arrow.right
+                                +arrowRight({size: 'min', theme: 'dark'})
+                        .catalog-card__bullets
+                            +bulletList
+            if(params.description || params.features)
+                ._body
+                    ._description
+                        ._description-wrap.js-description-wrap
+                            ._description-in
+                                if(params.description)
+                                    p=params.description
+                                if(params.features)
+                                    each val, index in params.features
+                                            p
+                                                b=keys[index] + ':  '
+                                                | #{val}
+
+                if(params.specifications)
+                    ._specifications
+                        if(params.icons)
+                            +specifications(params.icons)
+                        else
+                            +specifications(['depth', 'diameter'])

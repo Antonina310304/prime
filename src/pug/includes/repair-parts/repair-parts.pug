@@ -1,0 +1,82 @@
+mixin repairParts
+    header.page__header.dark-page-head
+        .page__top-wrapper.container
+            .page__aside
+                .page__breadcrumbs
+                    +breadcrumbs(['Главная', 'pistenbully', 'Сервис для техники pistenbully'], 'dark')
+                h1.page__heading.dark
+                    p
+                        span='Запчасти для' + ' '
+                        span техники pistenbully
+                        span.animate-title-block
+                h3.page__subtitle Оригинальные запчасти для навесного оборудования и техники FAE. Качественное обслуживание и удовлетворенность клиентов всегда были в наших генах, а не просто обещанием. Мы решаем проблемы наших клиентов быстро, эффективно и надолго.
+            .page__form
+                +form({
+                    title: 'Оставить заявку',
+                    event: 'js-form',
+                    theme: 'dark',
+                    action: 'action-address.php',
+                    btnType: 'dark',
+                    btnText: 'Оставить заявку',
+                    agreementText: 'Отправляя запрос вы соглашаетесь с ',
+                    inputs: [
+                        {
+                            isDisabled: false,
+                            isError: false,
+                            theme: '',
+                            placeholder: 'Ваше имя',
+                            value: '',
+                            type: 'text',
+                            required: true
+                        },
+                        {
+                            isDisabled: false,
+                            isError: false,
+                            theme: '',
+                            placeholder: 'Номер телефона',
+                            value: '',
+                            type: 'tel',
+                            required: true
+                        },
+                        {
+                            isDisabled: false,
+                            isError: false,
+                            theme: '',
+                            placeholder: 'Электронная почта',
+                            value: '',
+                            type: 'email',
+                            required: true
+                        },
+                        {
+                            isDisabled: false,
+                            isError: false,
+                            theme: '',
+                            placeholder: 'Комментарий',
+                            value: '',
+                            type: 'textarea',
+                            required: true
+                        },
+                    ]
+                })
+    section.page__section
+        .container.js-animate
+            .catalog-content.js-soa
+                .row
+                    .col-d-2
+                        h3 Преимущества оригинальных запчастей
+                        ul
+                            li Оригинальные детали всегда производятся в соответствии с последними достижениями развития.
+                            li Точность монтажа и безопасность благодаря качественным материалам
+                            li Длительный срок службы за счет специальных производственных процессов
+                            li Высочайший уровень качества и функциональности
+                            li Отсутствие потери гарантийных претензий
+                            li Высокая доступность и быстрая доставка
+                            li Лучший совет от компетентных контактных лиц
+                    .col-d-2
+                        h3 Гарантия
+                        p Prime Pride предлагает сервисные пакеты для всех моделей, которые содержат самые важные детали для обслуживания. И еще какой-то объем текста об особенностях гарантии и прочем.
+                        p Предлагает сервисные пакеты для всех моделей, которые содержат самые важные детали для обслуживания.
+                    img.img-d-10(src="i/img-content/img1.jpg" alt='изображение раздела')
+    section.page__section
+        .container.js-animate
+            +staffBlock

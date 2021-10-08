@@ -1,0 +1,37 @@
+extends ../pug/layout/layout.pug
+block var
+    include ../pug/_var
+    - var pageTitle = pages.index.title;
+    - var isLinkLogo = pages.catalog.isLinkLogo;
+    - var mainClass = 'policy-page';
+    - var isFullHead = true;
+    - var className = names.DEFAULT;
+    - var pageName = names.DEFAULT;
+
+block content
+    .container
+        .page__breadcrumbs
+            +breadcrumbs(['Главная'], 'light')
+        h1.page__heading.light.black
+            p
+                span Произвольная галерея
+                span.animate-title-block
+        .policy-page__separator
+            .separator-light
+        .policy-page__content
+            section.js-animate
+                .js-soa.is-scroll-invisible
+                    h2 Галерея #1
+                .js-soa.is-scroll-invisible
+                    +gallerySlider({
+                        list: productCardGalleryMain,
+                        params: {isNeedFractionPagination: true, isNeedBtn: false, isNeedBullet: true}
+                    })
+            section.js-animate
+                .js-soa.is-scroll-invisible
+                    h2 Галерея #2
+                .js-soa.is-scroll-invisible
+                    +gallerySlider({
+                        list: productCardGalleryMain,
+                        params: {isNeedFractionPagination: true, isNeedBtn: false, isNeedBullet: true}
+                    })

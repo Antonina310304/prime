@@ -1,0 +1,213 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+.float-nav {
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+    bottom: 0;
+    
+    
+    
+    &:before {
+        position: absolute;
+        content: "";
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.88);
+        @include backdrop;
+    }
+
+
+    &__inner {
+        position: relative;
+        border-top: 1px solid color(dark);
+        @include desktopStyle {
+            padding-left: 68rem;
+            padding-right: 68rem;
+            border-width: 1rem;
+        }
+    }
+
+    &__arrows {
+        display: none;
+
+        @include desktopStyle {
+            display: block;
+        }
+    }
+
+    &__arrow {
+        cursor: pointer;
+        position: absolute;
+        //top: 50%;
+        //transform: translateY(-50%);
+        top: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        z-index: 3;
+
+        &:hover {
+            .swiper-arrow {
+                background: color(goldDark);
+                @include baseTransitionStyle(background);
+
+                path {
+                    fill: color(goldlight);
+                    @include baseTransitionStyle(fill);
+                }
+
+            }
+        }
+
+        &.disabled {
+            cursor: default;
+        }
+
+        &.left {
+            @include desktopStyle {
+                left: 12rem;
+            }
+        }
+
+        &.right {
+
+            @include desktopStyle {
+                right: 12rem;
+            }
+        }
+        
+        @include desktopStyle {
+            & .swiper-arrow.max {
+                width: 40rem;
+                height: 40rem;
+            }
+        }
+    }
+
+    &__link {
+        display: block;
+        text-decoration: none;
+        color: color(gray2);
+        @include getFont($oswaldRegular, 14, true);
+        @include baseTransitionStyle(color);
+
+        .float-nav__item.active & {
+            color: color(goldlight);
+
+        }
+
+        .float-nav__item:hover & {
+            color: color(goldlight);
+            @include baseTransitionStyle(color);
+        }
+
+        @include desktopStyle {
+            font-size: 14rem;
+        }
+    }
+
+    &__item {
+        box-sizing: border-box;
+        margin: 0;
+        display: block;
+        text-decoration: none;
+        width: 213px;
+        border-left: 1px solid color(dark);
+        text-align: center;
+        @include baseTransitionStyle(box-shadow);
+
+        &:nth-child(2) {
+            border-left: 0;
+        }
+
+        &:first-child {
+            border: 0;
+        }
+
+        &:last-child {
+            border: 0;
+        }
+
+        &.fake {
+            display: none;
+
+            @include desktopStyle {
+                display: block;
+                flex: 1;
+            }
+
+        }
+
+        &.active {
+            box-shadow: inset 0 0 0 2px color(goldlight);
+            background: rgba(133, 113, 77, 0.2);
+            @include baseTransitionStyle(box-shadow);
+
+            @include desktopStyle {
+                box-shadow: inset 0 0 0 2rem color(goldlight);
+            }
+        }
+
+        @include desktopStyle {
+            width: 213rem;
+            border-width: 1rem;
+        }
+    }
+
+    &__text {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 18px 16px;
+
+        @include desktopStyle {
+            padding: 18rem 16rem;
+            padding: 14rem 16rem;
+
+        }
+    }
+
+    &__img-in {
+        height: 0;
+        @include baseTransitionStyle(height);
+        overflow: hidden;
+    }
+
+    &__img-wrap {
+        @include desktopStyle {
+            padding: 8rem 8rem 0;
+        }
+    }
+
+    &__img {
+        display: none;
+
+        @include desktopStyle {
+            display: block;
+            background: #fff;
+            margin: 0;
+            width: 100%;
+            padding-bottom: 61.8%;
+            line-height: 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4rem;
+        }
+
+        img {
+            @include containImg;
+            @include baseTransitionStyle(transform);
+
+            .float-nav__item:hover & {
+                transform: scale(1.1);
+                @include baseTransitionStyle(transform);
+            }
+        }
+    }
+}

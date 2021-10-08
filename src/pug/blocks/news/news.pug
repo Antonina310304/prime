@@ -1,0 +1,41 @@
+
+mixin news(params)
+    - var isNeedBtn = params.isNeedBtn ? true : params.isNeedBtn
+    .news&attributes(attributes)
+        ._list
+            if(params.slider)
+                +newsList(params.list, isNeedBtn)(class=params.newsClass)
+            else
+                +newsListNoSlider(params.list, false)(class=params.newsClass)
+
+        if(params.list.length == 1)
+            ._empty-wrap
+                ._empty
+                    p._img
+                        if(params.img == 'light')
+                            img(src="i/logo-dark.svg" alt='Скоро здесь будут новости')
+                        else
+                            img(src="i/logo-2.svg" alt='Скоро здесь будут новости')
+                    p._title Скоро здесь будет больше новостей
+                    p._subtitle Обещаем :)
+        else
+            if(isNeedBtn)
+                ._button.d-dt-none
+                    +_defaultButton({
+                        text: 'Читать все новости',
+                        data_type: 'default',
+                        theme: 'theme',
+                        icon: false,
+                        tag: 'a'
+                    })
+            else if (params.newsDetail == false)
+                if(params.list.length > 5)
+                    ._button
+                        +_defaultButton({
+                            text: 'Показать еще',
+                            data_type: 'arrow',
+                            theme: 'light',
+                            icon: true,
+                            iconName: 'arrow',
+                            tag: 'a'
+                        })

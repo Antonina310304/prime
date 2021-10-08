@@ -1,0 +1,28 @@
+include data
+- var theme = 'dark';
+mixin index
+    .container
+        .index__main-header.js-animate
+            .js-soa.is-scroll-invisible
+                +indexPageHeader
+        .index__section.js-animate
+            .js-soa.is-scroll-invisible
+                +mainSlider(mainSlider)
+        .index__section.js-animate
+            +sectionHeader({title: titleGeography, subtitle: subtitleGeographyIndex, theme: theme})(class="text-align-center")
+            .js-soa.is-scroll-invisible
+                +geography(names.DEFAULT)
+        .index__section.js-animate
+            +sectionHeader({title: titleClients, subtitle: subtitleClients, theme: theme})(class="text-align-center")
+            .js-soa.is-scroll-invisible
+                +clients
+        .index__section.js-animate
+            +sectionHeader({title: ['Новости'], theme: theme})
+            .js-soa.is-scroll-invisible
+                +news({list: newsListIndex, slider: true, isNeedBtn: false, newsClass: "column"})(class="dark")
+        .index__section
+            .index__in.js-animate
+                +about({isNeedCounter: true})
+            .js-animate
+                +insta(instaList)(class="js-soa is-scroll-invisible")
+

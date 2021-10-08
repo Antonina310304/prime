@@ -1,0 +1,43 @@
+include data
+- var theme = 'dark';
+mixin indexFae
+
+    .index__header
+        +pageContentHeader(names.FAE, subtitle)
+    .index__section.js-animate.container
+        .js-soa.is-scroll-invisible
+            +catalogPart({
+                titleName: names.FAE,
+                list: listFae,
+                catalogPartText: catalogPartText})
+
+    .index__section.js-animate
+        +sectionHeader({
+            title: ['Сертификаты'],
+            subtitle: 'Являемся официальным дилером Fae в Самарской и ульяновской областях',
+            theme: theme
+        })(class="text-align-center")
+        .index__slider.js-soa.is-scroll-invisible
+            +certificateSlider({list: sliderCertificates, params: {isNeedBtn: false, isNeedBullet: true}})
+
+    .index__section.js-animate.container
+        +sectionHeader({title: titleGeography, subtitle: 'Работаем на территории всей России', theme: theme})(class="text-align-center")
+        .js-soa.is-scroll-invisible
+            +geography(names.FAE)
+
+    .index__section.js-animate.container
+        +sectionHeader({title: titleClients, subtitle: subtitleClients, theme: theme})(class="text-align-center")
+        .js-soa.is-scroll-invisible
+            +clients
+
+    .index__section.js-animate.container
+        +sectionHeader({title: titleNews, theme: theme})
+        .js-soa.is-scroll-invisible
+            +news({list: newsListIndexFae, slider: true, isNeedBtn: true, newsClass: "column"})(class="dark")
+
+    .index__section.container
+        .index__in.js-animate
+            +about({isNeedCounter: true})
+        .js-animate
+            +insta(instaList)(class="js-soa is-scroll-invisible")
+

@@ -1,0 +1,9 @@
+mixin docs(list)
+    ul.docs&attributes(attributes)
+        each val in list
+            li._item
+                a(href="#")._link
+                    p._name=val.name
+                    p._wrap
+                        span._size=val.size
+                        span._btn скачать

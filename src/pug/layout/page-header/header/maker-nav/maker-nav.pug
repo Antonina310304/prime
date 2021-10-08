@@ -1,0 +1,25 @@
+mixin makerNav(catalogNav, catalogDropdown)
+    ul.maker-nav
+        each val in catalogNav
+            li._item(class=val.dropdown != false ? 'dropdown' :'')
+                a(href=val.link class=val.dropdown != false ? 'js-dropdown' :'' )._link=val.title
+                    if(val.dropdown != false)
+                        i._arrow
+                            span.d-none.d-dt-block
+                                <svg width="100%" height="100%" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.46448 7.70718L5.87869 6.29297L8.00001 8.41429L10.1213 6.29297L11.5355 7.70718L8.00001 11.2427L4.46448 7.70718Z" fill="#D9D9D6"/>
+                                </svg>
+                if(val.dropdown != false)
+                    ._dropdown
+                        ._vvv.catalog-dropdown__head
+                            .catalog-dropdown__in
+                                .catalog-dropdown__btn-back
+                                    +btnBack({event: 'js-dropdown-back'})
+                                .catalog-dropdown__subtitle Каталог Merlo
+                            .catalog-dropdown__separator
+                                .separator
+
+                        ._inner
+                            ._in.scrollbar-inner
+                                +catalogDropdown(catalogDropdown)
+

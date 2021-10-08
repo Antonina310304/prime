@@ -1,0 +1,61 @@
+/************ шапка ***************/
+
+@import "src/style/_";
+
+
+.about-page {
+    &__header {
+        background: url("i/noise_.png"), #0A0B0A;
+        padding-bottom: 48px;
+
+        @include desktopStyle {
+            padding-bottom: 96rem;
+        }
+    }
+
+    &__section {
+        padding-bottom: 48px;
+
+        @include desktopStyle {
+            padding-bottom: 96rem;
+        }
+
+        &:first-child {
+            padding-top: 48px;
+
+            @include desktopStyle {
+                padding-top: 96rem;
+            }
+
+        }
+
+        &:nth-child(2n) {
+            .about-content__content {
+                order: -1;
+
+                @include desktopStyle {
+                    order: 0;
+                }
+            }
+        }
+
+        @include desktopStyle {
+            &:nth-child(2n) {
+                .about-content__in {
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+
+    &__group {
+        position: relative;
+        padding-bottom: 34px;
+
+        @include desktopStyle {
+            display: flex;
+            align-items: flex-end;
+            padding-bottom: 40rem;
+        }
+    }
+}

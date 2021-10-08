@@ -1,0 +1,92 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+
+.bullet-list {
+    display: flex;
+    justify-content: center;
+    @include baseListStyle();
+    margin: 0 -4px;
+    align-items: center;
+
+    @include desktopStyle {
+        margin: 0 -4rem;
+    }
+
+    &__item {
+        display: block;
+        margin: 0 4px;
+        width: 6px;
+        height: 6px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        //border: 2px solid color(gray3);
+        box-shadow: inset 0 0 0 2px color(gray3);
+        //transition: width 200ms ease-in-out, height 200ms ease-in-out, border-color 200ms ease-in-out;
+        flex: 0 0 auto;
+
+        @include desktopStyle {
+            width: 6rem;
+            height: 6rem;
+            margin: 0 4rem;
+        }
+
+        &.active {
+            width: 8px;
+            height: 8px;
+            box-shadow: inset 0 0 0 2px color(goldlight);
+            //border-color: color(goldlight);
+            //transition: width 200ms ease-in-out, height 200ms ease-in-out, border-color 200ms ease-in-out;
+
+            @include desktopStyle {
+                width: 8rem;
+                height: 8rem;
+            }
+        }
+    }
+
+}
+
+.custom-bullet-list {
+    display: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include desktopStyle {
+        display: flex;
+        margin-top: 20rem;
+    }
+
+    &__item {
+        @include getFont($oswaldRegular, 16, true, rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        width: 40rem;
+        height: 40rem;
+        cursor: pointer;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        color: color(gray1);
+        border-radius: 50%;
+        border: 2rem solid transparent;
+        transition: color 200ms ease-in, border-color 000ms ease-in-out;
+
+        .custom-bullet-list.dark & {
+            color: color(gray4);
+        }
+
+        &.active {
+            transition: color 200ms ease-in, border-color 000ms ease-in-out;
+            border-color: color(goldlight);
+            color: color(goldlight);
+
+            .custom-bullet-list.dark & {
+                border-color: color(goldDark);
+                color: color(goldDark);
+            }
+        }
+    }
+}

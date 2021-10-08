@@ -1,0 +1,34 @@
+- var isOpenMakerList = false;
+include data
+mixin pageHeader(isFullHead, pageName, catalogDropdown = dropdownList)
+    header.header-wrap
+        .header(class=isOpenMakerList ? 'maker-open' : '')
+            ._fixed
+                div._new-fixed
+                    ._new-fixed-overlay
+                    ._logo
+                        +logo(true)
+                    ._nav-switch
+                        +markerNavSwitch(pageName)(class='js-maker')
+                    ._burger
+                        +burger(class='js-main-nav')
+                ._maker-list
+                    ._maker-list-overlay
+                    +makerList(makerMenu, pageName)
+            ._inner
+                ._in
+                    ._in-overlay
+                    ._main-nav.header__translate
+                        +mainNav(mainMenu)
+                    ._contacts.header__translate
+                        +contactLink
+                        ._button
+                            +callbackButton
+
+                    if(isFullHead)
+                        ._maker-nav.header__translate
+                            ._maker-nav-overlay
+                            +makerNav(catalogNav, catalogDropdown)
+                            ._separator
+                                .separator
+

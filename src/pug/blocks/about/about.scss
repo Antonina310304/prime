@@ -1,0 +1,66 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+
+.about {
+    padding-top: 24px;
+    border-top: 2px solid color(goldlight);
+
+    .about-page & {
+        border-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    @include desktopStyle {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 24rem;
+        border-top-width: 2rem;
+    }
+
+    &__block {
+        padding: 0 16px;
+
+        @include desktopStyle {
+            width: 533rem;
+            padding: 0;
+        }
+    }
+
+    &__text {
+        margin-bottom: 40px;
+
+        @include desktopStyle {
+            margin-bottom: 40rem;
+            padding-top: 8rem;
+        }
+
+        b {
+            font-family: "Open Sans Bold", sans-serif;
+            color: color(goldlight);
+        }
+
+        p {
+            margin: 0 0 32px;
+            color: color(gray1);
+
+            @include getFont($sansRegular, 16, false);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            @include desktopStyle {
+
+                @include getFont($sansRegular, 18, false, rem);
+                margin-bottom: 32rem;
+            }
+        }
+
+
+    }
+
+    &__title {
+
+    }
+}

@@ -1,0 +1,30 @@
+mixin catalogPart(params)
+    .catalog-part
+        ._item
+            ._in
+                ._content
+                    p=params.catalogPartText
+                    if(params.catalogPartText2)
+                        p=params.catalogPartText2
+            .catalog-part__btn.d-none.d-dt-block
+                +_defaultButton({
+                    tag: 'a',
+                    text: 'Запчасти для техники ' + params.titleName,
+                    data_type: 'default',
+                    theme: 'theme',
+                    icon: false
+                })
+
+        ._item
+            .catalog-part__list
+                +cardDefaultList(params.list)
+            .catalog-part__btn.d-dt-none
+                +_defaultButton({
+                    tag: 'a',
+                    text: 'Запчасти для техники ' + params.titleName,
+                    data_type: 'default',
+                    theme: 'theme',
+                    icon: false
+                })
+
+

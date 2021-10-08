@@ -1,0 +1,186 @@
+.default-page {
+    padding-top: 96px;
+    background: url('i/noise_.png');
+    padding-bottom: 48px;
+
+    @include desktopStyle {
+        padding-top: 176rem;
+        padding-bottom: 96rem;
+
+        body.header-full & {
+            padding-top: 216rem !important;
+        }
+    }
+
+    .slider .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__separator {
+        margin-top: 24px;
+        border-top: 2px solid color(dark);
+        padding-top: 4px;
+        margin-bottom: 48px;
+
+        @include desktopStyle {
+            margin-top: 40rem;
+            margin-bottom: 40rem;
+        }
+    }
+
+    .page__heading p {
+        font-size: 40px;
+        text-transform: initial;
+
+        @include desktopStyle {
+            font-size: 80rem;
+        }
+    }
+
+    &__content {
+        color: color(gray5);
+
+        p {
+            @include _contentBaseStyle(0, 28px, 32rem);
+
+            @include getFont($sansRegular, 18, false);
+
+            @include desktopStyle {
+                @include getFont($sansRegular, 20, false, rem);
+            }
+        }
+
+        hr {
+            margin: 0 0 24px;
+
+            @include desktopStyle {
+                margin: 0 auto 24rem 213rem;
+                background: color(dark);
+            }
+        }
+
+        h2 {
+            @include _contentBaseStyle(28px, 20px, 24rem);
+            font-family: 'Oswald Regular';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 28px;
+            line-height: 140%;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+
+
+            @include desktopStyle {
+                margin-top: 32rem;
+                font-size: 36rem;
+            }
+
+        }
+
+        h3 {
+            @include _contentBaseStyle(12px, 20px, 24rem);
+            font-family: 'Oswald Regular';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 140%;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+
+            @include desktopStyle {
+                margin-top: 16rem;
+                font-size: 28rem;
+            }
+        }
+
+        ul {
+            @include _contentBaseStyle(0, 24px, 24rem);
+            @include getFont($sansRegular, 18, false);
+            @include baseListStyle($margin: 0 auto 24px, $padding: 0);
+            max-width: 747px;
+
+            @include desktopStyle {
+                max-width: 747rem;
+                margin-bottom: 24rem;
+            }
+
+
+            li {
+                position: relative;
+                display: block;
+                margin: 0;
+                padding-left: 22px;
+                color: color(gray5);
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 8px;
+                    left: 0;
+                    width: 10px;
+                    height: 10px;
+
+                    @include baseImgStyle(url("i/icons/star.svg"));
+                }
+
+                @include desktopStyle {
+                    @include getFont($sansRegular, 20, false, rem);
+                    padding-left: 24rem;
+
+                    &::before {
+                        top: 9rem;
+                        width: 10rem;
+                        height: 10rem;
+                    }
+                }
+            }
+
+        }
+
+        ol {
+            @include _contentBaseStyle(0, 0, 24rem);
+            @include getFont($sansRegular, 18, false);
+            @include baseListStyle($margin: 0 auto 24px, $padding: 0);
+            counter-reset: ol;
+
+            @include desktopStyle {
+
+                @include getFont($sansRegular, 20, false, rem);
+                margin-bottom: 24rem;
+            }
+
+            li {
+                position: relative;
+                padding-left: 22px;
+
+                &::before {
+                    content: counter(ol)  ".";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: color(goldDark);
+                    counter-increment: ol;
+                }
+            }
+        }
+
+
+
+        h2 + h3 {
+            margin-top: 32px;
+
+            @include desktopStyle {
+                margin-top: 40rem;
+            }
+        }
+
+        ul + h3 {
+            margin-top: 36px;
+
+            @include desktopStyle {
+                margin-top: 40rem;
+            }
+        }
+    }
+}

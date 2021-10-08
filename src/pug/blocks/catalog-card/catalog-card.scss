@@ -1,0 +1,321 @@
+/************ catalog-card ***************/
+@import "src/style/_";
+
+
+
+.catalog-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    width: 100%;
+
+    @include desktopStyle {
+        &:after {
+            content: "";
+            position: absolute;
+            top: 36rem;
+            right: 24rem;
+            width: 24rem;
+            height: 24rem;
+            transform: rotate(-45deg);
+            @include baseImgStyle(url('i/icons/arrow-right-down.svg'));
+            opacity: 0;
+            @include baseTransitionStyle(opacity);
+
+        }
+
+        &:hover {
+            &:after {
+                opacity: 1;
+                @include baseTransitionStyle(opacity);
+                transition-delay: 80ms;
+            }
+        }
+    }
+
+    &:hover {
+        .border__in:nth-child(even) span {
+            height: 55%;
+            @include baseTransitionStyle(height);
+        }
+        .border__in:nth-child(odd) span {
+            width: 55%;
+            @include baseTransitionStyle(width);
+        }
+    }
+
+
+    &:before {
+        position: absolute;
+        z-index: -1;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url("..//i/noise_.png"), #fff;
+    }
+
+    &__in {
+        box-sizing: border-box;
+        padding: 24px 8px;
+        width: 100%;
+        box-sizing: border-box;
+
+        .catalog-card.optionally & {
+            padding-bottom: 8px;
+        }
+
+        .swiper-wrapper {
+            height: auto;
+        }
+
+        @include desktopStyle {
+            padding: 32rem 8rem;
+
+            .catalog-card.optionally & {
+                padding-bottom: 8rem;
+            }
+        }
+    }
+
+    &__name {
+        margin: 0;
+        padding-right: 16px;
+        color: color(gray5);
+        @include getFont($oswaldRegular, 18, true);
+        @include baseTransitionStyle(color);
+
+        @include desktopStyle {
+            padding-right: 16rem;
+            @include getFont($oswaldRegular, 24, true, rem);
+        }
+
+        .catalog-card:hover & {
+            color: color(goldDark);
+            @include baseTransitionStyle(color);
+        }
+    }
+
+    &__top {
+        padding: 0 8px 16px;
+
+        @include desktopStyle {
+            padding: 0 16rem 24rem;
+        }
+    }
+
+    &__top-in {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__price {
+        flex: 0 0 auto;
+        @include baseTransitionStyle(opacity);
+        transition-delay: 80ms;
+
+
+        @include desktopStyle {
+            padding-top: 6rem;
+
+            .catalog-card:hover & {
+                opacity: 0;
+                @include baseTransitionStyle(opacity);
+            }
+
+        }
+    }
+
+    &__slider {
+        border-radius: 4px;
+        overflow: hidden;
+
+        @include desktopStyle {
+            border-radius: 4rem;
+        }
+    }
+
+    &__img {
+        padding-bottom: 24px;
+        overflow: hidden;
+
+        @include desktopStyle {
+            padding-bottom: 32rem;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+
+
+    &__img-in {
+        position: relative;
+        width: 100%;
+        padding-bottom: 75%;
+        line-height: 0;
+        border-radius: 4px;
+        overflow: hidden;
+        @include baseTransitionStyle(transform);
+
+        .catalog-card__img > &:hover {
+            transform: scale(1.1);
+            @include baseTransitionStyle(transform);
+        }
+
+        @include desktopStyle {
+            border-radius: 4rem;
+        }
+
+        img {
+            @include containImg
+        }
+    }
+
+    &__body {
+        padding: 0 8px;
+
+        @include desktopStyle {
+            padding: 0 16rem;
+        }
+    }
+
+    &__description {
+        padding: 0 0 16px;
+
+        ul {
+            @include baseListStyle();
+            margin-bottom: 8px;
+
+            @include desktopStyle {
+                margin-bottom: 8rem;
+            }
+        }
+
+        li {
+            display: block;
+            padding-left: 18px;
+            position: relative;
+            margin: 0;
+            @include getFont($sansRegular, 14, false);
+            color: color(gray5);
+
+            &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 2px;
+                width: 10px;
+                height: 10px;
+                @include baseImgStyle(url('i/icons/star.svg'))
+            }
+
+            @include desktopStyle {
+                @include getFont($sansRegular, 16, false, rem);
+
+                &:before {
+                    top: 2rem;
+                }
+            }
+        }
+
+        @include desktopStyle {
+            padding: 0 0 16rem;
+        }
+
+        p, span {
+            margin: 0 0 8px;
+            @include getFont($sansRegular, 14, false);
+            color: color(gray5);
+
+
+            @include desktopStyle {
+                margin-bottom: 8rem;
+                @include getFont($sansRegular, 16, false, rem);
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+        }
+
+        b {
+            margin: 0;
+            color: color(gray5);
+            @include getFont($sansBold, 16, false);
+
+            @include desktopStyle {
+                @include getFont($sansBold, 18, false, rem);
+            }
+        }
+    }
+
+
+    &__specifications {
+        padding: 0;
+
+        @include desktopStyle {
+            padding: 0;
+        }
+    }
+
+    &__arrow  {
+        display: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        &.right {
+            right: -32rem;
+            opacity: 0;
+            transition: opacity 200ms ease-in-out, right 200ms ease-in-out;
+
+            .catalog-card:hover & {
+                opacity: 1;
+                right: 16rem;
+                transition: opacity 200ms ease-in-out, right 200ms ease-in-out;
+            }
+
+        }
+
+        &.left {
+            left: -32rem;
+            opacity: 0;
+            transition: opacity 200ms ease-in-out, left 200ms ease-in-out;
+
+            .catalog-card:hover & {
+                left: 16rem;
+                opacity: 1;
+                transition: opacity 200ms ease-in-out, left 200ms ease-in-out;
+            }
+
+        }
+
+        @include desktopStyle {
+            display: block;
+        }
+    }
+
+    &__bullets {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+        bottom: 16px;
+
+        @include desktopStyle {
+            bottom: 16rem;
+            opacity: 0;
+            @include baseTransitionStyle(opacity);
+
+            .catalog-card:hover & {
+                opacity: 1;
+                @include baseTransitionStyle(opacity);
+            }
+        }
+    }
+}

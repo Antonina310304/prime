@@ -1,0 +1,34 @@
+mixin footerForm
+    .footer-form
+        ._in
+            p(data-scroll="callback")._title остались вопросы?
+            p._text
+                | Закажите обратный звонок — наш специалист перезвонит и проконсультирует вас
+        .__form
+            +form({
+                event: 'js-form',
+                action: 'action-adress.php',
+                btnType: 'default',
+                btnText: 'Заказать звонок',
+                agreementText: 'Заказывая обратный звонок вы соглашаетесь с ',
+                inputs: [
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: 'dark',
+                        placeholder: 'Ваше имя',
+                        value: '',
+                        type: 'text',
+                        required: true
+                    },
+                    {
+                        isDisabled: false,
+                        isError: false,
+                        theme: 'dark',
+                        placeholder: 'Номер телефона',
+                        value: '',
+                        type: 'tel',
+                        required: true
+                    },
+                ]
+            })

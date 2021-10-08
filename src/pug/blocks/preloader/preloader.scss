@@ -1,0 +1,40 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+
+.preloader {
+
+    &__img {
+	line-height: 0;
+	width: 100.5px;
+	margin: 0 auto 16px;
+	
+	@include desktopStyle {
+	    width: 250.5rem;
+	    margin-bottom: 32rem;
+	}
+    }
+    
+    &__title {
+	@include getFont($oswaldRegular, 14, true);
+	text-align: center;
+	margin: 0 auto;
+	color: color(gray1);
+	
+	
+ 
+	@include desktopStyle {
+	    @include getFont($oswaldRegular, 24, true, rem);
+	}
+	
+	&:after {
+	    content: '.';
+	    animation: loading 450ms ease alternate infinite;
+	}
+    }
+}
+
+@keyframes loading {
+    60%  { text-shadow: 0.35em 0 0 currentColor; }
+    100% { text-shadow: 0.35em 0 0 currentColor, 0.75em 0 0 currentColor; }
+}

@@ -1,0 +1,49 @@
+/************ index-page-header ***************/
+@import "src/style/_";
+
+
+.index-page-header {
+
+    &__logo {
+        width: 96px;
+        flex: 0 0 auto;
+        @include desktopStyle {
+            padding: 0 30rem;
+            width: 320rem;
+            box-sizing: border-box;
+            margin-bottom: 32rem;
+        }
+    }
+
+    &__company {
+        margin-bottom: 8px;
+
+        @include desktopStyle {
+            margin-bottom: 8rem;
+        }
+    }
+
+    &__slogan {
+        text-align: right;
+        padding-bottom: 8px;
+
+        @include desktopStyle {
+            padding-bottom: 0;
+            text-align: left;
+        }
+    }
+
+    &__in {
+        display: flex;
+        align-items: flex-end;
+        padding-top: 32px;
+
+        @include desktopStyle {
+            display: block;
+            padding-top: 0;
+            max-width: 320rem;
+            margin-left: auto;
+            margin-top: -1.5rem;
+        }
+    }
+}

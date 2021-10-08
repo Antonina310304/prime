@@ -1,0 +1,34 @@
+extends ../pug/layout/layout.pug
+block var
+    include ../pug/_var
+    - var pageTitle = pages.index.title;
+    - var isLinkLogo = pages.index.isLinkLogo;
+    - var mainClass = pages.index.mainClass;
+    - var isFullHead = true;
+    - var className = names.FAE
+    - var pageName = names.FAE
+
+    -
+        var catalogDropdown = [
+            {
+                img: adress + '1.png',
+                title: 'Телескопические погрузчики',
+                list: ['Камнедробилки', 'Стабилизаторы грунта', 'Универсальные машины']
+            },
+            {
+                img: adress + '2.png',
+                title: 'Транспортеры cingo',
+            },
+            {
+                img: adress + '3.png',
+                title: 'самоходные бетоносмесители dbm',
+            },
+            {
+                img: adress + '4.png',
+                title: 'Навесное оборудование',
+            },
+        ]
+
+
+block content
+    +indexFae

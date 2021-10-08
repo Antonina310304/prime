@@ -1,0 +1,406 @@
+/************ шапка сайта ***************/
+
+@import "src/style/_";
+$padding: 16px;
+$blurred-img:"https://lh3.googleusercontent.com/-m8TxQMObg6c/U474EWu7Y9I/AAAAAAAAI2k/xkRGoIEC1iU/s1600/blur.jpg";
+
+.header-wrap {
+    @include desktopStyle {
+        top: 0;
+        position: fixed;
+        box-sizing: border-box;
+        width: 100%;
+        z-index: 5;
+        border-bottom: 1rem solid #5F5E58;
+
+        &:before {
+            content: "";
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            //background: rgba(0, 0, 0, 0.88);
+            -webkit-backdrop-filter: blur(56px);
+            backdrop-filter: blur(56px);
+            z-index: -1;
+            background: rgba(0, 0, 0, 0.88);
+        }
+    }
+}
+
+.header {
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    //overflow: hidden;
+    top: 0;
+    height: 65px;
+    bottom: 0;
+    //bottom: 100%;
+    //max-height: calc(100vh - 65px);
+    //background: blue;
+    width: 100%;
+    z-index: 5;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+
+    &.dropdown-open {
+        @media(max-width: 767px) {
+            overflow: hidden!important;
+        }
+    }
+
+    @include desktopStyle {
+        position: static;
+        flex-wrap: nowrap;
+        width: 100%;
+        bottom: initial;
+        top: 0 !important;
+        bottom: initial;
+        height: initial !important;
+        flex-direction: inherit;
+        overflow: inherit;
+    }
+    @include stopResize {
+        max-width: #{$widthStopResize}px;
+        margin:  0 auto;
+    }
+
+
+    &__fixed {
+        @include desktopStyle {
+            position: relative;
+            flex: 0 0 auto;
+            height: 72rem;
+        }
+    }
+    &__inner {
+        position: absolute;
+        top: 0;
+        height: 65px;
+        display: block;
+        width: 100%;
+
+        @include desktopStyle {
+            position: static;
+            height: auto;
+            height: 72rem;
+        }
+    }
+
+    &__in-overlay {
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(12, 10, 9, 0.7);
+        @include backdrop;
+        z-index: -1;
+
+        @include desktopStyle {
+            display: none;
+            background: rgba(0, 0, 0, 0.88);
+        }
+    }
+
+    &__in {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 16px;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-y: auto;
+        overflow-x: hidden;
+        left: 0;
+        transition: left 400ms ease-in-out;
+
+        .dropdown-open & {
+            left: -100%;
+            transition: left 400ms ease-in-out;
+        }
+
+        body.main & {
+            //border-bottom: 1px solid color(dark);
+        }
+
+        @include desktopStyle {
+            position: static;
+            left: 0;
+            padding: 0;
+            overflow: inherit;
+            flex-direction: inherit;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            transition: none;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(12, 10, 9, 0.7);
+        @include backdrop;
+        z-index: -1;
+    }
+
+
+    &__nav-switch {
+        @include desktopStyle {
+            margin-right: 8rem;
+        }
+    }
+
+    &__wrap {
+        padding: 0 16px;
+
+        @include desktopStyle {
+            padding: 0;
+        }
+    }
+
+
+    &__main-nav {
+        padding-top: 24px;
+
+        .header-full & {
+            padding-top: 0;
+        }
+
+        @include desktopStyle {
+            padding-top: 0;
+            position: relative;
+            margin-right: auto;
+            padding-left: 12rem;
+
+            &:before {
+                position: absolute;
+                content: "";
+                display: block;
+                left: 0;
+                width: 1rem;
+                height: 20rem;
+                top: 50%;
+                transform: translateY(-50%);
+                background: color(dark);
+            }
+
+            .header.maker-open & {
+                visibility: hidden;
+            }
+        }
+    }
+
+    &__burger {
+        width: 32px;
+        padding: 20px 0;
+        padding-right: $padding;
+
+        @include desktopStyle {
+            display: none;
+        }
+    }
+
+    &__translate {
+        position: relative;
+        //@include baseTransitionStyle(left);
+        transition: left 400ms ease-in-out;
+        left: 0;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__new-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        z-index: 6;
+        height: 65px;
+        border-bottom: 1px solid color(dark);
+
+        @include desktopStyle {
+            position: relative;
+            align-items: center;
+            width: auto;
+            height: 100%;
+            border-bottom: none;
+
+            &:before {
+                content: none;
+            }
+        }
+
+    }
+
+    &__new-fixed-overlay {
+        backdrop-filter: blur(56px);
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        @include backdrop;
+        background: rgba(0, 0, 0, 0.88);
+        z-index: -1;
+
+        @include desktopStyle {
+            display: none;
+        }
+    }
+
+    &__maker-list-overlay {
+        backdrop-filter: blur(56px);
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        @include backdrop;
+        background: rgba(0, 0, 0, 0.88);
+        z-index: -1;
+
+        @include desktopStyle {
+            display: none;
+        }
+    }
+
+    &__maker-list {
+        order: -2;
+        position: absolute;
+        left: 0;
+        top: -400px;
+        width: 100%;
+        height: auto;
+        z-index: 4;
+
+
+        @include desktopStyle {
+            display: block;
+            position: absolute !important;
+            top: 0 !important;
+            right: auto;
+            left: 100%;
+            width: 500rem;
+            background: transparent;
+            border-bottom: 0;
+            opacity: 0;
+            order: 0;
+            z-index: -3;
+
+            &:before {
+                content: none;
+            }
+        }
+
+
+        .maker-open & {
+
+            @media(max-width: 767px) {
+                top: 65px;
+            }
+
+            @include desktopStyle {
+                z-index: 5;
+            }
+        }
+    }
+    &__maker-nav-overlay {
+        @include desktopStyle {
+            position: absolute;
+            display: block;
+            top: -1rem;
+            top: 0;
+            right: 0;
+            bottom: -1rem;
+            left: 0;
+            background: rgba(12, 10, 9, 0.7);
+            @include backdrop;
+            z-index: -1;
+        }
+    }
+
+    &__maker-nav {
+        order: -1;
+        padding-top: 24px;
+
+        @include desktopStyle {
+            position: absolute;
+            top: calc(100% + 1rem);
+            top: 73rem;
+            padding: 0 180rem;
+            order: 3;
+            width: 100%;
+
+            border-bottom: 1rem solid color(dark);
+            box-sizing: border-box;
+        }
+        //@include stopResize {
+        //    padding: 0;
+        //}
+    }
+
+    &__logo {
+        padding-left: $padding;
+        width: 61px;
+        height: 48px;
+
+        @include desktopStyle {
+            width: 72rem;
+            height: 56rem;
+            padding-left: 80rem;
+            padding-right: 24rem;
+            flex: 0 0 auto;
+        }
+    }
+
+    &__contacts {
+        margin: 24px 0;
+
+        @include desktopStyle {
+            margin: 0;
+            display: flex;
+            padding-right: 80rem;
+            align-items: center;
+        }
+    }
+
+    &__separator {
+        margin: 8px 0;
+
+        @include desktopStyle {
+            display: none;
+        }
+
+    }
+
+    &__button {
+        margin-top: 24px;
+
+        @include desktopStyle {
+            margin-top: 0;
+            margin-left: 32rem;
+        }
+    }
+}

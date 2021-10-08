@@ -1,0 +1,6 @@
+mixin makerList(makerMenu, activeMaker)
+    .maker-list
+        each val in makerMenu
+            if(val.title != activeMaker)
+                a(href=val.link)._item
+                    +makerLogo(val.title)(class=val.title)

@@ -1,0 +1,31 @@
+
+@mixin mobileMenuWrap {
+    @include baseListStyle();
+    border: 1px solid color(dark);
+    background: color(fillDark);
+}
+
+@mixin mobileMenuItem {
+    border-bottom: 1px solid color(dark);
+
+    &:last-child {
+        border-bottom: 0;
+    }
+}
+
+@mixin mobileMenuLink($display: block) {
+    display: $display;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    color: color(gray1);
+    @include getFont($oswaldRegular, 16, true);
+    transition: color 200ms ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        transition: color 200ms ease-in-out;
+        color: color(goldlight);
+    }
+
+}

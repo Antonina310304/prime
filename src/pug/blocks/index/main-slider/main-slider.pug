@@ -1,0 +1,25 @@
+mixin mainSlider(mainSlider)
+    .main-slider.js-main-slider
+        .main-slider__wrap
+            .main-slider__left
+                span
+                span
+        .swiper-container
+            .swiper-wrapper
+                each val in mainSlider
+                    .main-slider__item.swiper-slide
+                        .main-slider__wrap
+                            .main-slider__border
+                                span
+                                span
+                            .main-slider__border
+                                span
+                                span
+                            .main-slider__border
+                                span
+                                span
+                            .main-slider__border
+                                span
+                                span
+                        .main-slider__in
+                            +sliderCard(val)

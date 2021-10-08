@@ -1,0 +1,7 @@
+mixin logo(isLinkLogo)
+    .logo
+        if(isLinkLogo)
+            img(src="i/logo.svg" alt="логотип сайта")
+        else
+            a(href="/")
+                img(src="i/logo.svg" alt="логотип сайта")

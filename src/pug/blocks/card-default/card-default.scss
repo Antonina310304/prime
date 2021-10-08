@@ -1,0 +1,123 @@
+/************ card-default ***************/
+@import "src/style/_";
+
+
+.card-default {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    text-decoration: none;
+
+
+    &.menu {
+        &:before {
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            content: "";
+            background: rgba(0, 0, 0, 0.88);
+            z-index: -1;
+        }
+    }
+
+    &__in {
+        @include card-arrow(card-default, $bottom: 16px, $right: 16px);
+
+        box-sizing: border-box;
+        padding: 8px;
+        width: 100%;
+        flex: 1;
+
+        @include desktopStyle {
+            padding: 8rem;
+
+            &:before {
+                bottom: 16rem;
+                right: 16rem;
+            }
+        }
+    }
+
+    &__body {
+        padding: 0 8px;
+
+        @include desktopStyle {
+            padding: 0 16rem;
+        }
+    }
+
+    &__img {
+        display: block;
+        border-radius: 4px;
+        position: relative;
+        height: 0;
+        padding-bottom: 75%;
+        overflow: hidden;
+        margin-bottom: 24px;
+        line-height: 0;
+
+        @include desktopStyle {
+            border-radius: 4rem;
+            margin-bottom: 24rem;
+        }
+
+        img {
+            background: #fff;
+
+            @include containImg;
+            @include baseTransitionStyle(transform);
+
+            .card-default:hover & {
+                transform: scale(1.1);
+                @include baseTransitionStyle(transform);
+            }
+
+            .catalog-header-list & {
+                object-fit: cover;
+                background: transpaFrent;
+            }
+        }
+
+        .card-default-list__item:nth-child(odd):last-child
+        & {
+            padding-bottom: 33.333%;
+        }
+    }
+
+    &__title {
+        @include getFont($oswaldRegular, 16, true);
+        color: color(gray1);
+        padding-bottom: 16px;
+        text-decoration: none;
+        display: block;
+
+        @include baseTransitionStyle(color);
+        overflow-wrap: break-word;
+
+        .card-default:hover & {
+            color: color(goldlight);
+            @include baseTransitionStyle(color);
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 20, true, rem);
+            padding-bottom: 16rem;
+        }
+    }
+
+    &__body {
+        padding-bottom: 48px;
+        @include desktopStyle {
+            padding-bottom: 56rem;
+        }
+    }
+}

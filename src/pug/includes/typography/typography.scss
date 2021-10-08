@@ -1,0 +1,52 @@
+/************ typography ***************/
+@import "src/style/_";
+
+
+.typography {
+    p {
+        margin: 0 0 20px
+    }
+}
+@each $val in (14, 16, 18, 20) {
+    .openSansRegular#{$val} {
+        @include getFont($sansRegular, $val, false)
+    }
+}
+
+@each $val in (16, 18, 20) {
+    .OpenSansSemiBold#{$val} {
+        @include getFont($sansSemibold, $val, false)
+    }
+}
+
+@each $val in (14, 16, 18, 20) {
+    .OpenSansBold#{$val} {
+        @include getFont($sansBold, $val, false)
+    }
+}
+
+@each $val in (16, 18, 20, 24) {
+    .OswaldRegular#{$val} {
+        @include getFont($oswaldRegular, $val, false)
+    }
+}
+
+
+@each $val in (14, 16, 18, 20, 24) {
+    .OswaldRegularCaps#{$val} {
+        @include getFont($oswaldRegular, $val, true)
+    }
+}
+
+
+@each $val in (16, 18, 20, 24) {
+    .OswaldMedium#{$val} {
+        @include getFont($oswaldMedium, $val, false)
+    }
+}
+
+@each $val in (14, 16, 18, 20, 24) {
+    .OswaldMediumCaps#{$val} {
+        @include getFont($oswaldMedium, $val, true)
+    }
+}

@@ -1,0 +1,33 @@
+mixin newsList(newsList, isNeedBtn = 'true')
+    .news-list.js-news-slider
+        .swiper-container
+            ul.news-list__list.swiper-wrapper&attributes(attributes)
+                each val,index in newsList
+                    li.news-list__item.swiper-slide
+                        .news-list__wrap
+                            +cardNews(val, index)
+                            if(index == 0 && isNeedBtn)
+                                .news-list__btn
+                                    +_defaultButton({
+                                        text: 'Читать все новости',
+                                        data_type: 'default',
+                                        theme: 'theme',
+                                        icon: false,
+                                        tag: 'a'
+                                    })
+mixin newsListNoSlider(newsList, isNeedBtn = 'true')
+    .news-list.news-list--simple.js-news-slider
+        ul.news-list__list&attributes(attributes)
+            each val,index in newsList
+                li.news-list__item
+                    .news-list__wrap
+                        +cardNews(val, index)
+                        if(index == 0 && isNeedBtn)
+                            .news-list__btn
+                                +_defaultButton({
+                                    text: 'Читать все новости',
+                                    data_type: 'default',
+                                    theme: 'theme',
+                                    icon: false,
+                                    tag: 'a'
+                                })

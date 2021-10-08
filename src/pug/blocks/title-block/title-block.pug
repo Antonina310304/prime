@@ -1,0 +1,16 @@
+- var indent = '</br>';
+
+mixin titleBlock(params)
+    .title-group.js-section-title(class=params.theme class=params.align)
+        h2._title
+            p._wrap.js-title-text
+                each val, index in params.title
+                    if(val == 'indent')
+                        | !{indent}
+                    else
+                        span._text=val
+                    if(index == 0)
+                        i._counter.js-counter-title.counter-title
+                span.animate-title-block
+        if(params.subtitle)
+            h3._subtitle.a-subtitle=subtitle

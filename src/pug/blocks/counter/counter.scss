@@ -1,0 +1,71 @@
+/************ шапка сайта ***************/
+@import "src/style/_";
+
+
+.counter {
+    border-top: 1px solid color(dark);
+    overflow: hidden;
+
+    @include desktopStyle {
+        border-width: 1rem;
+    }
+
+    &__in {
+        margin-right: -24px;
+        margin-left: -24px;
+        display: flex;
+
+        @include desktopStyle {
+            margin-right: -24rem;
+            margin-left: -24rem;
+
+        }
+    }
+
+    &__item {
+        flex: 1 1 auto;
+        padding: 0 24px;
+
+        &:first-child {
+            border-right: 1px solid color(dark);
+        }
+
+        @include desktopStyle {
+            padding: 0 24rem;
+            flex: inherit;
+
+            &:first-child {
+                border-width: 1rem;
+            }
+
+        }
+    }
+
+    &__description {
+        margin: 0;
+        padding: 16px 0 12px;
+        font-family: 'Oswald Extra Light', sans-serif;
+        font-style: normal;
+        font-weight: 200;
+        font-size: 80px;
+        line-height: 100%;
+        color: color(goldlight);
+
+        @include desktopStyle {
+            padding: 16rem 0 12rem;
+            font-size: 80rem;
+        }
+    }
+
+    &__termin {
+        @include getFont($oswaldRegular, 14, true);
+
+        margin: 0;
+        color: color(gray1);
+
+        @include desktopStyle {
+            @include getFont($oswaldRegular, 14, true, rem);
+        }
+    }
+
+}

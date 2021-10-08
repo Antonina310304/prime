@@ -1,0 +1,57 @@
+include data
+
+mixin aboutPage
+    section.about-page__header
+        +pageHead({theme: 'dark', img: 'i/about/main-image.jpg', alt: 'О нас'})
+        .container.js-scroll-to.js-animate
+            .page__breadcrumbs
+                +breadcrumbs(['Главная', 'О нас'], 'dark')
+            +about({isNeedCounter: false})
+    .about-page__content
+        section.about-page__section
+            .container.js-animate
+                .about-content
+                    .about-content__content
+                        .about-content__in
+                            +titleBlock({aling: 'left', theme: 'light', title: ['Что-то про ', 'Компанию']})
+                            .js-soa.is-scroll-invisible
+                                p Машины перемалывают камни диаметром до 30 см и работают с заглублением в грунт до 20 см. Во всех моделях, кроме STC 125, установлен двойной привод, благодаря чему мощность более равномерно передается на ротор и повышается КПД. Детали изготавливаются из высокопрочной стали HARDOX, что снижает повреждения при эксплуатации и обеспечивает экономию на ремонте.
+                    .about-content__img.js-soa.is-scroll-invisible
+                        p.about-content__img-wrap
+                            img(src="i/about/1.jpg" alt='Изображение')
+        section.about-page__section
+            .container.js-animate
+                .about-content
+                    .about-content__img.js-soa.is-scroll-invisible
+                        p.about-content__img-wrap
+                            img(src="i/about/2.jpg" alt='Изображение')
+                    .about-content__content
+                        .about-content__in
+                            +titleBlock({aling: 'left', theme: 'light', title: ['Профессионализм']})
+                            .js-soa.is-scroll-invisible
+                                p Наша задача – продолжать оставаться специалистами в области дорожно-строительной техники, предлагая широкий ассортимент продукции во всех уголках мира.
+                                p Стратегия группы заключается в поддержании тесного контакта с клиентами благодаря наличию прочной дилерской сети, а также в поиске инновационных передовых решений, позволяющих вести прибыльную и долгосрочную деятельность с соблюдением требований по безопасности и охране окружающей среды.
+
+
+        section.page__section.dark
+            .js-animate
+                .about-page__group.container
+                    .page__group-wrap
+                        +titleBlock({aling: 'left', theme: 'light', title: ['Сертификаты']})
+                        //--h2.page__heading.light.black.heading-counter
+                        //--   p
+                        //--        span Новости
+                        //--        i.title-group__counter.js-counter-title.counter-title
+                        //--        span.animate-title-block
+
+                    .page__group-wrap.js-soa.is-scroll-invisible
+                        .page__tabs
+                            +_tabNav({
+                                nav: TabNavAbout,
+                                group: 'about-tab'
+                            })
+                .js-soa.is-scroll-invisible
+                    +aboutTab
+
+        section.page__slider.black.js-animate
+            +ytSlider

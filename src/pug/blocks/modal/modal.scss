@@ -1,0 +1,51 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+
+.modal {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 80px;
+  z-index: -30;
+  background: url("i/noise_.png"), #0A0B0A;
+  align-items: center;
+  display: flex;
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  &__close {
+    @include baseBtnStyle();
+    z-index: 1;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+
+    @include desktopStyle {
+      right: 8rem;
+      top: 8rem;
+    }
+  }
+
+
+
+  //&__icon {
+  //  display: block;
+  //  width: 100%;
+  //  height: 100%;
+  //  @include baseImgStyle(url('i/icons/modal-close.svg'));
+  //  @include baseTransitionStyle(background-image);
+  //
+  //  .modal__close:hover & {
+  //    background-image: url('i/icons/modal-close-hover.svg');
+  //    @include baseTransitionStyle(background-image);
+  //
+  //  }
+  //}
+}

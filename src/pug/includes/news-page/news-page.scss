@@ -1,0 +1,402 @@
+/************ шапка ***************/
+@import "src/style/_";
+
+.news-page {
+    &__subtitle {
+        margin: 0 0 4px;
+        color: color(gray5);
+
+        @include getFont($oswaldRegular, 16, false);
+
+        @include desktopStyle {
+            margin-bottom: 4rem;
+
+            @include getFont($oswaldRegular, 20, false, rem);
+        }
+    }
+
+    .picture-slider,
+    .video-slider {
+
+        @include desktopStyle {
+            margin-bottom: 24rem;
+        }
+    }
+
+    .gallery {
+        padding-bottom: 61.78%;
+    }
+
+    &__top {
+        position: relative;
+        padding-bottom: 48px;
+
+        @include desktopStyle {
+            padding-bottom: 40rem;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -2;
+
+            background: url("i/noise_.png"), #FCFDFC;
+        }
+    }
+
+    &__separator {
+        padding-top: 4px;
+        border-top: 2px solid color(dark);
+
+        @include desktopStyle {
+            padding-top: 4rem;
+        }
+    }
+
+    &__news-title {
+        margin: 0 0 14px;
+        line-height: 0;
+
+        p {
+            position: relative;
+            display: inline-block;
+            margin: 0;
+            overflow: hidden;
+            font-weight: 300;
+            font-size: 40px;
+            line-height: 120%;
+            font-family: "Oswald Light";
+            color: color(gray5);
+            font-style: normal;
+            letter-spacing: -0.005em;
+        }
+
+        @include desktopStyle {
+            margin-bottom: 14rem;
+
+            p {
+                font-size: 80rem;
+            }
+        }
+    }
+
+    &__top-in {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background: url("i/noise_.png"), linear-gradient(180deg, rgba(252, 253, 252, 0) 52.6%, #FCFDFC 100%);
+    }
+
+    &__img {
+        position: relative;
+        height: 270px;
+        margin-top: -65px;
+        overflow: hidden;
+        line-height: 0;
+
+        img {
+            z-index: -2;
+            max-height: 100%;
+
+            @include coverImg;
+        }
+
+        @include desktopStyle {
+            height: 577rem;
+            margin-top: -115rem;
+        }
+    }
+
+    &__info {
+        margin: 0 0 24px;
+
+        @include desktopStyle {
+            margin-bottom: 24rem;
+        }
+    }
+
+    &__maker {
+        display: inline-block;
+        margin: 0;
+        color: color(gray5);
+
+        @include getFont($oswaldRegular, 14, true);
+
+        @include desktopStyle {
+            font-size: 14rem;
+        }
+    }
+
+
+    &__date {
+        position: relative;
+        display: inline-block;
+        margin: 0 16px 0 0;
+        padding-right: 16px;
+        color: color(goldlight);
+
+        @include getFont($oswaldMedium, 14, true);
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 0;
+            height: 12px;
+            border-right: 1px solid color(dark);
+            transform: translateY(-50%);
+        }
+
+        span {
+            color: color(gray3);
+
+            &::before {
+                content: "/";
+                display: inline-block;
+                padding: 0 2px;
+            }
+        }
+
+        @include desktopStyle {
+            font-size: 14rem;
+
+            &::after {
+                height: 12rem;
+                border-right-width: 1rem;
+            }
+        }
+    }
+
+
+    &__footer {
+        padding-bottom: 48px;
+        background: url("i/noise_.png"), #FCFDFC;
+
+        @include desktopStyle {
+            padding-bottom: 96rem;
+        }
+    }
+
+    &__news-list {
+        margin-top: 8px;
+
+        @include desktopStyle {
+            margin-top: 8rem;
+        }
+    }
+
+    &__content {
+        padding-bottom: 48px;
+
+        @include desktopStyle {
+            padding-bottom: 96rem;
+        }
+
+        img {
+            @include contentBaseStyle(0, 24px, 24rem);
+
+            //margin-top: 0;
+            //margin-bottom: 24px;
+            //margin: 0 auto 24px;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 747px;
+            max-height: 100%;
+            display: block;
+            overflow: hidden;
+
+
+            @include desktopStyle {
+                //width: 747rem;
+                //margin-bottom: 24rem;
+                border-radius: 4rem;
+            }
+        }
+
+        .video-wrapper__in {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+            overflow: hidden;
+            border-radius: 4px;
+
+            iframe {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            @include desktopStyle {
+                border-radius: 4rem;
+            }
+        }
+
+        .video-wrapper {
+            @include contentBaseStyle(0, 24px, 24rem);
+
+        }
+
+        color: color(gray5);
+        background: url("i/noise_.png"), #FCFDFC;
+
+        .table {
+            overflow-x: auto;
+            overflow-y: hidden;
+            @include contentBaseStyle(0, 8px, 16rem);
+            box-sizing: border-box;
+            background: url("i/noise_.png"), #EFEEEC;
+
+            @include tableStyle();
+
+            @include desktopStyle {
+                max-width: 747rem;
+            }
+        }
+
+        table {
+            padding: 16px;
+            @include desktopStyle {
+                padding: 16rem;
+            }
+        }
+
+        hr {
+            margin: 0 0 24px;
+
+            @include desktopStyle {
+                max-width: 747rem;
+                margin: 0 auto 24rem 213rem;
+                background: color(dark);
+            }
+        }
+
+        p {
+            @include contentBaseStyle(0, 28px, 32rem);
+
+            @include getFont($sansRegular, 18, false);
+
+            @include desktopStyle {
+                @include getFont($sansRegular, 20, false, rem);
+            }
+        }
+
+        h2 {
+            @include contentBaseStyle(28px, 20px, 24rem);
+            font-weight: normal;
+            font-size: 28px;
+            line-height: 140%;
+            font-family: "Oswald Regular";
+            text-transform: uppercase;
+            font-style: normal;
+            letter-spacing: 0.01em;
+
+            @include desktopStyle {
+                //max-width: 747rem;
+                //margin: 32rem auto 24rem;
+                margin-top: 32rem;
+                font-size: 36rem;
+            }
+        }
+
+        h3 {
+            @include contentBaseStyle(12px, 20px, 24rem);
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 140%;
+            font-family: "Oswald Regular";
+            text-transform: uppercase;
+            font-style: normal;
+            letter-spacing: 0.03em;
+
+
+            @include desktopStyle {
+                max-width: 747rem;
+                margin-top: 16rem;
+                font-size: 28rem;
+            }
+        }
+
+        ol {
+            @include contentBaseStyle(0, 0, 24rem);
+            @include getFont($sansRegular, 18, false);
+            @include baseListStyle($margin: 0 auto 24px, $padding: 0);
+            max-width: 747px;
+            counter-reset: ol;
+
+            @include desktopStyle {
+
+                @include getFont($sansRegular, 20, false, rem);
+                margin-bottom: 24rem;
+            }
+
+            li {
+                position: relative;
+                padding-left: 22px;
+
+                &::before {
+                    content: counter(ol)  ".";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    color: color(goldDark);
+                    counter-increment: ol;
+                }
+            }
+        }
+
+        ul {
+            @include contentBaseStyle(0, 0, 24rem);
+            @include getFont($sansRegular, 18, false);
+            @include baseListStyle($margin: 0 auto 24px, $padding: 0);
+            max-width: 747px;
+
+            li {
+                position: relative;
+                display: block;
+                margin: 0;
+                padding-left: 22px;
+                color: color(gray5);
+
+
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 8px;
+                    left: 0;
+                    width: 10px;
+                    height: 10px;
+
+                    @include baseImgStyle(url("i/icons/star.svg"));
+                }
+
+                @include desktopStyle {
+                    @include getFont($sansRegular, 20, false, rem);
+                    padding-left: 24rem;
+
+                    &::before {
+                        top: 9rem;
+                        width: 10rem;
+                        height: 10rem;
+                    }
+                }
+            }
+
+            @include desktopStyle {
+                max-width: 747rem;
+                margin-bottom: 24rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+mixin input(params)
+    label.input(class=params.isDisabled ? 'disabled' : '' class=params.isError ? 'error' : '' class=params.theme)
+
+        if(params.type == 'textarea')
+            textarea(class=params.event data-type=params.type required=params.required placeholder=params.placeholder disabled=params.isDisabled rows=3 )._input=params.value
+        else
+            input(class=params.event data-type=params.type inputmode=params.type required=params.required type=params.type placeholder=params.placeholder value=params.value disabled=params.isDisabled)._input
+        p._error
+            include warning.svg

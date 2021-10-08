@@ -1,0 +1,54 @@
+/************ шапка ***************/
+
+@import "src/style/_";
+
+
+.page-head {
+    position: relative;
+    height: 270px;
+    margin-top: -65px;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 2;
+
+    @include desktopStyle {
+        height: 577rem;
+        margin-top: -72rem;
+
+
+        body.header-full {
+            margin-top: -115rem;
+        }
+    }
+
+    &__gradient {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background: url("i/noise_.png"), linear-gradient(180deg, rgba(252, 253, 252, 0) 52.6%, #FCFDFC 100%);
+        background: url('i/noise_.png'), linear-gradient(180deg, rgba(252, 253, 252, 0.0001) 0%, rgba(252, 253, 252, 0.01) 33.33%, rgba(252, 253, 252, 0.03) 40.52%, rgba(252, 253, 252, 0.1) 48.1%, rgba(252, 253, 252, 0.2) 57.1%, rgba(252, 253, 252, 0.290196) 65.11%, rgba(252, 253, 252, 0.392157) 72.44%, rgba(252, 253, 252, 0.501961) 78.49%, rgba(252, 253, 252, 0.607843) 83.41%, rgba(252, 253, 252, 0.709804) 87.17%, rgba(252, 253, 252, 0.8) 90.14%, rgba(252, 253, 252, 0.88) 93.54%, rgba(252, 253, 252, 0.96) 96.66%, #FCFDFC 100%);
+
+        .page-head.dark & {
+            background: url("i/noise_.png"), linear-gradient(180deg, rgba(10, 11, 10, 0) 48.44%, #0A0B0A 100%);
+            background: url('i/noise_.png'), linear-gradient(180deg, rgba(10, 11, 10, 0.0001) 0%, rgba(10, 11, 10, 0.01) 33.33%, rgba(10, 11, 10, 0.03) 40.52%, rgba(10, 11, 10, 0.1) 48.1%, rgba(10, 11, 10, 0.2) 57.1%, rgba(10, 11, 10, 0.290196) 65.11%, rgba(10, 11, 10, 0.392157) 72.44%, rgba(10, 11, 10, 0.501961) 78.49%, rgba(10, 11, 10, 0.607843) 83.41%, rgba(10, 11, 10, 0.709804) 87.17%, rgba(10, 11, 10, 0.8) 90.14%, rgba(10, 11, 10, 0.88) 93.54%, rgba(10, 11, 10, 0.96) 96.66%, #0A0B0A 100%);
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -2;
+        flex-shrink: 0;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
+}

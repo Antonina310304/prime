@@ -1,0 +1,17 @@
+/************ card-default ***************/
+@import "src/style/_";
+
+
+.card-default-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -4px;
+
+    &__item {
+        display: flex;
+        width: 50%;
+        flex: 1 50%;
+        box-sizing: border-box;
+        padding: 4px;
+    }
+}
